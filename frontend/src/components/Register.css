@@ -40,7 +40,8 @@
 }
 
 /* Grid para los inputs */
-.formulario form {
+.Formulario 
+.boxs{
   display: grid;
   grid-template-columns: 1fr 1fr; /* Dos columnas */
   grid-gap: 20px; /* Espacio entre los inputs */
@@ -48,15 +49,15 @@
 }
 
 /* Inputs que ocupan toda la fila dentro de .box */
-.box input[type="email"],
-.box input[type="submit"] {
+.boxs input[type="email"],
+.boxs input[type="submit"] {
   grid-column: span 2;
 }
 
 /* Estilo de los inputs dentro de .box */
-.box input[type="text"],
-.box input[type="email"],
-.box input[type="password"] {
+.boxs input[type="text"],
+.boxs input[type="email"],
+.boxs input[type="password"] {
   padding: 10px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 5px;
@@ -68,7 +69,7 @@
 }
 
 /* Estilo del botón dentro de .box */
-.box input[type="submit"] {
+.boxs input[type="submit"] {
   padding: 12px;
   border: none;
   border-radius: 10px;
@@ -83,12 +84,12 @@
   font-style: normal;
 }
 
-.box input[type="submit"]:hover {
+.boxs input[type="submit"]:hover {
   background-color: #8983b7;
 }
 
 /* Estilo de select dentro de .box */
-.box select {
+.boxs select {
   font-family: "Hammersmith One", sans-serif;
   width: 100%;
   padding: 10px;
@@ -100,6 +101,6 @@
   box-sizing: border-box;
 }
 
-.box select:focus {
+.boxs select:focus {
   background-color: #fff; /* Color de fondo al seleccionar */
 }
