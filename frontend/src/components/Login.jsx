@@ -29,7 +29,7 @@ function Login() {
       sessionStorage.setItem('refreshToken', refreshToken);
       sessionStorage.setItem('expirationTime', expirationTime); // Guardamos el tiempo de expiración
 
-      navigate('/dashboard'); // Navegar al dashboard
+      navigate('/landingpage'); // Navegar al dashboard
     } catch (error) {
       console.error('Error en la autenticación:', error);
       alert('Error en la autenticación');
