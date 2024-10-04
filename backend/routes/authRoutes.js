@@ -19,12 +19,11 @@ router.post('/refresh-token', (req, res) => {
     // Generar un nuevo access token
     const newAccessToken = jwt.sign({ id: decoded.id }, process.env.JWT_SECRET, { expiresIn: '15s' });
     const newExpirationTime = Math.floor(Date.now() / 1000) + 15;//(15 * 60); este es para 15m // Expiración en 15 minutos
-
     res.json({ accessToken: newAccessToken, expirationTime: newExpirationTime });
   });
 });
 
-// Nueva ruta para obtener los datos del usuario autenticado
+// Ruta para obtener los datos del usuario autenticado
 router.get('/userdata', (req, res) => {
   const authHeader = req.headers['authorization'];
   const token = authHeader && authHeader.split(' ')[1];
@@ -45,5 +44,8 @@ router.get('/userdata', (req, res) => {
     });
   });
 });
+
+// Ruta para registro de usuario
+router.post('/register', authController.register); // Añadimos la ruta para el registro
 
 module.exports = router;
