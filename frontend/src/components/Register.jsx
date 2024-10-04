@@ -1,4 +1,5 @@
 import Logo from "./image/logo-name.png";
+import { Link } from 'react-router-dom';
 import "./Register.css";
 
 function Register() {
@@ -23,6 +24,7 @@ function Register() {
           <input type="Password" placeholder="Contraseña" />
           <input type="Password" placeholder="Confirmar contraseña" />
           <input type="submit" value={"Registrate ahora"} />
+          <Link to="/login">Inicia sesión</Link>
         </form>
       </div>
     </div>
