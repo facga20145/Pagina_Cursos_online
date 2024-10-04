@@ -26,7 +26,11 @@ function Register() {
           <input type="Password" placeholder="Confirmar contraseña" />
           <input type="submit" value={"Registrate ahora"} />
           </div>
+          <div className="alredy">
+            <label>¿Ya tienes una cuenta?</label>
           <Link to="/login">Inicia sesión</Link>
+          </div>
+          
         </form>
       </div>
     </div>
