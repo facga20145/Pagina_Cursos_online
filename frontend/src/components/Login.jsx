@@ -1,7 +1,8 @@
 import logo from './image/logo-name.png';
-import React, { useState } from 'react';
+import {useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import "./Login.css"
 
 function Login() {
@@ -51,7 +52,7 @@ function Login() {
           <input type="submit" value={"Iniciar Sesión"} className="btn-submit" />
           <div className="remember-forgot">
             <label>¿No tienes una cuenta?</label>
-            <a href="">Registrate gratis</a>
+            <Link to="/register">Regístrate gratis</Link>
             <a href="">¿Olvidaste tu contraseña?</a>
           </div>
         </form>
