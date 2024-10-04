@@ -1,8 +1,15 @@
-import Logo from "./image/logo-name.png";
+import Logo from "./images/logo-name.png";
 import { Link } from 'react-router-dom';
 import "./Register.css";
+import React, { useState } from 'react';
 
 function Register() {
+  // Estado para manejar el valor seleccionado
+  const [gender, setGender] = useState("");
+
+  const handleGenderChange = (event) => {
+    setGender(event.target.value); // Actualiza el estado con el valor seleccionado
+  };
   return (
     <div className="conten">
       <div className="content-Register">
@@ -13,8 +20,8 @@ function Register() {
           <input type="text" placeholder="Nombre" />
           <input type="text" placeholder="Apellido" />
           <input type="text" placeholder="Edad" />
-          <select name="genero">
-            <option value="" disabled selected>
+          <select name="genero" value={gender} onChange={handleGenderChange}>
+            <option value="" disabled>
               Selecciona tu género
             </option>
             <option value="masculino">Masculino</option>

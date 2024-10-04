@@ -42,8 +42,6 @@ router.get('/userdata', (req, res) => {
     // Enviar de vuelta los datos del usuario decodificado
     res.json({
       id: user.id,
-      username: user.username || 'fgodoyme',  // Usa el valor decodificado o uno por defecto
-      role: 'cliente',  // Aquí puedes agregar más datos si lo deseas
     });
   });
 });

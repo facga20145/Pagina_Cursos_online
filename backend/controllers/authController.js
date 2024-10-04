@@ -16,7 +16,7 @@ exports.login = (req, res) => {
   console.log('Datos recibidos:', { username, password }); // Log para ver los datos recibidos
 
   // Consulta a la base de datos para verificar si el usuario existe
-  const query = 'SELECT * FROM users WHERE nombre_usuario = ? AND contrasena = ?';
+  const query = 'SELECT * FROM users WHERE email = ? AND contrasena = ?';
   connection.query(query, [username, password], (err, results) => {
     if (err) {
       console.error('Error en la consulta a la base de datos:', err);

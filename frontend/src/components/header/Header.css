@@ -1,0 +1,58 @@
+
+.headerStructure {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo img {
+    width: 10rem;
+    margin-left: 10px;
+  }
+  
+  .listHeader {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .listHeader a {
+    font-size: 1.1rem;
+  }
+  
+  .ctaList {
+    display: flex;
+    align-items: center;
+  }
+  
+  .ctaList > div {
+    margin-left: 15px;
+  }
+  
+  /* Botón de login */
+  .login button {
+    padding: 10px;
+    background-color: #ae9cdb;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  /* Estilo para los enlaces del header */
+.headerLink {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 16px;
+  }
+  
+  
+  

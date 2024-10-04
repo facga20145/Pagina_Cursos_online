@@ -1,4 +1,4 @@
-import logo from './image/logo-name.png';
+import logo from './images/logo-name.png';
 import {useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -44,7 +44,7 @@ function Login() {
           <img className="logo" src={logo} alt="logo" />
           <h1>Inicio de Sesión</h1>
           <div className="input-box">
-            <input type="text" placeholder="Escribe tu correo Electrónico" value={username} onChange={(e) => setUsername(e.target.value)} required />
+            <input type="Email" placeholder="Escribe tu correo Electrónico" value={username} onChange={(e) => setUsername(e.target.value)} required />
           </div>
           <div className="input-box">
             <input type="password" placeholder=" Escribe tu contraseña" value={password} onChange={(e) => setPassword(e.target.value)} required />
