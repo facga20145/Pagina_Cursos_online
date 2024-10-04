@@ -1,21 +1,38 @@
 .plansContainer {
     width: 95%;
     margin: auto;
+    padding-top: 30px;
 }
 
 .plansContainer .head {
     color: white;
     font-size: 2rem;
+    text-align: center;
+    font-family: 'Hammersmith One', sans-serif;
+    padding-bottom: 20px;
 }
 
 .containerBox {
     background-color: #1c154f;
     border-radius: 1rem;
     padding: 10px;
+    text-align: center;
+}
+
+.buttonContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.paraContainer {
+    padding-top: 1rem;
 }
 
 .containerBox img {
-    height: 8rem;padding: 0.5rem;}
+    height: 12rem;
+    width: 12rem;
+    padding: 0.5rem;
+}
 
 .plansContainer h3 {
     color: white;
@@ -33,14 +50,13 @@
     color: #9484bc;
     border: 1px solid #9484bc !important;
     background-color: transparent;
-    padding: 0.7rem;
+    padding: 0.3rem;
     border-radius: 0.3rem;
     cursor: pointer;
 }
 
 .IconComponent {
     margin-right: 5px;
-    text-align: center;
 }
 
 .plansBox {

@@ -20,10 +20,14 @@ const linkHeaders = [
 const handleLoginClick = () => {
   navigate('/login'); 
 };
+
+const handleRegisterClick = () => {
+  navigate('/register');
+}
   return (
     <div>
         <header className='headerStructure'>
-            <div className="logo">
+            <div className="logo2">
                 <img src={logo} />
             </div>
 
