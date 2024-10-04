@@ -23,6 +23,7 @@
 .titlePhrase {
     color: white;
     font-size: 4rem;
+    text-align: center;
 }
 
 .paragraphContainer {
@@ -31,10 +32,15 @@
     margin: auto;
     font-size: 1.3em;
     font-family: 'Chau Philomene One', sans-serif;
+    text-align: center;
+    padding-top: 20px;
 }
 
 .buttonSection {
-    padding: 2rem;
+    display: flex;
+    width: 40%;
+    margin: auto;
+    padding-top: 20px;
 }
 
 .buttonSection button {

@@ -14,11 +14,11 @@ export default function Plans() {
             <div className='containerBox'>
                 <img src={img} alt="Plan image" />
                 <h3>{text}</h3>
-                <div>
+                <div className='paraContainer'>
                     <p>{para}</p>
                 </div>
-                <div>
-                
+                <div className='buttonContainer'>
+                    
                     <button>{IconComponent && <IconComponent className="IconComponent"/>}{buttonText}</button>
                 </div>
             </div>
