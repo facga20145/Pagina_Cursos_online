@@ -40,23 +40,24 @@
 }
 
 /* Grid para los inputs */
-form {
+.Formulario 
+.boxs{
   display: grid;
   grid-template-columns: 1fr 1fr; /* Dos columnas */
   grid-gap: 20px; /* Espacio entre los inputs */
   width: 100%;
 }
 
-/* Inputs que ocupan toda la fila */
-input[type="email"],
-input[type="submit"] {
+/* Inputs que ocupan toda la fila dentro de .box */
+.boxs input[type="email"],
+.boxs input[type="submit"] {
   grid-column: span 2;
 }
 
-/* Estilo de los inputs */
-input[type="text"],
-input[type="email"],
-input[type="password"] {
+/* Estilo de los inputs dentro de .box */
+.boxs input[type="text"],
+.boxs input[type="email"],
+.boxs input[type="password"] {
   padding: 10px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 5px;
@@ -66,23 +67,9 @@ input[type="password"] {
   box-sizing: border-box;
   font-family: "Hammersmith One", sans-serif;
 }
-select {
-  font-family: "Hammersmith One", sans-serif;
-  width: 100%;
-  padding: 10px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-  background-color: #fff;
-  color: #676767;
-  font-size: 16px;
-  box-sizing: border-box;
-}
-select:focus {
-    background-color: #fff; /* Color de fondo al seleccionar */
-  }
 
-/* Estilo del botón */
-input[type="submit"] {
+/* Estilo del botón dentro de .box */
+.boxs input[type="submit"] {
   padding: 12px;
   border: none;
   border-radius: 10px;
@@ -97,6 +84,23 @@ input[type="submit"] {
   font-style: normal;
 }
 
-input[type="submit"]:hover {
+.boxs input[type="submit"]:hover {
   background-color: #8983b7;
+}
+
+/* Estilo de select dentro de .box */
+.boxs select {
+  font-family: "Hammersmith One", sans-serif;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  background-color: #fff;
+  color: #676767;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.boxs select:focus {
+  background-color: #fff; /* Color de fondo al seleccionar */
 }

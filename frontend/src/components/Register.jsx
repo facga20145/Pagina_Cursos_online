@@ -8,7 +8,8 @@ function Register() {
       <div className="content-Register">
         <img className="Logo" src={Logo} alt="Logo" />
         <h1>Crea tu cuenta</h1>
-        <form action="">
+        <form className="Formulario">
+            <div className="boxs">
           <input type="text" placeholder="Nombre" />
           <input type="text" placeholder="Apellido" />
           <input type="text" placeholder="Edad" />
@@ -24,6 +25,7 @@ function Register() {
           <input type="Password" placeholder="Contraseña" />
           <input type="Password" placeholder="Confirmar contraseña" />
           <input type="submit" value={"Registrate ahora"} />
+          </div>
           <Link to="/login">Inicia sesión</Link>
         </form>
       </div>
