@@ -2,7 +2,8 @@ const connection = require("../config/db.js"); // Importa la conexión a la base
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt"); // Para cifrar la contraseña
 
-// Función para generar el token de acceso
+// Función para generar el token de acceso 
+//jwt.sign (genera el token para cada cliente)
 const generateAccessToken = (user) => {
   return jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
     expiresIn: "15s",

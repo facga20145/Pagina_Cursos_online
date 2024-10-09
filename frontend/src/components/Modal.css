@@ -1,0 +1,57 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro para el modal */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background-color: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+.modalContent h2 {
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  color: #333;
+  font-weight: 600;
+}
+
+.modalContent button {
+  width: 100%;
+  padding: 15px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: white;
+  background-color: #ffcc00; /* Color de botón */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.modalContent button:hover {
+  background-color: #ffaa00; /* Color al pasar el cursor */
+  transform: scale(1.05);
+}
+
+.modalContent button:focus {
+  outline: none;
+}
+
+.modalContent img {
+  margin-right: 10px;
+  width: 24px;
+  height: 24px;
+}
