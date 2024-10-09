@@ -1,0 +1,60 @@
+.pricing-card {
+    background-color: #1c154f;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    border-radius: 10px;
+    margin: 10px;
+    width: 300px;
+    position: relative;
+  }
+  
+  .pricing-card h3 {
+    font-size: 2.5rem;
+    color: #ffffff;
+    ;
+  }
+  
+  .pricing-card h4 {
+    font-size: 1.5rem;
+    margin-top: 10px;
+    color:#a6a6a6;
+    padding-bottom: 20px;
+  }
+  
+  .pricing-card .monthly-price {
+    font-size: 1 rem;
+    color: #fdfdfd;
+  }
+  
+  .pricing-card button {
+    background-color: #9484bc;
+    margin-top: 20px;
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  
+  .pricing-card button:hover {
+    background-color: #7e3fd5;
+  }
+  
+  .best-offer {
+    border: 2px solid #ff5722;
+    box-shadow: 0 0 10px #ff5722;
+  }
+  
+  .best-offer-badge {
+    background-color: #ff5722;
+    color: white;
+    padding: 5px;
+    font-size: 0.9rem;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    border-radius: 5px;
+  }
+  

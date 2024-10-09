@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chau+Philomene+One&display=swap');
+.body-Planes{
+    margin: 0;
+    padding: 0;
+    background-image: url('../src/components/images/fondo.png'); 
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat; 
+    height: 100vh;
+}
+.Banner{
+    padding-top: 4rem;
+    font-family: 'Hammersmith One', sans-serif;
+    font-size: 2.5rem;
+    letter-spacing: 0.1rem;
+}
+.Banner h1{
+    color: white;
+    font-size: 4rem;
+    text-align: center;
+}
+.Banner h2{
+    padding-top: 1rem;
+    color: #9484bc;
+    text-align: center;
+}
+.Banner-p{
+    color: #a6a6a6;
+    width: 88rem;
+    margin: auto;
+    font-size: 1.5rem;
+    font-family: 'Chau Philomene One', sans-serif;
+    text-align: center;
+    padding-top: 20px;
+}
+.premium-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 50px;
+  }
+  

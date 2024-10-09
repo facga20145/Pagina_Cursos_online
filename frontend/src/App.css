@@ -10,10 +10,10 @@
   body {
     margin: 0;
     padding: 0;
-    background-image: url('../src/components/images/fondo.png'); /* Ruta de la imagen */
+    background-image: url('../src/components/images/fondo.png'); 
     background-size: cover; 
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; 
     height: 100%;
   }
   
