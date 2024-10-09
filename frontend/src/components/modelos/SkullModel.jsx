@@ -1,6 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { useGLTF, useAnimations, OrbitControls } from '@react-three/drei';
-import { useFrame } from '@react-three/fiber';
 
 export default function SkullModel() {
   const group = useRef();
