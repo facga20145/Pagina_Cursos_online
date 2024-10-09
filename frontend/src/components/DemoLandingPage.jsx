@@ -8,11 +8,14 @@ import scholarshipImage from './images/scholarship.png';
 import planImage1 from './images/Logo-rv.png'; // Agregar imágenes a cada plan
 import planImage2 from './images/Logo-rv.png';
 import planImage3 from './images/Logo-rv.png';
+import { Canvas } from '@react-three/fiber'; // Importa el Canvas de react-three/fiber
+import SkullModel from './modelos/SkullModel.jsx'; // Importa el componente del modelo 3D
 
 export default function DemoLandingPage() {
   // Estado para el quizz
   const [quizAnswer, setQuizAnswer] = useState(null);
   const [showQuizResult, setShowQuizResult] = useState(false);
+  const [animation, setAnimation] = useState('Idle'); // Estado para la animación
 
   const handleQuizSubmit = (answer) => {
     setQuizAnswer(answer);
@@ -110,6 +113,16 @@ export default function DemoLandingPage() {
             <button className="planButton">Descubre más</button>
           </div>
         </div>
+      </section>
+
+      {/* Sección para el modelo 3D */}
+      <section className="modelSection">
+        <h3>Modelo 3D</h3>
+        <Canvas>
+          <ambientLight intensity={1.5} />
+          <pointLight position={[10, 10, 10]} />
+          <SkullModel animationName={animation} /> {/* Modelo 3D con animación */}
+        </Canvas>
       </section>
 
       <footer className="footer">
