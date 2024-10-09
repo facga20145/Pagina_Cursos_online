@@ -308,3 +308,14 @@ nav a:hover::after {
     margin-bottom: 20px;
   }
 }
+/*.modelSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px; /* Ajusta la altura que prefieras */
+  /*max-width: 600px; /* Ajusta el ancho que prefieras */
+  /*margin: 0 auto;
+  overflow: hidden; /* Evita que el contenido del modelo sobresalga */
+  /*border: 1px solid #ccc;
+  background-color: #1a1a1a; /* Fondo oscuro opcional */
+/*}
