@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap');
 .pricing-card {
     background-color: #1c154f;
     color: white;
@@ -43,15 +44,16 @@
   }
   
   .best-offer {
-    border: 2px solid #ff5722;
-    box-shadow: 0 0 10px #ff5722;
+    border: 2px solid #ffe222;
+    box-shadow: 0 0 10px #ffe222;
   }
   
   .best-offer-badge {
-    background-color: #ff5722;
-    color: white;
+    font-family: 'Hammersmith One', sans-serif;
+    background-color: #ffdd00;
+    color: black;
     padding: 5px;
-    font-size: 0.9rem;
+    font-size: 1rem;
     position: absolute;
     top: -10px;
     right: -10px;
