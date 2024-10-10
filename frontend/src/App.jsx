@@ -12,6 +12,10 @@ import UploadVideos from './components/Admin/UploadVideos';
 import './App.css';
 import Childlandingpage from './components/childlandingpage.jsx';
 import DemoLandingPage from './components/DemoLandingPage.jsx'
+import Comunidad from './components/comunidad.jsx';
+import Foro from './components/foro.jsx';
+
+
 
 function App() {
   return (
@@ -30,6 +34,8 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path='/childlandingpage' element={<Childlandingpage/>}/>
         <Route path="/DemoLandingPage" element={<DemoLandingPage />} />
+        <Route path="/comunidad" element={<Comunidad />}/>
+        <Route path="/foro" element={<Foro />}/>
       </Routes>
     </Router>
   );

@@ -21,6 +21,7 @@ const handleLoginClick = () => {
 const handleRegisterClick = () => {
   navigate('/register');
 }
+
   return (
     <div>
         <header className='headerStructure'>

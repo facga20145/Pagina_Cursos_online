@@ -11,7 +11,7 @@ export default function Header() {
 const linkHeaders = [
   { name: 'Explorar', url: '/' },
   { name: 'Comunidad', url: '/Comunidad' },
-  { name: 'Planes', url: '/Planes' },
+  { name: 'Planes', url: '/Premium' },
   { name: 'Becas', url: '/Becas' }
 ];
 
