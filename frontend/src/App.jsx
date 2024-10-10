@@ -7,6 +7,7 @@ import Dashboard from '../src/components/Dashboard.jsx';
 import LandingYoung from './components/Landings/LandingYoung.jsx'
 import './App.css';
 import Childlandingpage from './components/childlandingpage.jsx';
+import DemoLandingPage from './components/DemoLandingPage.jsx'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/landingyoung" element={<LandingYoung />} />
         <Route path="/" element={<LandingPage />} />
         <Route path='/childlandingpage' element={<Childlandingpage/>}/>
+        <Route path="/DemoLandingPage" element={<DemoLandingPage />} />
       </Routes>
     </Router>
   );
