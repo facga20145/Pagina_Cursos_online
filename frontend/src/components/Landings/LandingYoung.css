@@ -1,0 +1,16 @@
+.PrincipalYoung {
+  margin-bottom: 0px;
+  padding: 0;
+  background-image: url('../images/Fondo-young.png');
+  background-size: cover; 
+  background-position: center;
+  background-repeat: no-repeat; 
+  height: 100vh;
+}
+@media (max-width: 1024px) {
+    .PrincipalYoung {
+      background-size: cover; /* Ajustamos la imagen para que se vea completa */
+      height: auto; /* Ajustamos la altura para tablets */
+      padding: 0px; /* Añadimos algo de padding para mejorar el layout */
+    }
+  }

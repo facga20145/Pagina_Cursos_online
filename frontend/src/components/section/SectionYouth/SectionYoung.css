@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+.SectionYoung-Contend{
+  display: grid; /* Cambiamos a grid */
+  grid-template-columns: 1fr 1fr; /* Dos columnas de igual tamaño */
+  grid-gap: 260px; /* Espacio entre las columnas */
+  align-items: center; /* Alinea verticalmente el contenido */
+  margin-top: 60px;
+  padding: 20px;
+  max-width: 2000px;
+}
+.text-sectionyoung {
+  margin-left: 200px;
+  grid-column: 1 / 2; /* Ubica el texto en la primera columna */
+  max-width: 70%;
+  color: white;
+}
+.text-sectionyoung h1 {
+  font-size: 4rem;
+  font-family: "Open Sans", sans-serif;
+  margin-bottom: 20px;
+}
+.text-sectionyoung p {
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 40px;
+}
+.join-button {
+  width: 300px;
+  margin-left: 40px;
+  padding: 10px 20px;
+  background-color: #f9de70;
+  color: black;
+  border: none;
+  border-radius: 20px;
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.join-button:hover
+{
+    background-color: #e4bc1b;
+}
+.image-sectionYoung {
+    grid-column: 2 / 3; /* Ubica la imagen en la segunda columna */
+    max-width: 700px;
+    text-align: right;
+}
+.image-sectionYoung img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Media Query para pantallas medianas (tablets) */
+@media (max-width: 1024px) {
+    .SectionYoung-Contend {
+      grid-template-columns: 1fr; /* Cambiamos a una columna para tablets */
+      grid-gap: 20px; /* Reducimos el espacio entre elementos */
+    }
+  
+    .text-sectionyoung {
+      margin-left: 50px; /* Reducimos el margen izquierdo */
+      max-width: 100%; /* Ajustamos el ancho del texto */
+    }
+  
+    .text-sectionyoung h1 {
+      font-size: 2rem; /* Reducimos el tamaño del título */
+    }
+  
+    .join-button {
+      width: 90%; /* Botón ocupa todo el ancho disponible */
+      margin-left: 0;
+      text-align: center;
+    }
+  
+    .image-sectionYoung {
+      grid-column: 1; /* Imagen debajo del texto en pantallas medianas */
+      text-align: center;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+  }
+  
+  /* Media Query para pantallas pequeñas (móviles) */
+  @media (max-width: 768px) {
+    .SectionYoung-Contend {
+      grid-template-columns: 1fr; /* Una sola columna en móviles */
+      grid-gap: 10px;
+      padding: 10px;
+      margin-top: 30px;
+    }
+  
+    .text-sectionyoung {
+      margin-left: 20px;
+      max-width: 100%;
+    }
+  
+    .text-sectionyoung h1 {
+      font-size: 2.5rem; /* Reducimos el tamaño del título en móviles */
+    }
+  
+    .text-sectionyoung p {
+      font-size: 0.9rem; /* Reducimos el tamaño del texto */
+    }
+  
+    .join-button {
+      width: 90%;
+      padding: 15px 20px;
+      font-size: 1rem;
+      text-align: center;
+    }
+  
+    .image-sectionYoung {
+      max-width: 100%;
+      text-align: center;
+      margin-top: 20px;
+    }
+  
+    .image-sectionYoung img {
+      max-width: 80%; /* Ajustamos el tamaño de la imagen en móviles */
+    }
+  }

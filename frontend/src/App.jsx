@@ -4,7 +4,7 @@ import Register from './components/Register.jsx';
 import LandingPage from './components/LandingPage.jsx';
 import Premium from './components/Premiun/Premium.jsx'
 import Dashboard from '../src/components/Dashboard.jsx';
-import DemoLandingPage from './components/DemoLandingPage.jsx'
+import LandingYoung from './components/Landings/LandingYoung.jsx'
 import './App.css';
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
         <Route path="/premium" element={<Premium />} />
         <Route path='/register' element={<Register/>}/>
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/demolandingpage" element={<DemoLandingPage />} />
+        <Route path="/landingyoung" element={<LandingYoung />} />
         <Route path="/" element={<LandingPage />} />
       </Routes>
     </Router>

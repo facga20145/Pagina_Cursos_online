@@ -14,7 +14,7 @@ function Modal({ setUserType }) {
     if (type === 'child') {
       navigate('/childlandingpage');  
     } else if (type === 'teen') {
-      navigate('/demolandingpage');  
+      navigate('/landingyoung');  
     } else if (type === 'adult') {
       navigate('/landingpage');  
     }
