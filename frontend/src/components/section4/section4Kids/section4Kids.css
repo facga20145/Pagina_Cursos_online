@@ -10,11 +10,11 @@
 }
 
 /* Estilo para la primera columna */
-.firstColumnKids {
+.firstColumnKidsjugo {
     text-align: center;
 }
 
-.firstColumnKids h3 {
+.firstColumnKidsjugo h3 {
     font-size: 2.5rem;
     color: #333;
     margin-bottom: 20px;
@@ -22,7 +22,7 @@
     margin: auto;
 }
 
-.firstColumnKids img {
+.firstColumnKidsjugo img {
     max-width: 80%;
     border-radius: 10px;
     animation: bounce 2s infinite;

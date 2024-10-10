@@ -1,8 +1,6 @@
-import React from 'react';
-import { FaSearch } from "react-icons/fa";
-import './HeaderKids.css';
-import logo from '../../../components/images/logoKids.png';
-import { TiThMenu } from "react-icons/ti";
+import '../Login.jsx'
+import './Header.css';
+import logo from '../images/logo.png';
 import { useNavigate } from 'react-router-dom';
 
 export default function Header() {
@@ -11,7 +9,7 @@ export default function Header() {
 const linkHeaders = [
   { name: 'Explorar', url: '/' },
   { name: 'Comunidad', url: '/Comunidad' },
-  { name: 'Planes', url: '/Planes' },
+  { name: 'Planes', url: '/Premium' },
   { name: 'Becas', url: '/Becas' }
 ];
 
@@ -30,20 +28,22 @@ const handleRegisterClick = () => {
                 <img src={logo} />
             </div>
 
-            <div className="listHeaderKids">
+            <div className="listHeader">
           {linkHeaders.map((link, index) => (
             <a key={index} href={link.url} className="headerLink">
               {link.name}
             </a>
           ))}
         </div>
-            <div className="ctaListKids">
-                <div className="loginKids">
-                    <button onClick={handleLoginClick} className='loginJugo'>Inicia Sesion</button>
-                    <button onClick={handleRegisterClick} >Registra</button>
+            <div className="ctaList">
+                <div className="login">
+                    <button onClick={handleLoginClick}>Inicia Sesion</button>
+                </div>
+                <div className="Register">
+                    <button onClick={handleRegisterClick}>Registrate gratis</button>
                 </div>
             </div>
         </header>
-    </div>
-  )
+    </div>
+  )
 }

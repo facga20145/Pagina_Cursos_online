@@ -65,7 +65,7 @@
   font-size: 16px;
 }
 
-.ctaList {
+.ctaListKids {
   display: flex;
   justify-content: flex-end;
   padding-left: 2rem;
@@ -73,7 +73,7 @@
 }
 
 /* Estilo para el botón */
-.ctaList button {
+.ctaListKids button {
   color: #ffffff;
   border: none;
   padding: 5px 10px;
@@ -81,7 +81,7 @@
   border-radius: 10px;
 }
 
-.ctaList .loginKids button {
+.ctaListKids .loginKids .loginJugo {
   font-family: 'Monserrat',sans-serif;
   color: black;
   background-color: white;
@@ -89,11 +89,12 @@
   font-size: 0.7rem;
 }
 
-.ctaList .RegisterKids button {
+.ctaListKids .loginKids button {
   color: black;
   background-color: #f9de70;
   font-weight: 800;
   font-size: 0.7rem;
+  width: 50%;
 }
 
 

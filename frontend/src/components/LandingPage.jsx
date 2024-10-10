@@ -1,5 +1,5 @@
 import { useState } from "react"; // Asegúrate de importar useState
-import Header from "./header/Header";
+import Header from './header/Header'
 import Section from "./section/Section";
 import Plans from "./plans/Plans";
 import Modal from "./Modal"; // Importamos el modal
@@ -20,6 +20,7 @@ export default function LandingPage() {
       {/* Solo muestra el modal si showModal es true */}
       {!showModal && (
         <>
+          <Header/>
           <Section />
           <Plans />
         </>

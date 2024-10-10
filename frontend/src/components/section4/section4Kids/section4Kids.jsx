@@ -12,7 +12,7 @@ export default function Section4Kids() {
   return (
     <div className="gridContainerKids">
       {/* Primera columna */}
-      <div className="firstColumnKids">
+      <div className="firstColumnKidsjugo">
         <h3>Utilizamos los mejores programas</h3><br />
         <img src={robot3Kids} alt="Imagen principal" />
       </div>
