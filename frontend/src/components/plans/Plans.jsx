@@ -1,4 +1,3 @@
-import React from 'react'
 import './Plans.css'
 import { FaRegHeart, FaRegStar } from 'react-icons/fa';
 import { LuGraduationCap, LuBookMarked } from "react-icons/lu";

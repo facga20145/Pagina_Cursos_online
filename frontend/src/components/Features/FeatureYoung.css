@@ -1,0 +1,50 @@
+.FeatureYoung {
+  background-image: url("../images/Fondo-Feature.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+.FeatureYoung-contend {
+  text-align: center;
+  padding-top: 200px;
+}
+/* Estilo general para el h1 */
+.highlight-text {
+  font-size: 3rem;
+  font-family: "Poppins", sans-serif;
+  color: white; /* Color de la parte inicial del texto */
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Estilo para el texto en otro color */
+.colored-text {
+  color: #00a0e4; /* Cambiamos el color para "educación" */
+}
+
+/* Estilo para el párrafo */
+p {
+  font-size: 1rem;
+  font-family: "Open Sans", sans-serif;
+  color: #ffffff;
+}
+.features-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 80px auto;
+  max-width: 1200px;
+}
+
+/* Media Queries para Pantallas Pequeñas */
+@media (max-width: 768px) {
+  .FeatureYoung {
+    background-size: cover;
+    height: 200vh;
+  }
+  .features-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+}

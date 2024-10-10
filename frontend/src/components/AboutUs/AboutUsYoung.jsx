@@ -13,7 +13,7 @@ function AboutUsYoung() {
           <p className="main-description">
             Conviértete en el creador de tu propio futuro! Aprende a programar y
             descubre cómo la tecnología puede ayudarte a transformar tus ideas
-            en proyectos innovadores y emocionantes
+            en proyectos innovadores y emocionantes.
           </p>
         </div>
 
