@@ -1,75 +1,72 @@
-
 .headerStructure {
-    display: flex;
-    align-items: center;
-    padding: 10px 20px;
-    font-family: 'Hammersmith One', sans-serif;
-    width: 100%;
-  }
-  
-  .logo2 {
-    display: flex;
-    justify-content: flex-start;
-  }
-  
-  .logo2 img {
-    width: 10rem;
-    margin-left: 10px;
-  }
-  
-  .listHeader {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-  }
+  display: flex;
+  align-items: center;
+  padding: 30px 20px;
+  font-family: "Hammersmith One", sans-serif;
+  width: 100%;
+}
 
-  .listHeader a {
-    font-size: 1.1rem;
-    text-align: center;
-  }
-  
-  .ctaList {
-    padding-left: 2rem;
-    display: flex;
-    padding: 0.5rem;
-    justify-content: flex-end;
-    flex-grow: 1;
-  }
-  
-  .ctaList > div {
-    margin-left: 165px;
-  }
-  
-  /* Botón de login */
-  .login button {
-    padding: 10px;
-    background-color: #ae9cdb;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    width: 80%;
-  }
+.logo2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  .registerButton button {
-    padding: 10px;
-    background-color: #ae9cdb;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    width: 80%;
-  }
+.logo2 img {
+  width: 12rem;
+  
+}
 
-  /* Estilo para los enlaces del header */
+.listHeader {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.listHeader a {
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.ctaList {
+  padding-left: 2rem;
+  display: flex;
+  padding: 0.5rem;
+  justify-content: flex-end;
+  flex-grow: 1;
+}
+
+.ctaList > div {
+  margin-left: 20px;
+}
+
+.login{
+  padding: 0 10px;
+  border-left: 1px solid rgba(255, 255, 255, 0.5); /* Línea vertical con transparencia */
+  margin-right: 10px;
+}
+/* Botón de login y register */
+.login button,
+.Register button {
+  font-family: "Hammersmith One", sans-serif;
+  padding: 10px;
+  background-color: transparent;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 80%;
+}
+.login button:hover,
+.Register button:hover {
+  background-color: #9484bc;
+}
+
+/* Estilo para los enlaces del header */
 .headerLink {
-    margin: 0 15px;
-    text-decoration: none;
-    color: #ffffff;
-    font-size: 16px;
-  }
-  
-  
-  
+  margin: 0 15px;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 16px;
+}

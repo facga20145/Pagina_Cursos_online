@@ -40,6 +40,9 @@ const handleRegisterClick = () => {
                 <div className="login">
                     <button onClick={handleLoginClick}>Inicia Sesion</button>
                 </div>
+                <div className="Register">
+                    <button onClick={handleRegisterClick}>Registrate gratis</button>
+                </div>
             </div>
         </header>
     </div>

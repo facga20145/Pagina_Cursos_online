@@ -57,6 +57,11 @@
 .ctaList-Young > div {
   margin-left: 20px;
 }
+.login-Young{
+    padding: 0 10px;
+    border-left: 1px solid rgba(255, 255, 255, 0.5); /* Línea vertical con transparencia */
+    margin-right: 10px;
+}
 
 /* Botón de login y register */
 .login-Young button,

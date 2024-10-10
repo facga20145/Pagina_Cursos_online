@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url("./image/fondo.png");
+  background-image: url('images/fondo.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -55,6 +55,7 @@
 
 /* Estilo de los inputs dentro de .box */
 .boxs input[type="text"],
+.boxs input[type="number"],
 .boxs input[type="email"],
 .boxs input[type="password"] {
   padding: 10px;

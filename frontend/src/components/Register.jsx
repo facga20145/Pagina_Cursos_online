@@ -1,7 +1,7 @@
 import Logo from "./images/logo-name.png";
 import { Link, useNavigate } from 'react-router-dom';
 import "./Register.css";
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import axios from 'axios';
 
 function Register() {
