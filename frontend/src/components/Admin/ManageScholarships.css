@@ -1,0 +1,64 @@
+.manage-scholarships {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+    padding: 40px;
+    min-height: 100vh;
+  }
+  
+  .manage-scholarships h1 {
+    font-size: 2.2rem;
+    color: #333;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: 600;
+  }
+  
+  /* Table styles */
+  .manage-scholarships table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .manage-scholarships th,
+  .manage-scholarships td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    font-size: 1rem;
+  }
+  
+  .manage-scholarships th {
+    background-color: #0077b6;
+    color: #fff;
+  }
+  
+  .manage-scholarships td {
+    color: #333;
+  }
+  
+  /* Action buttons */
+  .manage-scholarships button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #0077b6;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .manage-scholarships button:hover {
+    background-color: #005f89;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .manage-scholarships table {
+      display: block;
+      overflow-x: auto;
+    }
+  }
+  

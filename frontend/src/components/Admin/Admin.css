@@ -1,0 +1,93 @@
+/* Estilos básicos */
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f4f6f9;
+  margin: 0;
+  padding: 0;
+}
+
+.admin-dashboard h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.admin-main-options {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 40px;
+}
+
+.admin-option {
+  position: relative;
+  padding: 20px;
+  background-color: #005b96;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  width: 250px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.admin-option:hover {
+  background-color: #003f6f;
+  transform: translateY(-4px);
+}
+
+.admin-submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-top: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.admin-option:hover .admin-submenu,
+.admin-option:focus-within .admin-submenu {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+.admin-submenu a {
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #333;
+  transition: background-color 0.3s ease;
+  border-bottom: 1px solid #ddd;
+}
+
+.admin-submenu a:hover {
+  background-color: #f4f4f4;
+}
+
+.admin-submenu a:last-child {
+  border-bottom: none;
+}
+
+/* Animación y efectos */
+.admin-option p {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.admin-option:hover {
+  background-color: #003f6f;
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
