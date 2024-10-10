@@ -3,32 +3,124 @@ import { Link, useNavigate } from 'react-router-dom';
 import "./Register.css";
 import  { useState } from 'react';
 import axios from 'axios';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 function Register() {
-  // Estados para manejar los valores de los inputs
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
   const [edad, setEdad] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [emailError, setEmailError] = useState('');
+  const [nombreError, setNombreError] = useState('');
+  const [apellidoError, setApellidoError] = useState('');
+  const [edadError, setEdadError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
   const [gender, setGender] = useState("");
   const navigate = useNavigate();
 
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const validateNombre = (nombre) => {
+    const nombreRegex = /^[a-zA-ZÀ-ÿ\s]{2,30}$/;
+    return nombreRegex.test(nombre);
+  };
+
+  const validateApellido = (apellido) => {
+    const apellidoRegex = /^[a-zA-ZÀ-ÿ\s]{2,30}$/;
+    return apellidoRegex.test(apellido);
+  };
+
+  const validateEdad = (edad) => {
+    const edadRegex = /^(1[0-1][0-9]|[1-9][0-9]?)$/; // Acepta solo entre 1 y 119
+    return edadRegex.test(edad);
+  };
+
+  const validatePassword = (password) => {
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/; // Mínimo 8 caracteres, una mayúscula, una minúscula y un número
+    return passwordRegex.test(password);
+  };
+
+  const handleEmailChange = (e) => {
+    const emailValue = e.target.value;
+    setEmail(emailValue);
+    if (emailValue === '') {
+      setEmailError('');
+    } else if (!validateEmail(emailValue)) {
+      setEmailError('El formato del correo es incorrecto.');
+    } else {
+      setEmailError('');
+    }
+  };
+
+  const handleNombreChange = (e) => {
+    const nombreValue = e.target.value;
+    setNombre(nombreValue);
+    if (nombreValue === '') {
+      setNombreError(''); // Si está vacío, no mostrar error
+    } else if (!validateNombre(nombreValue)) {
+      setNombreError('El nombre debe tener entre 2 y 30 letras.');
+    } else {
+      setNombreError('');
+    }
+  };
+
+  const handleApellidoChange = (e) => {
+    const apellidoValue = e.target.value;
+    setApellido(apellidoValue);
+    if (apellidoValue === '') {
+      setApellidoError(''); // Si está vacío, no mostrar error
+    } else if (!validateApellido(apellidoValue)) {
+      setApellidoError('El apellido debe tener entre 2 y 30 letras.');
+    } else {
+      setApellidoError('');
+    }
+  };
+
+  const handleEdadChange = (e) => {
+    const edadValue = e.target.value;
+    setEdad(edadValue);
+    if (edadValue === '') {
+      setEdadError(''); // Si está vacío, no mostrar error
+    } else if (!validateEdad(edadValue)) {
+      setEdadError('La edad debe estar entre 1 y 119.');
+    } else {
+      setEdadError('');
+    }
+  };
+
+  const handlePasswordChange = (e) => {
+    const passwordValue = e.target.value;
+    setPassword(passwordValue);
+
+    if(passwordValue === ''){
+      setPasswordError('');
+    }else if (!validatePassword(passwordValue)) {
+      setPasswordError('La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un número.');
+    } else {
+      setPasswordError('');
+    }
+  };
+
   const handleGenderChange = (event) => {
-    setGender(event.target.value); // Actualiza el estado con el valor seleccionado
+    setGender(event.target.value);
   };
 
   const handleRegister = async (e) => {
     e.preventDefault();
 
     if (password !== confirmPassword) {
-      alert("Las contraseñas no coinciden");
+      alert("Las contraseñas no coinciden.");
       return;
     }
 
     try {
-      // Realiza la solicitud POST al backend
       const response = await axios.post('http://localhost:4000/api/auth/register', {
         nombre,
         apellido,
@@ -39,12 +131,10 @@ function Register() {
       });
 
       console.log('Respuesta del servidor:', response.data);
-
-      // Navega al login después del registro exitoso
       navigate('/login');
     } catch (error) {
       console.error('Error en el registro:', error);
-      alert('Error en el registro');
+      alert('Error en el registro.');
     }
   };
 
@@ -55,9 +145,28 @@ function Register() {
         <h1>Crea tu cuenta</h1>
         <form className="Formulario" onSubmit={handleRegister}>
           <div className="boxs">
-            <input type="text" placeholder="Nombre" value={nombre} onChange={(e) => setNombre(e.target.value)} required />
-            <input type="text" placeholder="Apellido" value={apellido} onChange={(e) => setApellido(e.target.value)} required />
-            <input type="number" placeholder="Edad" value={edad} onChange={(e) => setEdad(e.target.value)} required />
+            <input type="text" placeholder="Nombre" value={nombre} onChange={handleNombreChange} required />
+            {nombreError && <p className="error-message">{nombreError}</p>}
+
+            <input type="text" placeholder="Apellido" value={apellido} onChange={handleApellidoChange} required />
+            {apellidoError && <p className="error-message">{apellidoError}</p>}
+
+            <div className="boxs">
+  <div className="input-wrapper">
+    <input
+      type="number"
+      placeholder="Edad"
+      value={edad}
+      onChange={handleEdadChange}
+      required
+    />
+    <p className={`error-message ${edadError ? 'error-visible' : ''}`}>
+      {edadError}
+    </p>
+  </div>
+</div>
+
+
             <select name="genero" value={gender} onChange={handleGenderChange} required>
               <option value="" disabled>
                 Selecciona tu género
@@ -66,9 +175,44 @@ function Register() {
               <option value="femenino">Femenino</option>
               <option value="otro">Otro</option>
             </select>
-            <input type="email" placeholder="Correo electrónico" value={email} onChange={(e) => setEmail(e.target.value)} required />
-            <input type="password" placeholder="Contraseña" value={password} onChange={(e) => setPassword(e.target.value)} required />
-            <input type="password" placeholder="Confirmar contraseña" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
+
+            <input
+              type="text"
+              placeholder="Correo electrónico"
+              value={email}
+              onChange={handleEmailChange}
+              className={emailError ? 'error' : ''}
+              required
+            />
+            {emailError && <p className="error-message">{emailError}</p>}
+
+            <div className="password-box">
+              <input
+                type={showPassword ? "text" : "password"}
+                placeholder="Contraseña"
+                value={password}
+                onChange={handlePasswordChange}
+                required
+              />
+              {passwordError && <p className="error-message">{passwordError}</p>}
+              <span className="toggle-password" onClick={() => setShowPassword(!showPassword)}>
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </span>
+            </div>
+
+            <div className="password-box">
+              <input
+                type={showConfirmPassword ? "text" : "password"}
+                placeholder="Confirmar contraseña"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                required
+              />
+              <span className="toggle-password" onClick={() => setShowConfirmPassword(!showConfirmPassword)}>
+                {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
+              </span>
+            </div>
+
             <input type="submit" value={"Registrate ahora"} />
           </div>
           <div className="alredy">
