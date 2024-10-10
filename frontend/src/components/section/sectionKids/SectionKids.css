@@ -1,0 +1,82 @@
+
+/* Estructura de la sección */
+.section-kids {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 20px;
+    align-items: center;
+    padding: 20px;
+    background-image: url('../../images/fondoKids.png');
+        background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  /* Columna de texto (40%) */
+  .text-column-kids {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    }
+  
+  /* Título */
+  .title-kids h2 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    font-family: 'Open Sans',sans-serif;
+    font-weight: 800;
+    color: white;
+  }
+  
+  /* Descripción */
+  .description-kids p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: white;
+  }
+  
+  /* Contenedor del botón */
+  .button-container-kids {
+    display: flex;
+    justify-content: flex-start;
+    width: 50%;
+  }
+  
+  .button-kids {
+    padding: 10px 20px;
+    background-color: #f9de70;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 25px;
+    color: black;
+    font-weight: 800;
+  }
+  
+  .image-column-kids {
+    padding-top: 20px;
+    display: flex;
+    justify-content: center; /* Centra la imagen horizontalmente */
+    align-items: center; /* Centra la imagen verticalmente */
+    height: 100%; /* O el valor que necesites */
+  }
+  
+  .image-kids {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    animation: moveDown 1s ease-in-out infinite alternate;
+  }
+
+  @keyframes moveDown {
+    0% {
+      transform: translateY(0); /* Posición inicial */
+    }
+    100% {
+      transform: translateY(20px); /* Mueve hacia abajo 20px, ajusta según necesites */
+    }
+  }
+  
+  
+  

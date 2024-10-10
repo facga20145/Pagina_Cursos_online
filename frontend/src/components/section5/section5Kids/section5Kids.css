@@ -1,0 +1,49 @@
+.centered-content-kids {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+    background-color: #f0f0f0;
+    background-image: url('../../images/fondo5Kids.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .title-container-kids {
+    margin-bottom: 10px;
+    text-align: center;
+    color: white;
+    font-size: 2.5rem;
+    width: 90%;
+  }
+  
+  .paragraph-container-kids {
+    margin-bottom: 20px; /* Espacio debajo del párrafo */
+    text-align: center; /* Centra el texto */
+    width: 70%;
+    color: #545454;
+    font-size: 1rem;
+  }
+  
+  .button-container-kids {
+    margin-top: 20px;
+  }
+  
+  .button-kids5 {
+    padding: 10px 5px;
+    background-color: #ffffff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    color: black;
+    font-size: 1rem;
+    width: 50%;
+    margin: auto;
+    font-weight: 600;
+  }
+  
+  

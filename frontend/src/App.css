@@ -8,9 +8,9 @@
   }
   
   body {
+    background-color: white;
     margin: 0;
     padding: 0;
-    background-image: url('../src/components/images/fondo.png'); /* Ruta de la imagen */
     background-size: cover; 
     background-position: center;
     background-repeat: no-repeat;
