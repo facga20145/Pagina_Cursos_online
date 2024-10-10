@@ -6,6 +6,7 @@ import Premium from './components/Premiun/Premium.jsx'
 import Dashboard from '../src/components/Dashboard.jsx';
 import LandingYoung from './components/Landings/LandingYoung.jsx'
 import './App.css';
+import Childlandingpage from './components/childlandingpage.jsx';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/landingyoung" element={<LandingYoung />} />
         <Route path="/" element={<LandingPage />} />
+        <Route path='/childlandingpage' element={<Childlandingpage/>}/>
       </Routes>
     </Router>
   );

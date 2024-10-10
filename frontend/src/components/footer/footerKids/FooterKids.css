@@ -1,0 +1,58 @@
+.footer-kids {
+    padding: 20px;
+    border-top: 3px solid black; /* Línea negra en la parte superior */
+    border-bottom: 3px solid black; /* Línea negra en la parte inferior */
+    width: 80%;
+    margin: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  
+  .footer-row {
+    display: flex;
+    justify-content: flex-start; /* Alinear a la izquierda */
+    align-items: center; /* Centra verticalmente la imagen */
+    margin-bottom: 20px; /* Espaciado entre filas */
+  }
+  
+  .footer-logo-kids {
+    height: 4rem;
+    width: 16rem;
+  }
+  
+  .footer-links-kids {
+    display: flex;
+    justify-content: space-between; /* Espacio entre las columnas */
+  }
+  
+  .column-kids {
+    flex: 1; /* Cada columna ocupará igual espacio */
+    padding: 2px 10px; /* Espaciado horizontal en las columnas */
+  }
+  
+  .column-kids h4 {
+    margin-bottom: 10px; /* Espaciado debajo del título */
+    text-align: center;
+  }
+  
+  .column-kids ul {
+    list-style-type: none; /* Sin viñetas */
+    padding: 0; /* Sin padding en la lista */
+  }
+  
+  .column-kids li {
+    margin-bottom: 5px; /* Espaciado entre los enlaces */
+    text-align: center;
+  }
+  
+  .column-kids a {
+    text-decoration: none; /* Sin subrayado en los enlaces */
+    color: #333; /* Color del texto de los enlaces */
+    gap: 4px;
+  }
+  
+  .column-kids a:hover {
+    text-decoration: underline; /* Subrayado al pasar el mouse */
+    color: #aa87ef; /* Cambia el color al pasar el mouse */
+  }
+  

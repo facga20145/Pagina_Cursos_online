@@ -20,7 +20,6 @@ export default function LandingPage() {
       {/* Solo muestra el modal si showModal es true */}
       {!showModal && (
         <>
-          <Header />
           <Section />
           <Plans />
         </>

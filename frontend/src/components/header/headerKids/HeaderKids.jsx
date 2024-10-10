@@ -1,7 +1,9 @@
-
+import React from 'react';
+import { FaSearch } from "react-icons/fa";
 import '../Login.jsx'
 import './Header.css';
 import logo from '../images/logo.png';
+import { TiThMenu } from "react-icons/ti";
 import { useNavigate } from 'react-router-dom';
 
 export default function Header() {
@@ -10,7 +12,7 @@ export default function Header() {
 const linkHeaders = [
   { name: 'Explorar', url: '/' },
   { name: 'Comunidad', url: '/Comunidad' },
-  { name: 'Planes', url: '/Premium' },
+  { name: 'Planes', url: '/Planes' },
   { name: 'Becas', url: '/Becas' }
 ];
 
@@ -39,9 +41,6 @@ const handleRegisterClick = () => {
             <div className="ctaList">
                 <div className="login">
                     <button onClick={handleLoginClick}>Inicia Sesion</button>
-                </div>
-                <div className="Register">
-                    <button onClick={handleRegisterClick}>Registrate gratis</button>
                 </div>
             </div>
         </header>

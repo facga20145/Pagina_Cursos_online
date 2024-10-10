@@ -1,0 +1,100 @@
+.plansContainerKids {
+    width: 100%;
+    margin: auto;
+    padding-top: 30px;
+    background-image: url('../../images/fondo3Kids.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.plansContainerKids .headKids {
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    font-family: 'Hammersmith One', sans-serif;
+    padding-bottom: 20px;
+}
+
+.plansContainerKids .headKidsSpan {
+    text-align: center;
+    color: white;
+}
+
+.containerBoxKids {
+    background-color: #aa87ef;
+    border-radius: 1rem;
+    padding: 10px;
+    text-align: center;
+    border-top: 5px solid #f9de70;
+}
+
+.plansContainerKids .yellow {
+    color: #f9de70;
+}
+
+.buttonContainerKids {
+    display: flex;
+    flex-direction: row;
+}
+
+.paraContainerKids {
+    padding-top: 1rem;
+}
+
+.containerBoxKids img {
+    height: 6rem;
+    width: 6rem;
+    padding: 0.5rem;
+}
+
+.plansContainerKids h3 {
+    color: white;
+    font-size: 1.3rem;
+}
+
+.plansBoxKids p {
+    color: rgb(255, 255, 255);
+    width: 90%;
+    margin: auto;
+    height: 5.8rem;
+}
+
+.containerBoxKids button {
+    color: #9484bc;
+    border: 1px solid #9484bc !important;
+    background-color: transparent;
+    padding: 0.3rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
+}
+
+.IconComponentKids {
+    margin-right: 5px;
+}
+
+.plansBoxKids {
+    width: 95%;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+    margin: auto;
+}
+
+@media (max-width: 1200px) {
+    .plansBoxKids {
+        grid-template-columns: repeat(3, 1fr); /* 3 columnas cuando la ventana es más pequeña */
+    }
+}
+
+@media (max-width: 900px) {
+    .plansBoxKids {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas cuando es más pequeña */
+    }
+}
+
+@media (max-width: 600px) {
+    .plansBoxKids {
+        grid-template-columns: 1fr; /* 1 columna en pantallas pequeñas */
+    }
+}

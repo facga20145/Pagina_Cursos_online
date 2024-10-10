@@ -1,0 +1,94 @@
+/* Estructura de la sección */
+.section2-kids2 {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 20px;
+    align-items: center;
+    padding: 20px;
+    background-image: url('../../images/fondo2Kids.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  
+/* Columna de texto (40%) */
+.text-column-kids2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Título con span añadido */
+.title-kids2 h2 {
+    font-size: 2.3rem;
+    margin-bottom: 10px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+    color: rgb(0, 0, 0);
+}
+
+.title-kids2-span {
+    font-size: 1.2rem;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    color: rgb(92, 6, 56); /* Puedes ajustar el color del span según prefieras */
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Descripción */
+.description-kids2 p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: rgb(0, 0, 0);
+}
+
+/* Contenedor del botón */
+.button-container-kids2 {
+    display: flex;
+    justify-content: flex-start;
+    width: 50%;
+}
+
+.button-kids2 {
+    padding: 10px 20px;
+    background-color: #9866fa;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 25px;
+    font-weight: 800;
+}
+
+/* Columna de la imagen */
+.image-column-kids2 {
+    padding-top: 20px;
+    display: flex;
+    justify-content: center; /* Centra la imagen horizontalmente */
+    align-items: center; /* Centra la imagen verticalmente */
+    height: 100%; /* O el valor que necesites */
+}
+
+.image-kids2 {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    animation: swing 2s ease-in-out infinite alternate;
+}
+
+@keyframes swing {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(0deg);
+    }
+    75% {
+      transform: rotate(-10deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+}
+
