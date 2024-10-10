@@ -10,6 +10,8 @@ import ManageUsers from './components/Admin/ManageUsers';
 import ManageScholarships from './components/Admin/ManageScholarships';
 import UploadVideos from './components/Admin/UploadVideos';
 import './App.css';
+import Childlandingpage from './components/childlandingpage.jsx';
+import DemoLandingPage from './components/DemoLandingPage.jsx'
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/landingyoung" element={<LandingYoung />} />
         <Route path="/" element={<LandingPage />} />
+        <Route path='/childlandingpage' element={<Childlandingpage/>}/>
+        <Route path="/DemoLandingPage" element={<DemoLandingPage />} />
       </Routes>
     </Router>
   );

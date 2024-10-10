@@ -1,0 +1,100 @@
+.headerStructureKids {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr; /* Tres columnas con proporciones */
+  align-items: center;
+  padding: 10px 20px;
+  font-family: 'Hammersmith One', sans-serif;
+  width: 100%;
+  background-color: #ffffff;
+}
+
+.logo2Kids {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.logo2Kids img {
+  width: 12rem;
+  margin-left: 10px;
+}
+
+.listHeaderKids {
+  font-family: 'Monserrat',sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.listHeaderKids a {
+  font-size: 0.8rem;
+  font-weight: 200;
+  margin: 0;
+  text-align: center;
+  color: black;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.listHeaderKids a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: transparent;
+  bottom: -5px; /* Ajusta este valor para mover el subrayado más abajo */
+  left: 0;
+  transform: scaleX(0);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Estilo en hover */
+.listHeaderKids a:hover {
+  color: #005491;
+}
+
+/* Estilo del subrayado en hover */
+.listHeaderKids a:hover::after {
+  background-color: #ff69b4;
+  transform: scaleX(0.7);
+}
+
+
+.headerLink {
+  margin: 0 5px;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 16px;
+}
+
+.ctaListKids {
+  display: flex;
+  justify-content: flex-end;
+  padding-left: 2rem;
+  padding: 0.5rem;
+}
+
+/* Estilo para el botón */
+.ctaListKids button {
+  color: #ffffff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.ctaListKids .loginKids .loginJugo {
+  font-family: 'Monserrat',sans-serif;
+  color: black;
+  background-color: white;
+  font-weight: 600;
+  font-size: 0.7rem;
+}
+
+.ctaListKids .loginKids button {
+  color: black;
+  background-color: #f9de70;
+  font-weight: 800;
+  font-size: 0.7rem;
+  width: 50%;
+}
+
+
