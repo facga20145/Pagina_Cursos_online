@@ -38,17 +38,18 @@ export default function LandingPage() {
       {/* Ocultar el header cuando el modal está activo */}
       {!showModal ? (
         <>
-          <Header onExploreClick={handleExploreClick} />
+<Header onExploreClick={handleExploreClick} />
           <Section />
           <Plans />
           <AboutUsAdult/>
           <HeroSectionAdult/>
           <ServisAdult/>
-          <FooterAdult/>
+          <FooterAdult/>
         </>
       ) : (
         <Modal setUserType={handleUserType} />
       )}
-    </div>
-  );
+    </div>
+  );
 }
+
