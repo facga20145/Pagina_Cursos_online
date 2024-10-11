@@ -12,10 +12,10 @@ import UploadVideos from './components/Admin/UploadVideos';
 import './App.css';
 import Childlandingpage from './components/Landings/Landingkids/Childlandingpage.jsx';
 import DemoLandingPage from './components/DemoLandingPage.jsx'
-import Administrador from './components/Administrador.jsx';
 import PlanesKids from './components/PlanesKids.jsx';
 import Comunidad from './components/comunidad.jsx';
 import Foro from './components/foro.jsx';
+import Admin from './components/Admin/Admin.jsx';
 
 
 
@@ -27,15 +27,13 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/premium" element={<Premium />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/admin/dashboard" element={<AdminDashboard />} />
-        <Route path="/admin/manage-users" element={<ManageUsers />} />
-        <Route path="/admin/manage-scholarships" element={<ManageScholarships />} />
-        <Route path="/admin/upload-videos" element={<UploadVideos />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/landingyoung" element={<LandingYoung />} />
         <Route path="/" element={<LandingPage />} />
         <Route path='/childlandingpage' element={<Childlandingpage/>}/>
         <Route path="/DemoLandingPage" element={<DemoLandingPage />} />
+        <Route path="/planesKids" element={<PlanesKids/>} />
+        <Route path="/admin" element={<Admin/>} />
       </Routes>
     </Router>
   );
