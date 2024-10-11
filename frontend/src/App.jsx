@@ -9,6 +9,8 @@ import './App.css';
 import Childlandingpage from './components/Landings/Landingkids/Childlandingpage.jsx';
 import DemoLandingPage from './components/DemoLandingPage.jsx'
 import PlanesKids from './components/PlanesKids.jsx';
+import Comunidad from './components/comunidad.jsx';
+import Foro from './components/foro.jsx';
 import Admin from './components/Admin/Admin.jsx';
 
 
