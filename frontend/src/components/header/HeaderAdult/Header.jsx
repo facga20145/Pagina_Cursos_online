@@ -1,21 +1,23 @@
 import "../../Login";
 import "../HeaderAdult/Header.css";
 import logo from "../../images/logo.png";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";  // Importa Link
+import Cart from '../../Cart'; 
 
-export default function Header({ onExploreClick }) {
-  const navigate = useNavigate(); // Hook para redirigir
+export default function Header({ onExploreClick, cartItems, removeItemFromCart }) { 
+
+  const navigate = useNavigate();
 
   const linkHeaders = [
-    { name: 'Explorar', url: '#', onClick: onExploreClick }, // Aquí llamamos a la función
+    { name: 'Explorar', url: '/', onClick: onExploreClick },  // Cambia la URL según corresponda
     { name: 'Comunidad', url: '/Comunidad' },
     { name: 'Planes', url: '/Premium' },
-    { name: 'Becas', url: '/Becas' }
+    { name: 'Becas', url: '/Becas' },
+    { name: 'Cursos', url: '/PlanesKids' }
   ];
 
-  // Función que redirige al login
   const handleLoginClick = () => {
-    navigate('/login'); 
+    navigate('/login');
   };
 
   const handleRegisterClick = () => {
@@ -31,17 +33,17 @@ export default function Header({ onExploreClick }) {
 
         <div className="listHeader">
           {linkHeaders.map((link, index) => (
-            <a 
-              key={index} 
-              href={link.url} 
+            <Link  // Utilizamos Link en lugar de <a>
+              key={index}
+              to={link.url}  // Cambiamos href a "to" para que sea manejado por React Router
               className="headerLink"
-              onClick={link.onClick || null} // Solo llama onClick si está definido, de lo contrario navega
+              onClick={link.onClick || null}  // Si existe onClick, lo ejecuta
             >
               {link.name}
-            </a>
+            </Link>
           ))}
         </div>
-        
+
         <div className="ctaList">
           <div className="login">
             <button onClick={handleLoginClick}>Inicia Sesion</button>
@@ -50,7 +52,9 @@ export default function Header({ onExploreClick }) {
             <button onClick={handleRegisterClick}>Registrate gratis</button>
           </div>
         </div>
+
+        <Cart cartItems={cartItems} removeItemFromCart={removeItemFromCart} /> {/* Aquí pasamos el carrito */}
       </header>
-    </div>
-  );
+    </div>
+  );
 }

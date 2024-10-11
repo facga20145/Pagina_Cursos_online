@@ -33,7 +33,9 @@ function App() {
         <Route path='/childlandingpage' element={<Childlandingpage/>}/>
         <Route path="/DemoLandingPage" element={<DemoLandingPage />} />
         <Route path="/planesKids" element={<PlanesKids/>} />
+        <Route path="/Comunidad" element={<Comunidad/>} />
         <Route path="/admin" element={<Admin/>} />
+        <Route path="/Foro" element={<Foro/>} />
       </Routes>
     </Router>
   );
