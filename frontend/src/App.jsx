@@ -5,16 +5,10 @@ import LandingPage from './components/Landings/LandingAdult/LandingPage.jsx';
 import Premium from './components/Premiun/Premium.jsx';
 import Dashboard from '../src/components/Dashboard.jsx'; 
 import LandingYoung from './components/Landings/LandingYoung/LandingYoung.jsx';
-import AdminDashboard from './components/Admin/AdminDashboard.jsx';
-import ManageUsers from './components/Admin/ManageUsers';
-import ManageScholarships from './components/Admin/ManageScholarships';
-import UploadVideos from './components/Admin/UploadVideos';
 import './App.css';
 import Childlandingpage from './components/Landings/Landingkids/Childlandingpage.jsx';
 import DemoLandingPage from './components/DemoLandingPage.jsx'
 import PlanesKids from './components/PlanesKids.jsx';
-import Comunidad from './components/comunidad.jsx';
-import Foro from './components/foro.jsx';
 import Admin from './components/Admin/Admin.jsx';
 
 
