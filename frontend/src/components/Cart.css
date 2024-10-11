@@ -1,5 +1,6 @@
 /* Contenedor del carrito */
 .cart-container {
+  width: 30%;
   position: relative; /* Permite que el dropdown esté alineado al icono del carrito */
   display: inline-block;
 }
@@ -11,11 +12,11 @@
   font-size: 1.5rem;
   cursor: pointer;
   position: relative;
-  color: #000000;
+  color: #ffffff;
 }
 
 /* Estilo para el contador de ítems */
-.cart-icon::after {
+/* .cart-icon::after {
   content: attr(data-items);
   position: absolute;
   top: -10px;
@@ -30,7 +31,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
 /* Dropdown del carrito */
 .cart-dropdown {
@@ -82,8 +83,8 @@
   background-color: #ff4b4b;
 }
 
-/* Botón para cerrar el carrito */
-.cart-dropdown .close-cart {
+ /* Botón para cerrar el carrito */
+/* .cart-dropdown .close-cart {
   background-color: #f9de70;
   color: #000000;
   border: none;
@@ -97,3 +98,4 @@
 .cart-dropdown .close-cart:hover {
   background-color: #f8c942;
 }
+ */
