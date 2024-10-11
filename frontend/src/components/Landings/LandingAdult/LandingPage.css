@@ -1,7 +1,7 @@
 .landingContainer{
    margin: 0;
     padding: 0; 
-    background-image:url('../src/components/images/fondo.png') ;
+    background-image:url('../../images/Fondo-Adult.png') ;
     background-size: cover; 
     background-position: center;
     background-repeat: no-repeat; 

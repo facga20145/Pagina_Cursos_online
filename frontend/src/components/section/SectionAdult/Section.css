@@ -44,41 +44,16 @@
 }
 
 .buttonSection button {
+    font-family: Hamme;
     margin: 1rem;
-    border-radius: 0.5rem;
+    border-radius: 1.5rem;
     padding: 1rem;
     font-size: 1.2rem;
     border: none;
     cursor: pointer;
 }
 
-.btnOne {
-    color: white;
-    background-color: #1c154f;
-}
-
 .btnTwo {
-    color: #9484bc;
-    border: 1px solid #9484bc !important;
-    background-color: transparent;
-}
-
-/* Estilos para los botones */
-.btnOne, .btnTwo {
-    background-color: #3B2E90; /* Color base */
-    color: #fff;
-    border: none;
-    padding: 10px 25px;
-    font-size: 1.2rem;
-    border-radius: 8px;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-    cursor: pointer;
-    margin: 10px; /* Separación entre los botones */
-}
-
-/* Hover para los botones */
-.btnOne:hover, .btnTwo:hover {
-    background-color: #2E2270; /* Cambia el color del fondo al hacer hover */
-    transform: scale(1.1); /* Agranda el botón ligeramente */
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2); /* Añade una sombra suave */
+    color: black;
+    background-color: #ffde59;
 }

@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
-import Header from './header/Header';
-import Section from "./section/Section";
-import Plans from "./plans/Plans";
-import Modal from "./Modal"; // Importamos el modal
-import './LandingPage.css';
+import { useState } from "react"; // Asegúrate de importar useState
+import Header from '../../header/HeaderAdult/Header'
+import Section from "../../section/SectionAdult/Section";
+import Plans from "../../plans/Plans";
+import Modal from "../../Modal"; // Importamos el modal
+import'../../Landings/LandingAdult/LandingPage.css'
 
 export default function LandingPage() {
   const [showModal, setShowModal] = useState(() => {
