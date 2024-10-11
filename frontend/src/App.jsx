@@ -14,6 +14,7 @@ import Childlandingpage from "./components/childlandingpage.jsx";
 import DemoLandingPage from "./components/DemoLandingPage.jsx";
 import ManageCourses from "./components/Administra/ManageCourses";
 import EditCourse from "./components/Administra/EditCourse";
+import ManageAdmin from "./components/Administra/manageAdmin/ManageAdmin.jsx";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/premium" element={<Premium />} />
         <Route path="/register" element={<Register />} />
         <Route path="/Administra/dashboard" element={<AdminDashboard />} />
+        <Route path="/Administra/manage-admin" element={<ManageAdmin />} />
         <Route path="/Administra/manage-users" element={<ManageUsers />} />
         <Route path="/Administra/manage-scholarships"element={<ManageScholarships />}/>
         <Route path="/Administra/upload-videos" element={<UploadVideos />} />

@@ -26,6 +26,7 @@ export default function AdminDashboard() {
             <div className="admin-submenu">
               <Link to="/Administra/manage-users">Gestión de Clientes</Link>
               <Link to="/Administra/manage-scholarships">Gestión de Becas</Link>
+              <Link to="/Administra/manage-admin">Gestión de Administrador</Link>
             </div>
           )}
         </div>
