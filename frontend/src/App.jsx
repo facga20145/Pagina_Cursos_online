@@ -8,6 +8,8 @@ import LandingYoung from './components/Landings/LandingYoung.jsx'
 import './App.css';
 import Childlandingpage from './components/childlandingpage.jsx';
 import DemoLandingPage from './components/DemoLandingPage.jsx'
+import Administrador from './components/Administrador.jsx';
+import PlanesKids from './components/PlanesKids.jsx';
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path='/childlandingpage' element={<Childlandingpage/>}/>
         <Route path="/DemoLandingPage" element={<DemoLandingPage />} />
+        <Route path='/admin' element={<Administrador/>} />
+        <Route path='/planesKids' element={<PlanesKids/>} />
       </Routes>
     </Router>
   );
