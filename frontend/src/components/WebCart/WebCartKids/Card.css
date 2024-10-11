@@ -1,93 +1,115 @@
+/* Configuración general de la lista de tarjetas */
 .cardList {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Coloca hasta 3 tarjetas por fila dependiendo del tamaño de pantalla */
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 26px;
   padding: 16px;
   justify-content: center;
+  background-color: #2C2E31; /* Fondo oscuro que coincide con la temática */
 }
 
+/* Ajuste general de la tarjeta */
 .CardGeneral {
   display: flex;
   justify-content: center;
 }
 
 .card {
-  background-color: #aa87ef;
-  border-top: 5px solid #f9de70;
+  background-color: #181A1B;  /* Color de fondo oscuro */
+  border-top: 5px solid #FDD835;  /* Color de borde superior amarillo */
   border-radius: 8px; 
   overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);  /* Sombras suaves para dar profundidad */
   display: flex;
   flex-direction: column;
   padding: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.card:hover {
+  transform: scale(1.05);  /* Efecto de zoom en hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);  /* Sombras más pronunciadas en hover */
+}
+
+/* Ajuste para la imagen dentro de la tarjeta */
 .card img {
-  width: 12rem; 
-  height: 8rem; 
+  width: 12rem;
+  height: 8rem;
   margin: auto;
+  filter: brightness(0.9);  /* Oscurece ligeramente la imagen para ajustarse a la paleta */
 }
 
+/* Estilos para los títulos */
 .card h3 {
   margin: 16px 0;
-  font-size: 1.5rem; 
+  font-size: 1.5rem;
+  color: #FFFFFF;  /* Título en blanco */
+  text-align: center;
 }
 
+/* Ajustes para las columnas de descripción y precio */
 .column {
-  display: flex;  
+  display: flex;
   justify-content: space-between;
   padding-bottom: 10px;
 }
 
 .title {
-  color: #ffffff;
+  color: #FFFFFF;
   text-align: center;
 }
 
+/* Descripción del curso */
 .description {
-  color: rgb(255, 255, 255);
+  color: #D0D0D0;  /* Texto en gris claro */
   text-align: center;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 
+/* Título general de la sección de cursos */
 .tittleCourseKids {
   text-align: center;
   padding: 20px;
   font-size: 2rem;
-  background-color: #f9de70;
+  background-color: #FDD835;  /* Fondo amarillo vibrante */
+  color: #000000;  /* Texto en negro */
 }
 
+/* Ajustes para los títulos y descripción dentro de la tarjeta */
 .column h4 {
   margin: 0;
   width: 50%;
 }
 
+/* Estilos para el botón de compra */
 .card button {
   padding: 10px;
-  background-color: #f9de70;
-  color: #000000; 
+  background-color: #FDD835;  /* Fondo amarillo vibrante */
+  color: #000000;  /* Texto negro */
   border: none;
   border-radius: 4px;
-  cursor: pointer; 
+  cursor: pointer;
   font-weight: 800;
   font-size: 1rem;
-  transition: background-color 0.3s ease, transform 0.2s ease; /* Transiciones */
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-/* Efecto cuando el cursor pasa sobre el botón */
+/* Efecto de hover en los botones */
 .card button:hover {
-  background-color: #f8c942;
-  transform: scale(1.05); /* Agranda ligeramente el botón */
+  background-color: #FFEB3B;  /* Color amarillo más claro */
+  transform: scale(1.05);  /* Efecto de agrandamiento */
 }
 
+/* Efecto de click en los botones */
 .card button:active {
-  transform: scale(0.65);
-  background-color: #f1b731;
+  transform: scale(0.95);
+  background-color: #FBC02D;
 }
 
+/* Estilos para el precio */
 .price {
   text-align: center;
   font-size: 1.4rem;
-  color: #ffffff;
+  color: #FFFFFF;  /* Texto en blanco */
   padding-top: 20px;
 }
