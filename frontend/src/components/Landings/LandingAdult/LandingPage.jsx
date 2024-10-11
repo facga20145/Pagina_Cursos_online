@@ -2,8 +2,12 @@ import { useState ,useEffect} from "react"; // Asegúrate de importar useState
 import Header from '../../header/HeaderAdult/Header'
 import Section from "../../section/SectionAdult/Section";
 import Plans from "../../plans/Plans";
+import AboutUsAdult from '../../AboutUs/AboutUsAdult/AboutUsAdult'
+import HeroSectionAdult from '../../HeroSection/HeroSectionAdult/HeroSectionAdult'
 import Modal from "../../Modal"; // Importamos el modal
 import'../../Landings/LandingAdult/LandingPage.css'
+import ServisAdult from '../../Servis/ServisAdult/ServisAdult'
+import FooterAdult from '../../Footers/FooterAdult/FooterAdult'
 
 export default function LandingPage() {
   const [showModal, setShowModal] = useState(() => {
@@ -37,6 +41,10 @@ export default function LandingPage() {
           <Header onExploreClick={handleExploreClick} />
           <Section />
           <Plans />
+          <AboutUsAdult/>
+          <HeroSectionAdult/>
+          <ServisAdult/>
+          <FooterAdult/>
         </>
       ) : (
         <Modal setUserType={handleUserType} />

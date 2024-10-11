@@ -1,57 +1,42 @@
-.ServisYoung{
-    background-image: url('../../images/Fondo-Servis.png');
+.ServisAdult{
+    background-image: url('../../images/Fondo-ServisAdult.png');
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
-    height: 110vh;
+    height: 90vh;
 }
 /* Estilos para el contenedor principal */
-.Servis-section {
+.Servis-section-adult {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 50px;
     align-items: center;
-    padding: 50px;
+    padding: 60px;
     max-width: 1200px;
     margin: 0 auto;
   }
   
   /* Sección izquierda (imagen y título) */
-  .Servisleft-section {
+  .Servisleft-section-adult {
     text-align: left;
   }
   
-  .Servisleft-section h1 {
+  .Servisleft-section-adult h1 {
+    color: #fff;
     font-size: 2.5rem;
     font-family: 'Poppins', sans-serif;
     margin-bottom: 20px;
   }
   
-  .phone-image {
+  .ServisAdultIcon {
     max-width: 100%;
     height: auto;
   }
   
   /* Sección derecha (tarjetas de programas) */
-  .Servisright-section {
+  .Servisright-section-adult {
     display: flex;
     flex-direction: column;
     gap: 20px;
-  }
-  
-  /* Responsivo */
-  @media (max-width: 768px) {
-    .Servis-section {
-      grid-template-columns: 1fr;
-      text-align: center;
-    }
-  
-    .Servisleft-section {
-      text-align: center;
-    }
-  
-    .Servisright-section {
-      align-items: center;
-    }
   }
   
