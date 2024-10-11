@@ -18,7 +18,6 @@ export default function Section() {
         </div>
 
         <div className="buttonSection">
-            <button className='btnOne'>!Aprovecha los cursos¡</button>
             <button className='btnTwo'>¡Unete Ahora!</button>
         </div>
     </div>
