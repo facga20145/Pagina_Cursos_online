@@ -10,6 +10,9 @@ function Modal({ setUserType }) {
 
   const handleSelection = (type) => {
     setUserType(type);
+    
+    // Guardamos el tipo de usuario en localStorage
+    localStorage.setItem('userType', type);
 
     if (type === 'child') {
       navigate('/childlandingpage');  
