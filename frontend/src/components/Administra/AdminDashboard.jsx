@@ -24,8 +24,8 @@ export default function AdminDashboard() {
           {/* Submenú de Usuarios */}
           {showUsersMenu && (
             <div className="admin-submenu">
-              <Link to="/admin/manage-users">Gestión de Clientes</Link>
-              <Link to="/admin/manage-scholarships">Gestión de Becas</Link>
+              <Link to="/Administra/manage-users">Gestión de Clientes</Link>
+              <Link to="/Administra/manage-scholarships">Gestión de Becas</Link>
             </div>
           )}
         </div>
@@ -36,8 +36,8 @@ export default function AdminDashboard() {
           {/* Submenú de Cursos */}
           {showCoursesMenu && (
             <div className="admin-submenu">
-              <Link to="/admin/upload-videos">Subida de Videos</Link>
-              <Link to="/admin/courses">Vista General de Cursos</Link>
+              <Link to="/Administra/upload-videos">Subida de Videos</Link>
+              <Link to="/Administra/manage-courses">Crear Cursos</Link>
             </div>
           )}
         </div>
