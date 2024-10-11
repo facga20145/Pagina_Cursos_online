@@ -1,5 +1,3 @@
-import Header from "../components/header/Header";
-import { useNavigate } from 'react-router-dom';
 import "./foro.css";
 
 const Foro = () => {

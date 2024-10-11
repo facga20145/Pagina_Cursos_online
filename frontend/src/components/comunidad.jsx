@@ -1,5 +1,4 @@
-import Header from "../components/header/Header";
-import { useNavigate} from 'react-router-dom';
+
 import "./comunidad.css";
 
 const Comunidad = () => {

@@ -1,4 +1,4 @@
-import { useState } from "react"; // Asegúrate de importar useState
+import { useState ,useEffect} from "react"; // Asegúrate de importar useState
 import Header from '../../header/HeaderAdult/Header'
 import Section from "../../section/SectionAdult/Section";
 import Plans from "../../plans/Plans";
