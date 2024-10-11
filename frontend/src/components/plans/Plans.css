@@ -82,3 +82,44 @@
         grid-template-columns: 1fr; /* 1 columna en pantallas pequeñas */
     }
 }
+
+.plansBox {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px 0;
+}
+
+/* Estilos para cada cuadro del plan */
+.containerBox {
+    text-align: center;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Cuando el mouse pasa sobre el cuadro */
+.containerBox:hover {
+    transform: scale(1.05); /* Hace que el cuadro se agrande un poco */
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2); /* Agrega sombra para un efecto más vistoso */
+}
+
+/* Estilos para los botones */
+.buttonContainer button {
+    background-color: #6200ea;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+
+/* Cuando el mouse pasa sobre el botón */
+.buttonContainer button:hover {
+    background-color: #3700b3; /* Cambia de color */
+    transform: scale(1.1); /* Hace que el botón se agrande un poco */
+}
+

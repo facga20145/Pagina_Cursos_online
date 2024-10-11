@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import "./Register.css";
 import  { useState } from 'react';
 import axios from 'axios';
-import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { FaEye, FaEyeSlash, FaArrowLeft } from 'react-icons/fa';
 
 function Register() {
   const [nombre, setNombre] = useState("");
@@ -108,6 +108,10 @@ function Register() {
     }
   };
 
+  const handleBackClick = () => {
+    navigate('/landingpage'); 
+  };
+
   const handleGenderChange = (event) => {
     setGender(event.target.value);
   };
@@ -140,6 +144,8 @@ function Register() {
 
   return (
     <div className="conten">
+    <FaArrowLeft className="back-arrow" onClick={handleBackClick} />
+
       <div className="content-Register">
         <img className="Logo" src={Logo} alt="Logo" />
         <h1>Crea tu cuenta</h1>

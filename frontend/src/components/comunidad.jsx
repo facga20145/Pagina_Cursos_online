@@ -1,5 +1,5 @@
 import Header from "../components/header/Header";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 import "./comunidad.css";
 
 const Comunidad = () => {
@@ -9,13 +9,6 @@ const Comunidad = () => {
       { nombre: 'María García', cursos: 9, certificados: 7, img: 'perfil2.png' },
       { nombre: 'Carlos Ramírez', cursos: 8, certificados: 6, img: 'perfil3.png' },
     ];
-
-    // Función que redirige al login
-     //   const handleForoClick = () => {
-     //   navigate('/foro'); 
-    //};
-  
-  
     return (
       <section id="comunidad" className="community-section">
         {/* Sección de Eventos */}

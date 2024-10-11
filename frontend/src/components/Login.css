@@ -155,3 +155,20 @@ input.error {
 .toggle-password svg {
   pointer-events: none; /* Asegura que solo el contenedor reciba clics, no el svg */
 }
+
+/* Flecha en la esquina superior izquierda de la página */
+.back-arrow {
+  position: fixed; /* Fija la flecha en la esquina superior izquierda de la ventana */
+  top: 30px;     
+  left: 20px;     
+  right: 50px;
+  font-size: 24px;  
+  color: #fff;      
+  cursor: pointer;  /* Cambia el cursor a pointer al pasar sobre la flecha */
+  transition: transform 0.2s ease-in-out;  /* Efecto de transición al hacer hover */
+  z-index: 1000;    /* Asegura que esté por encima de otros elementos */
+}
+
+.back-arrow:hover {
+  transform: scale(1.2); /* Efecto de agrandamiento al pasar el cursor */
+}

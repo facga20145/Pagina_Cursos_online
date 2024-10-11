@@ -3,23 +3,23 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { FaEye, FaEyeSlash } from 'react-icons/fa'; // Importar los íconos
-import "./Login.css";
+import { FaEye, FaEyeSlash, FaArrowLeft } from 'react-icons/fa'; // Importar el ícono de flecha
+import './Login.css';
 
 function Login() {
+
+
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false); // Estado para manejar la visibilidad de la contraseña
-  const [error, setError] = useState(''); // Para manejar el mensaje de error
+  const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  // Función para validar el formato de correo
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
 
-  // Validación en tiempo real mientras el usuario escribe
   const handleEmailChange = (e) => {
     const email = e.target.value;
     setUsername(email);
@@ -34,10 +34,10 @@ function Login() {
   };
 
   const handleLogin = async (e) => {
-    e.preventDefault(); // Prevenir el comportamiento por defecto del form
+    e.preventDefault();
 
     if (error) {
-      return; // No continuar si hay un error de validación en tiempo real
+      return;
     }
 
     try {
@@ -52,15 +52,22 @@ function Login() {
       sessionStorage.setItem('refreshToken', refreshToken);
       sessionStorage.setItem('expirationTime', expirationTime);
 
-      navigate('/landingpage');
+      navigate('/');
     } catch (error) {
       console.error('Error en la autenticación:', error);
       alert('Error en la autenticación');
     }
   };
 
+  const handleBackClick = () => {
+    navigate('/landingpage'); 
+  };
+
   return (
     <div className="content">
+      {/* Flecha de retroceso fuera del div .login-box */}
+      <FaArrowLeft className="back-arrow" onClick={handleBackClick} />
+
       <div className="login-box">
         <form onSubmit={handleLogin}>
           <img className="logo" src={logo} alt="logo" />
@@ -78,22 +85,22 @@ function Login() {
           </div>
           <div className="input-box">
             <input
-              type={showPassword ? 'text' : 'password'} // Mostrar u ocultar la contraseña
+              type={showPassword ? 'text' : 'password'}
               placeholder="Escribe tu contraseña"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
             <span className="toggle-password" onClick={() => setShowPassword(!showPassword)}>
-              {showPassword ? <FaEyeSlash /> : <FaEye />} {/* Ícono de ojo */}
+              {showPassword ? <FaEyeSlash /> : <FaEye />}
             </span>
           </div>
-          <input type="submit" value={"Iniciar Sesión"} className="btn-submit" />
+          <input type="submit" value="Iniciar Sesión" className="btn-submit" />
           <div className="remember-forgot">
             <label>¿No tienes una cuenta?</label>
             <Link to="/register">Regístrate gratis</Link>
             <a href="">¿Olvidaste tu contraseña?</a>
-          </div>        
+          </div>
         </form>
       </div>
     </div>
