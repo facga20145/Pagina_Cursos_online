@@ -8,6 +8,7 @@ function HeaderYoung() {
         { name: 'Explorar', url: '/' },
         { name: 'Comunidad', url: '/Comunidad' },
         { name: 'Planes', url: '/Premium' },
+        { name: 'Cursos', url: '/PlanesKids' },
         { name: 'Becas', url: '/Becas' }
       ];
       // Función que redirige al login
