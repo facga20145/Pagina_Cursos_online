@@ -7,14 +7,13 @@ import { FaEye, FaEyeSlash, FaArrowLeft } from 'react-icons/fa'; // Importar el 
 import './Login.css';
 
 function Login() {
-
-
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
+  // Función para validar el formato de correo
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
@@ -33,6 +32,7 @@ function Login() {
     }
   };
 
+  // Función para manejar el inicio de sesión
   const handleLogin = async (e) => {
     e.preventDefault();
 
@@ -59,8 +59,19 @@ function Login() {
     }
   };
 
+  // Función para manejar el clic en la flecha de retroceso
   const handleBackClick = () => {
-    navigate('/landingpage'); 
+    const userType = localStorage.getItem('userType');
+
+    if (userType === 'child') {
+      navigate('/childlandingpage');
+    } else if (userType === 'teen') {
+      navigate('/landingyoung');
+    } else if (userType === 'adult') {
+      navigate('/landingpage');
+    } else {
+      navigate('/landingpage');  // Ruta por defecto
+    }
   };
 
   return (

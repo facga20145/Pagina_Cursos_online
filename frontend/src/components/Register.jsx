@@ -1,7 +1,7 @@
 import Logo from "./images/logo-name.png";
 import { Link, useNavigate } from 'react-router-dom';
 import "./Register.css";
-import  { useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 import { FaEye, FaEyeSlash, FaArrowLeft } from 'react-icons/fa';
 
@@ -108,8 +108,19 @@ function Register() {
     }
   };
 
+  // Modificamos la función handleBackClick
   const handleBackClick = () => {
-    navigate('/landingpage'); 
+    const userType = localStorage.getItem('userType');
+
+    if (userType === 'child') {
+      navigate('/childlandingpage');
+    } else if (userType === 'teen') {
+      navigate('/landingyoung');
+    } else if (userType === 'adult') {
+      navigate('/landingpage');
+    } else {
+      navigate('/landingpage');  // Ruta por defecto
+    }
   };
 
   const handleGenderChange = (event) => {
@@ -135,6 +146,10 @@ function Register() {
       });
 
       console.log('Respuesta del servidor:', response.data);
+
+      // Limpiar el localStorage después del registro
+      localStorage.removeItem('userType');
+
       navigate('/login');
     } catch (error) {
       console.error('Error en el registro:', error);
@@ -144,7 +159,7 @@ function Register() {
 
   return (
     <div className="conten">
-    <FaArrowLeft className="back-arrow" onClick={handleBackClick} />
+      <FaArrowLeft className="back-arrow" onClick={handleBackClick} />
 
       <div className="content-Register">
         <img className="Logo" src={Logo} alt="Logo" />
@@ -158,20 +173,19 @@ function Register() {
             {apellidoError && <p className="error-message">{apellidoError}</p>}
 
             <div className="boxs">
-  <div className="input-wrapper">
-    <input
-      type="number"
-      placeholder="Edad"
-      value={edad}
-      onChange={handleEdadChange}
-      required
-    />
-    <p className={`error-message ${edadError ? 'error-visible' : ''}`}>
-      {edadError}
-    </p>
-  </div>
-</div>
-
+              <div className="input-wrapper">
+                <input
+                  type="number"
+                  placeholder="Edad"
+                  value={edad}
+                  onChange={handleEdadChange}
+                  required
+                />
+                <p className={`error-message ${edadError ? 'error-visible' : ''}`}>
+                  {edadError}
+                </p>
+              </div>
+            </div>
 
             <select name="genero" value={gender} onChange={handleGenderChange} required>
               <option value="" disabled>
