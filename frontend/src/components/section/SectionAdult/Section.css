@@ -33,7 +33,7 @@
     font-size: 1.3em;
     font-family: 'Chau Philomene One', sans-serif;
     text-align: center;
-    padding-top: 20px;
+     
 }
 
 .buttonSection {
@@ -44,21 +44,16 @@
 }
 
 .buttonSection button {
+    font-family: 'Hammersmith One', sans-serif;
     margin: 1rem;
-    border-radius: 0.5rem;
+    border-radius: 1.5rem;
     padding: 1rem;
     font-size: 1.2rem;
     border: none;
     cursor: pointer;
 }
 
-.btnOne {
-    color: white;
-    background-color: #1c154f;
-}
-
 .btnTwo {
-    color: #9484bc;
-    border: 1px solid #9484bc !important;
-    background-color: transparent;
+    color: black;
+    background-color: #ffde59;
 }

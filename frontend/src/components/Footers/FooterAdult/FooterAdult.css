@@ -1,0 +1,81 @@
+/* Contenedor principal del footer */
+.footerAdult-container {
+    background-color: #253541;
+    color: white;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Para distribuir columnas y logo */
+    align-items: center; /* Alinear verticalmente el logo y las columnas */
+}
+
+/* Logo del footer */
+.footerAdult-logo img {
+    width: 150px;
+    margin-left: 430px; /* Empuja el logo a la derecha */
+}
+
+/* Contenedor de las columnas del footer */
+.footerAdult-columns {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1000px;
+    padding-top: 40px;
+    border-top: 2px solid #ffffff40;
+}
+
+/* Estilo para cada columna */
+.footerAdult-column {
+    width: 100%;
+    max-width: 1000px;
+    border-bottom: 2px solid #ffffff40;
+    flex: 1;
+    padding-bottom: 40px;
+}
+
+/* Título de cada columna */
+.footerAdult-column h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Lista de enlaces en cada columna */
+.footerAdult-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footerAdult-column li {
+    margin-bottom: 10px;
+}
+
+.footerAdult-column a {
+    color: #a6a8ac;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.9rem;
+}
+
+.footerAdult-column a:hover {
+    color: #ffffff;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+
+    .footerAdult-columns {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footerAdult-column {
+        margin-bottom: 20px;
+    }
+    .footerAdult-logo img {
+        width: 120px;
+        margin-left: 120px;
+    }
+}

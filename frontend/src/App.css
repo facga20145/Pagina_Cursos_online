@@ -1,3 +1,4 @@
+
 .App {
     text-align: center;
   }
@@ -7,15 +8,6 @@
     pointer-events: none;
   }
   
-  body {
-   /*  margin: 0;
-    padding: 0; */
-    /* background-image: url('../src/components/images/fondo.png') ; */
-    background-size: cover; 
-    background-position: center;
-    background-repeat: no-repeat; 
-    height: 100%;
-  }
   
   @media (prefers-reduced-motion: no-preference) {
     .App-logo {

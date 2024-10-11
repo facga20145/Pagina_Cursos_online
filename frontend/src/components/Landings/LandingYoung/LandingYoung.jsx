@@ -1,0 +1,37 @@
+import "./LandingYoung.css";
+import HeaderYoung from "../../header/headerYouth/HeaderYoung";
+import SectionYoung from "../../section/SectionYouth/SectionYoung";
+import AboutUsYoung from "../../AboutUs/AboutUsYoung";
+import FeatureYoung from "../../Features/FeatureYoung";
+import ServisYoung from '../../Servis/ServisYoung/ServisYoung'
+import HeroSection from "../../HeroSection/HeroSection";
+import FooterYoung from '../../Footers/FooterYoung/FooterYoung'
+function LandingYoung() {
+  return (
+    <div className="PrincipalYoung">
+      <div className="headeryoung">
+        <HeaderYoung />
+      </div>
+      <div className="Sectionyoung">
+        <SectionYoung />
+      </div>
+      <div className="AboutUsYoung">
+        <AboutUsYoung />
+      </div>
+      <div className="FeatureYoung">
+        <FeatureYoung />
+      </div>
+      <div className="ServisYoung">
+         <ServisYoung/>
+      </div>
+      <div className="HeroSection">
+         <HeroSection/>
+      </div>
+      <div className="FooterYoung">
+         <FooterYoung/>
+      </div>
+    </div>
+  );
+}
+
+export default LandingYoung;

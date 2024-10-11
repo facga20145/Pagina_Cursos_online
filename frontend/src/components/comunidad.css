@@ -1,0 +1,103 @@
+.community-section {
+    padding: 60px 20px;
+    text-align: center;
+    background: linear-gradient(90deg, rgba(0, 204, 255, 1) 0%, rgba(153, 51, 255, 1) 100%);  /* Degradado de colores */
+    color: #fff;  /* Texto blanco sobre el fondo */
+  }
+  
+  .community-block {
+    background-color: rgba(255, 255, 255, 0.9);  /* Fondo blanco ligeramente transparente */
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+    color: #333;
+  }
+  
+  .community-block-title {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .community-block-description {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #444;
+  }
+  
+  /* Eventos */
+  .event-row {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+  }
+  
+  .event-card {
+    background-color: rgba(0, 204, 255, 0.2);  /* Color azul claro con opacidad */
+    border-radius: 10px;
+    padding: 20px;
+    width: 30%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    color: #333;  /* Texto oscuro */
+  }
+  
+  /* Foro */
+  .foro-posts {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .foro-post {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.9);  /* Fondo blanco translúcido */
+    border-radius: 10px;
+  }
+  
+  .post-info {
+    text-align: left;
+  }
+  
+  .post-user {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .post-content {
+    margin-top: 5px;
+    color: #555;
+  }
+  
+  .post-stats {
+    font-size: 0.9rem;
+    color: #777;
+  }
+  
+  .foro-link {
+    display: block;
+    margin-top: 20px;
+    text-align: right;
+    color: #0066cc;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  /* Ranking */
+  .ranking-podium {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+  }
+  
+  .podium-place {
+    background-color: rgba(153, 51, 255, 0.2);  /* Fondo morado claro */
+    padding: 20px;
+    border-radius: 10px;
+    width: 30%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    color: #333;
+  }
+  

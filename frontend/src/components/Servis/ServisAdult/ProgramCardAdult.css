@@ -1,0 +1,45 @@
+/* Estilos para cada tarjeta de programa */
+.program-cardAdult {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-radius: 20px;
+    color: #fff;
+    width: 100%;
+  }
+
+  /* Icono del programa */
+  .program-iconAdult {
+    width: 100px;
+    height: 60px;
+    margin-right: 20px;
+  }
+  
+  /* Información del programa */
+  .program-infoAdult h3 {
+    font-size: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 5px;
+    text-align: center;
+  }
+  
+  .program-infoAdult p {
+    color: #fff;
+    font-size: 1rem;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    text-align: justify;
+  }
+  
+  /* Responsivo */
+  @media (max-width: 768px) {
+    .program-cardAdult {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .program-iconAdult {
+      margin-bottom: 10px;
+    }
+  }

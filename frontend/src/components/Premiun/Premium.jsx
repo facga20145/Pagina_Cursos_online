@@ -1,6 +1,6 @@
 import "./Premium.css";
 import PricingCard from '../Premiun/PricingCard';
-import Header from "../../components/header/Header";
+import Header from "../header/HeaderAdult/Header";
 function Premium() {
   return (
     <div className="body-Planes">

@@ -116,3 +116,62 @@
   color: #fff;
   margin-right: 10px;
 }
+
+.password-box {
+  position: relative;
+  width: 100%;
+}
+
+.password-box input {
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 40px; /* Aseguramos espacio para el icono */
+}
+
+.toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #333;
+}
+
+
+/* Aumentar el tamaño del input de correo */
+.boxs input[type="text"] {
+  grid-column: span 2; /* Hacemos que el input de correo ocupe todo el ancho de las dos columnas */
+  width: 100%; /* Aseguramos que ocupe todo el espacio disponible */
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255);
+  color: #333;
+  font-size: 16px;
+  box-sizing: border-box;
+  font-family: "Hammersmith One", sans-serif;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 0px;
+  margin-bottom: 0; /* Para que esté pegado al input */
+  padding-left: 5px; /* Un pequeño padding para mantener el espacio */
+  grid-column: span 2;
+}
+
+/* Ajustar el input de edad */
+.input-wrapper input[type="number"] {
+  padding: 12px; /* Aumentar el tamaño del input */
+  font-size: 16px; /* Aumentar el tamaño de la fuente */
+  width: 100%; /* Hacer que ocupe todo el ancho disponible */
+  box-sizing: border-box; /* Asegurar que el padding no afecte el ancho */
+}
+
+/* Ajustar el contenedor para que no afecte la disposición del formulario */
+.input-wrapper {
+  grid-column: span 2; /* Aseguramos que el input de edad ocupe dos columnas */
+  display: flex;
+  flex-direction: column;
+}

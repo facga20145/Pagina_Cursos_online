@@ -1,7 +1,15 @@
 import React from 'react'
 import './Section.css'
+import { useNavigate } from 'react-router-dom';
 
 export default function Section() {
+    
+    const navigate = useNavigate();
+
+    const handleRegisterClick = () => {
+        navigate('/register');
+      }
+
   return (
     <div className='sectionContainer'>
         <div className="phrase">
@@ -18,9 +26,9 @@ export default function Section() {
         </div>
 
         <div className="buttonSection">
-            <button className='btnOne'>!Aprovecha los cursos¡</button>
             <button className='btnTwo'>¡Unete Ahora!</button>
         </div>
+        
     </div>
   )
 }

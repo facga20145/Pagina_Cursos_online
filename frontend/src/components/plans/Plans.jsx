@@ -1,66 +1,48 @@
-import './Plans.css'
-import { FaRegHeart, FaRegStar } from 'react-icons/fa';
-import { LuGraduationCap, LuBookMarked } from "react-icons/lu";
-import gift from '../images/gift.png'
-import champion from '../images/champion.png'
-import backpack from '../images/backpack.png'
-import scholarship from '../images/scholarship.png'
-
+import "./Plans.css";
+import Books from '../images/Books-Icon.png'
+import Activity from '../images/Activity-Icon.png'
+import Languages from '../images/Language-Icon.png'
 export default function Plans() {
-
-    const Plan = ({ img, text, para, buttonText, IconComponent }) => {
-        return (
-            <div className='containerBox'>
-                <img src={img} alt="Plan image" />
-                <h3>{text}</h3>
-                <div className='paraContainer'>
-                    <p>{para}</p>
-                </div>
-                <div className='buttonContainer'>
-                    
-                    <button>{IconComponent && <IconComponent className="IconComponent"/>}{buttonText}</button>
-                </div>
-            </div>
-        );
-    };
+  const Plan = ({ img, text, para }) => {
+    return (
+      <div className="containerBox">
+        <img src={img} alt="Plan image" />
+        <h3>{text}</h3>
+        <div className="paraContainer">
+          <p>{para}</p>
+        </div>
+      </div>
+    );
+  };
 
   return (
-    <div className='plansContainer'>
-        <h3 className='head'>Elige el plan de estudio ideal para ti</h3>
+    <div className="plansContainer">
+      <h3 className="head">No aplaces tu
+        <span className="highlight"> educación</span>
+        </h3>
+      <p>Actívate y crea cosas asombrosas usando la programación</p>
 
-        <div className="plansBox">
+      <div className="plansBox">
         <Plan
-                    img={gift}
-                    text="Plan gratuito"
-                    para="Toma nuestros 9 cursos gratuitos (incluyen certificado) y mira las primeras clases de todos los cursos"
-                    buttonText="Comienza a estudiar gratis"
-                    IconComponent={FaRegHeart}
-                />
+          img={Books}
+          text="Curso"
+          para="Descubre cómo crear cosas asombrosas y deja que tu imaginación se eleve"
 
-        <Plan
-                    img={champion}
-                    text="Plan Premium"
-                    para="Acceso total a cientos de cursos, talleres y carreras en Guimatbot con un único pago."
-                    buttonText="¡Sube a premium ahora!"
-                    IconComponent={FaRegStar}
-                />
+        />
 
         <Plan
-                    img={backpack}
-                    text="Plan para estudiantes"
-                    para="Si estás en la universidad, colegio o instituto, obtén una beca del 50% por un año en GuimarBot"
-                    buttonText="Estudia con nosotros"
-                    IconComponent={ LuGraduationCap}
-                />
-         <Plan
-                    img={scholarship}
-                    text="Becas"
-                    para="Adquiere una beca totalmente gratis en GuimarBot por tu excelencia"
-                    buttonText="¡Postula Aqui!"
-                    IconComponent={LuBookMarked}
-                />
+          img={Activity}
+          text="Actividades"
+          para="Comienza a programar hoy y explora todo lo que eres capaz de crear"
+        />
 
-        </div>
+        <Plan
+          img={Languages}
+          text="Lenguaje"
+          para="Cada código que escribes es una nueva herramienta para crear cosas asombrosas"
+
+        />
+      </div>
     </div>
-  )
+  );
 }
