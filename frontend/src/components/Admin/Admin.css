@@ -1,93 +1,63 @@
-/* Estilos básicos */
-body {
-  font-family: 'Montserrat', sans-serif;
-  background-color: #f4f6f9;
-  margin: 0;
-  padding: 0;
+.adminPanelContainerKids {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 20px;
+    padding: 20px;
+    background-image: url('../images/fondo.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: auto;
+    min-height: 150vh;
 }
 
-.admin-dashboard h1 {
-  font-size: 2.4rem;
-  font-weight: 700;
-  color: #333;
-  margin-bottom: 30px;
-  text-align: center;
+.adminSidebarKids {
+    background: #ffffff10; 
+    backdrop-filter: blur(0.4rem);
+    -webkit-backdrop-filter: blur(0.4rem);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
 }
 
-.admin-main-options {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 40px;
+.adminImageKids {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
 }
 
-.admin-option {
-  position: relative;
-  padding: 20px;
-  background-color: #005b96;
-  color: #fff;
-  text-align: center;
-  cursor: pointer;
-  border-radius: 10px;
-  font-size: 1.2rem;
-  font-weight: 500;
-  transition: background-color 0.3s ease;
-  width: 250px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.adminSidebarKids ul {
+    list-style: none;
+    padding: 0;
 }
 
-.admin-option:hover {
-  background-color: #003f6f;
-  transform: translateY(-4px);
+.adminSidebarKids ul li {
+    padding: 10px 0;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #ffde59;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    text-align: center;
+    margin: 10px;
+    border-radius: 25px;
 }
 
-.admin-submenu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  margin-top: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  opacity: 0;
-  transform: scaleY(0);
-  transform-origin: top;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+.adminSidebarKids ul li.activeKids {
+    background-color: #cbbaf6; /* Color para el li activo */
 }
 
-.admin-option:hover .admin-submenu,
-.admin-option:focus-within .admin-submenu {
-  opacity: 1;
-  transform: scaleY(1);
+.adminSidebarKids ul li:hover {
+    transform: translateY(-5px);
+    color: #1c154f; /* Cambiar color en hover */
 }
 
-.admin-submenu a {
-  padding: 10px 20px;
-  text-decoration: none;
-  color: #333;
-  transition: background-color 0.3s ease;
-  border-bottom: 1px solid #ddd;
+.adminContentKids {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
 }
 
-.admin-submenu a:hover {
-  background-color: #f4f4f4;
-}
-
-.admin-submenu a:last-child {
-  border-bottom: none;
-}
-
-/* Animación y efectos */
-.admin-option p {
-  margin: 0;
-  font-size: 1.2rem;
-}
-
-.admin-option:hover {
-  background-color: #003f6f;
-  transform: translateY(-4px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+.adminContentKids p {
+    color: black;
 }

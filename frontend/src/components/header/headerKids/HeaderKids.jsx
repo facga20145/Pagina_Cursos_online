@@ -12,6 +12,7 @@ const linkHeaders = [
   { name: 'Explorar', url: '/' },
   { name: 'Comunidad', url: '/Comunidad' },
   { name: 'Planes', url: '/Premium' },
+  { name: 'Planes', url: '/planesKids' },
   { name: 'Becas', url: '/Becas' }
 ];
 
