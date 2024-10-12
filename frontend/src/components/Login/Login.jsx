@@ -1,4 +1,4 @@
-import logo from './images/logo-name.png';
+import logo from '../images/Logo-black.svg';
 import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -75,15 +75,15 @@ function Login() {
   };
 
   return (
-    <div className="content">
+    <div className="contentLogin">
       {/* Flecha de retroceso fuera del div .login-box */}
-      <FaArrowLeft className="back-arrow" onClick={handleBackClick} />
+      <FaArrowLeft className="back-arrow-Login" onClick={handleBackClick} />
 
       <div className="login-box">
         <form onSubmit={handleLogin}>
-          <img className="logo" src={logo} alt="logo" />
+          <img className="logo-Login" src={logo} alt="logo" />
           <h1>Inicio de Sesión</h1>
-          <div className="input-box">
+          <div className="input-box-Login">
             <input
               type="text"
               placeholder="Escribe tu correo Electrónico"
@@ -94,7 +94,7 @@ function Login() {
             />
             {error && <p className="error-message">{error}</p>}
           </div>
-          <div className="input-box">
+          <div className="input-box-Login">
             <input
               type={showPassword ? 'text' : 'password'}
               placeholder="Escribe tu contraseña"
@@ -102,15 +102,15 @@ function Login() {
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-            <span className="toggle-password" onClick={() => setShowPassword(!showPassword)}>
+            <span className="toggle-password-Login" onClick={() => setShowPassword(!showPassword)}>
               {showPassword ? <FaEyeSlash /> : <FaEye />}
             </span>
           </div>
-          <input type="submit" value="Iniciar Sesión" className="btn-submit" />
-          <div className="remember-forgot">
+          <input type="submit" value="Iniciar Sesión" className="btn-submit-Login" />
+          <div className="remember-forgot-Login">
             <label>¿No tienes una cuenta?</label>
             <Link to="/register">Regístrate gratis</Link>
-            <a href="">¿Olvidaste tu contraseña?</a>
+            <Link to="/register">¿Olvidaste tu contraseña?</Link>
           </div>
         </form>
       </div>

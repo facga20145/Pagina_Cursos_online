@@ -1,6 +1,6 @@
-import "../../Login";
+import "../../Login/Login";
 import "../HeaderAdult/Header.css";
-import logo from "../../images/logo.png";
+import logo from "../../images/Logo-White.svg";
 import { useNavigate, Link } from "react-router-dom";  // Importa Link
 import Cart from '../../Cart'; 
 

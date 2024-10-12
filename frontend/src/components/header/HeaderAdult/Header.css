@@ -1,9 +1,12 @@
 .headerStructure {
   display: flex;
   align-items: center;
-  padding: 30px 20px;
+  justify-content: space-between;
+  text-align: center;
+  padding: 20px 20px;
+  margin-left: 150px;
   font-family: "Hammersmith One", sans-serif;
-  width: 100%;
+  width: 90%;
 }
 
 .logo2 {
@@ -18,14 +21,16 @@
 }
 
 .listHeader {
-  flex-grow: 1;
+  flex-grow: 2;
+  padding: 0 50px ;
   display: flex;
   justify-content: center;
 }
 
 .listHeader a {
   position: relative; /* Necesario para posicionar el pseudo-elemento */
-  font-size: 1.1rem;
+  margin: 0 40px;
+  font-size: 1rem;
   text-align: center;
 }
 .headerLink::after {
@@ -44,18 +49,16 @@
 
 /* Estilo para los enlaces del header */
 .headerLink {
-  margin: 0 15px;
   text-decoration: none;
   color: #ffffff;
   font-size: 16px;
 }
 
 .ctaList {
-  padding-left: 2rem;
   display: flex;
-  padding: 0.5rem;
+  align-items: center;
   justify-content: flex-end;
-  flex-grow: 1;
+  gap: 20px; /* Añade espacio uniforme entre elementos */
 }
 
 .ctaList > div {
@@ -72,13 +75,14 @@
 .Register button {
   font-family: "Hammersmith One", sans-serif;
   padding: 10px;
+  margin-left:40px ;
   background-color: transparent;
   color: white;
   border: none;
   border-radius: 10px;
   cursor: pointer;
   font-size: 16px;
-  width: 80%;
+  width: 120%;
 }
 .login button:hover,
 .Register button:hover {

@@ -1,24 +1,24 @@
-import Logo from "./images/logo-name.png";
-import { Link, useNavigate } from 'react-router-dom';
+import Logo from "./images/Logo-black.svg";
+import { Link, useNavigate } from "react-router-dom";
 import "./Register.css";
-import { useState } from 'react';
-import axios from 'axios';
-import { FaEye, FaEyeSlash, FaArrowLeft } from 'react-icons/fa';
+import { useState } from "react";
+import axios from "axios";
+import { FaEye, FaEyeSlash, FaArrowLeft } from "react-icons/fa";
 
 function Register() {
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
-  const [edad, setEdad] = useState("");
+  const [fechaNacimiento, setFecha] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [emailError, setEmailError] = useState('');
-  const [nombreError, setNombreError] = useState('');
-  const [apellidoError, setApellidoError] = useState('');
-  const [edadError, setEdadError] = useState('');
-  const [passwordError, setPasswordError] = useState('');
+  const [emailError, setEmailError] = useState("");
+  const [nombreError, setNombreError] = useState("");
+  const [apellidoError, setApellidoError] = useState("");
+  const [edadError, setEdadError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
   const [gender, setGender] = useState("");
   const navigate = useNavigate();
 
@@ -50,48 +50,47 @@ function Register() {
   const handleEmailChange = (e) => {
     const emailValue = e.target.value;
     setEmail(emailValue);
-    if (emailValue === '') {
-      setEmailError('');
+    if (emailValue === "") {
+      setEmailError("");
     } else if (!validateEmail(emailValue)) {
-      setEmailError('El formato del correo es incorrecto.');
+      setEmailError("El formato del correo es incorrecto.");
     } else {
-      setEmailError('');
+      setEmailError("");
     }
   };
 
   const handleNombreChange = (e) => {
     const nombreValue = e.target.value;
     setNombre(nombreValue);
-    if (nombreValue === '') {
-      setNombreError(''); // Si está vacío, no mostrar error
+    if (nombreValue === "") {
+      setNombreError(""); // Si está vacío, no mostrar error
     } else if (!validateNombre(nombreValue)) {
-      setNombreError('El nombre debe tener entre 2 y 30 letras.');
+      setNombreError("El nombre debe tener entre 2 y 30 letras.");
     } else {
-      setNombreError('');
+      setNombreError("");
     }
   };
 
   const handleApellidoChange = (e) => {
     const apellidoValue = e.target.value;
     setApellido(apellidoValue);
-    if (apellidoValue === '') {
-      setApellidoError(''); // Si está vacío, no mostrar error
+    if (apellidoValue === "") {
+      setApellidoError(""); // Si está vacío, no mostrar error
     } else if (!validateApellido(apellidoValue)) {
-      setApellidoError('El apellido debe tener entre 2 y 30 letras.');
+      setApellidoError("El apellido debe tener entre 2 y 30 letras.");
     } else {
-      setApellidoError('');
+      setApellidoError("");
     }
   };
 
-  const handleEdadChange = (e) => {
-    const edadValue = e.target.value;
-    setEdad(edadValue);
-    if (edadValue === '') {
-      setEdadError(''); // Si está vacío, no mostrar error
-    } else if (!validateEdad(edadValue)) {
-      setEdadError('La edad debe estar entre 1 y 119.');
+  const handleFechaChange = (e) => {
+    const fechaNacimiento = e.target.value;
+    setFecha(fechaNacimiento);
+
+    if (fechaNacimiento === "") {
+      setEdadError("");
     } else {
-      setEdadError('');
+      setEdadError("");
     }
   };
 
@@ -99,27 +98,29 @@ function Register() {
     const passwordValue = e.target.value;
     setPassword(passwordValue);
 
-    if(passwordValue === ''){
-      setPasswordError('');
-    }else if (!validatePassword(passwordValue)) {
-      setPasswordError('La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un número.');
+    if (passwordValue === "") {
+      setPasswordError("");
+    } else if (!validatePassword(passwordValue)) {
+      setPasswordError(
+        "La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un número."
+      );
     } else {
-      setPasswordError('');
+      setPasswordError("");
     }
   };
 
   // Modificamos la función handleBackClick
   const handleBackClick = () => {
-    const userType = localStorage.getItem('userType');
+    const userType = localStorage.getItem("userType");
 
-    if (userType === 'child') {
-      navigate('/childlandingpage');
-    } else if (userType === 'teen') {
-      navigate('/landingyoung');
-    } else if (userType === 'adult') {
-      navigate('/landingpage');
+    if (userType === "child") {
+      navigate("/childlandingpage");
+    } else if (userType === "teen") {
+      navigate("/landingyoung");
+    } else if (userType === "adult") {
+      navigate("/landingpage");
     } else {
-      navigate('/landingpage');  // Ruta por defecto
+      navigate("/landingpage"); // Ruta por defecto
     }
   };
 
@@ -136,58 +137,82 @@ function Register() {
     }
 
     try {
-      const response = await axios.post('http://localhost:4000/api/auth/register', {
-        nombre,
-        apellido,
-        edad,
-        genero: gender,
-        email,
-        password,
-      });
+      const response = await axios.post(
+        "http://localhost:4000/api/auth/register",
+        {
+          nombre,
+          apellido,
+          fechaNacimiento,
+          genero: gender,
+          email,
+          password,
+        }
+      );
 
-      console.log('Respuesta del servidor:', response.data);
+      console.log("Respuesta del servidor:", response.data);
 
       // Limpiar el localStorage después del registro
-      localStorage.removeItem('userType');
+      localStorage.removeItem("userType");
 
-      navigate('/login');
+      navigate("/login");
     } catch (error) {
-      console.error('Error en el registro:', error);
-      alert('Error en el registro.');
+      console.error("Error en el registro:", error);
+      alert("Error en el registro.");
     }
   };
 
   return (
-    <div className="conten">
-      <FaArrowLeft className="back-arrow" onClick={handleBackClick} />
+    <div className="contenRegister">
+      <FaArrowLeft className="back-arrow-Register" onClick={handleBackClick} />
 
       <div className="content-Register">
-        <img className="Logo" src={Logo} alt="Logo" />
+        <img className="LogoRegister" src={Logo} alt="Logo" />
         <h1>Crea tu cuenta</h1>
-        <form className="Formulario" onSubmit={handleRegister}>
-          <div className="boxs">
-            <input type="text" placeholder="Nombre" value={nombre} onChange={handleNombreChange} required />
+        <form className="FormularioRegister" onSubmit={handleRegister}>
+          <div className="boxsRegister">
+            <input
+              type="text"
+              placeholder="Nombre"
+              value={nombre}
+              onChange={handleNombreChange}
+              required
+            />
             {nombreError && <p className="error-message">{nombreError}</p>}
 
-            <input type="text" placeholder="Apellido" value={apellido} onChange={handleApellidoChange} required />
+            <input
+              type="text"
+              placeholder="Apellido"
+              value={apellido}
+              onChange={handleApellidoChange}
+              required
+            />
             {apellidoError && <p className="error-message">{apellidoError}</p>}
 
-            <div className="boxs">
-              <div className="input-wrapper">
+            <div className="boxsRegister">
+              <div className="input-wrapperRegister">
                 <input
-                  type="number"
-                  placeholder="Edad"
-                  value={edad}
-                  onChange={handleEdadChange}
+                  type="date"
+                  placeholder="Fecha de nacimiento"
+                  value={fechaNacimiento}
+                  onChange={handleFechaChange}
                   required
                 />
-                <p className={`error-message ${edadError ? 'error-visible' : ''}`}>
+                <p
+                  className={`error-message ${
+                    edadError ? "error-visible" : ""
+                  }`}
+                >
                   {edadError}
                 </p>
               </div>
             </div>
 
-            <select name="genero" value={gender} onChange={handleGenderChange} required>
+            <select
+              name="genero"
+              value={gender}
+              onChange={handleGenderChange}
+              required
+            >
               <option value="" disabled>
                 Selecciona tu género
               </option>
@@ -200,12 +225,12 @@ function Register() {
               placeholder="Correo electrónico"
               value={email}
               onChange={handleEmailChange}
-              className={emailError ? 'error' : ''}
+              className={emailError ? "error" : ""}
               required
             />
             {emailError && <p className="error-message">{emailError}</p>}
 
-            <div className="password-box">
+            <div className="password-box-Register">
               <input
                 type={showPassword ? "text" : "password"}
                 placeholder="Contraseña"
@@ -213,13 +238,18 @@ function Register() {
                 onChange={handlePasswordChange}
                 required
               />
-              {passwordError && <p className="error-message">{passwordError}</p>}
-              <span className="toggle-password" onClick={() => setShowPassword(!showPassword)}>
+              {passwordError && (
+                <p className="error-message">{passwordError}</p>
+              )}
+              <span
+                className="toggle-password-Register"
+                onClick={() => setShowPassword(!showPassword)}
+              >
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
               </span>
             </div>
 
-            <div className="password-box">
+            <div className="password-box-Register">
               <input
                 type={showConfirmPassword ? "text" : "password"}
                 placeholder="Confirmar contraseña"
@@ -227,14 +257,17 @@ function Register() {
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 required
               />
-              <span className="toggle-password" onClick={() => setShowConfirmPassword(!showConfirmPassword)}>
+              <span
+                className="toggle-password-Register"
+                onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+              >
                 {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
               </span>
             </div>
 
             <input type="submit" value={"Registrate ahora"} />
           </div>
-          <div className="alredy">
+          <div className="alredyRegister">
             <label>¿Ya tienes una cuenta?</label>
             <Link to="/login">Inicia sesión</Link>
           </div>

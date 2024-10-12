@@ -4,8 +4,9 @@ import './HeaderKids.css';
 import logo from '../../../components/images/logoKids.png';
 import { TiThMenu } from "react-icons/ti";
 import { useNavigate } from 'react-router-dom';
+import Cart from '../../Cart'
 
-export default function Header() {
+export default function Header(onExploreClick, cartItems, removeItemFromCart) {
   const navigate = useNavigate(); // Hook para redirigir
 
 const linkHeaders = [
@@ -26,14 +27,14 @@ const handleRegisterClick = () => {
 }
   return (
     <div>
-        <header className='headerStructure'>
-            <div className="logo2">
+        <header className='headerStructureKids'>
+            <div className="logo2Kids">
                 <img src={logo} />
             </div>
 
             <div className="listHeaderKids">
           {linkHeaders.map((link, index) => (
-            <a key={index} href={link.url} className="headerLink">
+            <a key={index} href={link.url} className="headerLink-Kids">
               {link.name}
             </a>
           ))}
@@ -44,6 +45,7 @@ const handleRegisterClick = () => {
                     <button onClick={handleRegisterClick} >Registra</button>
                 </div>
             </div>
+           {/* /*  <Cart cartItems={cartItems} removeItemFromCart={removeItemFromCart} /> {/* Aquí pasamos el carrito */} 
         </header>
     </div>
   )
