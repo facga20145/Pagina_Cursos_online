@@ -2,16 +2,19 @@
 .headerStructure-Young {
   display: flex;
   align-items: center;
-  padding: 10px 20px;
+  justify-content: space-between;
+  text-align: center;
+  padding: 20px 20px;
+  margin-left: 150px;
   font-family: "Hammersmith One", sans-serif;
-  width: 90%;
+  width: 100%;
+
 }
 
 .logo-Young {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 15px;
 }
 
 .logo-Young img {
@@ -19,20 +22,21 @@
 }
 
 .listHeader-Young {
-  flex-grow: 1;
+  flex-grow: 2;
+  padding: 0 50PX;
   font-family: "Montserrat Alternates", sans-serif;
   display: flex;
   justify-content: center;
 }
 
 .listHeader-Young a {
+  color: #ffffff;
   font-size: 1.1rem;
   text-align: center;
   position: relative; /* Necesario para posicionar el pseudo-elemento */
-  text-decoration: none;
-  margin: 0 15px;
+  margin: 0 45px;
 }
-.headerLink::after {
+.headerLink-Young::after {
   content: "";
   position: absolute;
   width: 0;
@@ -42,16 +46,16 @@
   left: 0;
   transition: width 0.3s ease-in-out; /* Animación suave */
 }
-.headerLink:hover::after {
+.headerLink-Young:hover::after {
   width: 100%; /* Expande la línea al 100% */
 }
 
 .ctaList-Young {
-  padding-left: 2rem;
   display: flex;
-  padding: 0.5rem;
+  align-items: center;
   justify-content: flex-end;
-  flex-grow: 1;
+  margin-right: 100px;
+  gap: 20px; /* Añade espacio uniforme entre elementos */
 }
 
 .ctaList-Young > div {
@@ -66,15 +70,16 @@
 /* Botón de login y register */
 .login-Young button,
 .Register-Young button {
+  font-family: "Hammersmith One", sans-serif;
   padding: 10px;
+  margin-left:40px ;
   background-color: transparent;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
-  font-family: "Montserrat Alternates", sans-serif;
   font-size: 16px;
-  width: 80%;
+  width: 120%;
 }
 /* Estado hover */
 .login-Young button:hover,
@@ -96,7 +101,7 @@
 }
 
 /* Estilo para los enlaces del header */
-.headerLink {
+.headerLink-Young {
   margin: 0 15px;
   text-decoration: none;
   color: #ffffff;
@@ -181,4 +186,13 @@
     color: black;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
+}
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-profile span {
+  font-weight: bold;
 }

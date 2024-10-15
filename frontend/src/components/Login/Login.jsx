@@ -1,16 +1,18 @@
-import logo from '../images/Logo-black.svg';
-import { useState } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import { FaEye, FaEyeSlash, FaArrowLeft } from 'react-icons/fa'; // Importar el ícono de flecha
-import './Login.css';
+import logo from "../images/Logo-black.svg";
+import { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { FaEye, FaEyeSlash, FaArrowLeft } from "react-icons/fa"; // Importar el ícono de flecha
+import "./Login.css";
 
 function Login() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  // Definir el estado para verificar si el usuario está logueado
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   // Función para validar el formato de correo
@@ -23,12 +25,12 @@ function Login() {
     const email = e.target.value;
     setUsername(email);
 
-    if (email === '') {
-      setError('');
+    if (email === "") {
+      setError("");
     } else if (!validateEmail(email)) {
-      setError('El formato del correo es incorrecto.');
+      setError("El formato del correo es incorrecto.");
     } else {
-      setError('');
+      setError("");
     }
   };
 
@@ -41,36 +43,52 @@ function Login() {
     }
 
     try {
-      const response = await axios.post('http://localhost:4000/api/auth/login', {
-        username,
-        password,
-      });
+      const response = await axios.post(
+        "http://localhost:4000/api/auth/login",
+        {
+          username,
+          password,
+        }
+      );
+      // Verificar si la respuesta tiene el token y el usuario
+      if (response.data && response.data.accessToken && response.data.user) {
+        // Guardar el token de acceso y los datos del usuario en localStorage
+        localStorage.setItem("accessToken", response.data.accessToken);
+        localStorage.setItem("user", JSON.stringify(response.data.user));
 
-      const { accessToken, refreshToken, expirationTime } = response.data;
+        // Establecer el estado de login
+        setIsLoggedIn(true);
 
-      sessionStorage.setItem('accessToken', accessToken);
-      sessionStorage.setItem('refreshToken', refreshToken);
-      sessionStorage.setItem('expirationTime', expirationTime);
+        // Guarda los tokens y el tiempo de expiración en sessionStorage
+        const { accessToken, refreshToken, expirationTime } = response.data;
 
-      navigate('/');
+        sessionStorage.setItem("accessToken", accessToken);
+        sessionStorage.setItem("refreshToken", refreshToken);
+        sessionStorage.setItem("expirationTime", expirationTime);
+
+        // Redirigir al usuario a la página principal o el dashboard
+        navigate("/landingyoung");
+      } else {
+        setError("Datos de autenticación inválidos.");
+      }
     } catch (error) {
-      console.error('Error en la autenticación:', error);
-      alert('Error en la autenticación');
+      console.error("Error en la autenticación:", error);
+      setError("Error en la autenticación");
     }
   };
 
   // Función para manejar el clic en la flecha de retroceso
   const handleBackClick = () => {
-    const userType = localStorage.getItem('userType');
+    const userType = localStorage.getItem("userType");
 
-    if (userType === 'child') {
-      navigate('/childlandingpage');
-    } else if (userType === 'teen') {
-      navigate('/landingyoung');
-    } else if (userType === 'adult') {
-      navigate('/landingpage');
+    if (userType === "child") {
+      navigate("/childlandingpage");
+    } else if (userType === "teen") {
+      navigate("/landingyoung");
+    } else if (userType === "adult") {
+      navigate("/landingpage");
     } else {
-      navigate('/landingpage');  // Ruta por defecto
+      navigate("/landingpage"); // Ruta por defecto
     }
   };
 
@@ -89,24 +107,31 @@ function Login() {
               placeholder="Escribe tu correo Electrónico"
               value={username}
               onChange={handleEmailChange}
-              className={error ? 'error' : ''}
+              className={error ? "error" : ""}
               required
             />
             {error && <p className="error-message">{error}</p>}
           </div>
           <div className="input-box-Login">
             <input
-              type={showPassword ? 'text' : 'password'}
+              type={showPassword ? "text" : "password"}
               placeholder="Escribe tu contraseña"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-            <span className="toggle-password-Login" onClick={() => setShowPassword(!showPassword)}>
+            <span
+              className="toggle-password-Login"
+              onClick={() => setShowPassword(!showPassword)}
+            >
               {showPassword ? <FaEyeSlash /> : <FaEye />}
             </span>
           </div>
-          <input type="submit" value="Iniciar Sesión" className="btn-submit-Login" />
+          <input
+            type="submit"
+            value="Iniciar Sesión"
+            className="btn-submit-Login"
+          />
           <div className="remember-forgot-Login">
             <label>¿No tienes una cuenta?</label>
             <Link to="/register">Regístrate gratis</Link>

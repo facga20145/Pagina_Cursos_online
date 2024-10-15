@@ -2,8 +2,7 @@ const connection = require("../config/db.js"); // Importa la conexión a la base
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt"); // Para cifrar la contraseña
 
-// Función para generar el token de acceso 
-//jwt.sign (genera el token para cada cliente)
+// Función para generar el token de acceso
 const generateAccessToken = (user) => {
   return jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
     expiresIn: "15s",
@@ -19,7 +18,7 @@ const generateRefreshToken = (user) => {
 
 // Controlador de registro de usuario
 exports.register = async (req, res) => {
-  const { nombre, apellido, edad, genero, email, password } = req.body;
+  const { nombre, apellido, fechaNacimiento, genero, email, password } = req.body;
 
   // Validar si el correo ya existe en la base de datos
   const queryCheckEmail = "SELECT * FROM users WHERE email = ?";
@@ -37,11 +36,11 @@ exports.register = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     // Insertar el nuevo usuario en la base de datos
-    const queryInsertUser =
-      "INSERT INTO users (nombre, apellido, edad, genero, email, contrasena) VALUES (?, ?, ?, ?, ?, ?)";
+    const queryInsertUser = `INSERT INTO users (nombre, apellido, fecha_nacimiento, genero, email, contrasena) VALUES (?, ?, ?, ?, ?, ?)`;
+
     connection.query(
       queryInsertUser,
-      [nombre, apellido, edad, genero, email, hashedPassword],
+      [nombre, apellido, fechaNacimiento, genero, email, hashedPassword],
       (err, result) => {
         if (err) {
           console.error("Error al registrar al usuario:", err);
@@ -91,6 +90,12 @@ exports.login = (req, res) => {
 
       // Devolver los tokens y el tiempo de expiración al cliente
       return res.json({
+        user: {
+          id: user.id,
+          nombre: user.nombre,
+          apellido: user.apellido,
+          email: user.email,
+        },
         accessToken,
         refreshToken,
         expirationTime, // Incluir el tiempo de expiración

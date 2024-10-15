@@ -1,12 +1,13 @@
 /* Contenedor del carrito */
 .cart-container {
-  width: 30%;
+  width: 15%;
   position: relative; /* Permite que el dropdown esté alineado al icono del carrito */
-  display: inline-block;
+  justify-content:flex-start;
+  display: flex;
 }
 
 /* Icono del carrito */
-.cart-icon {
+.cart-icon{
   background-color: transparent;
   border: none;
   font-size: 1.5rem;
@@ -14,24 +15,14 @@
   position: relative;
   color: #ffffff;
 }
-
-/* Estilo para el contador de ítems */
-/* .cart-icon::after {
-  content: attr(data-items);
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  background-color: #f9de70;
+.Kids-Style {
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  position: relative;
   color: #000000;
-  font-size: 0.75rem;
-  padding: 4px;
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
+}
 
 /* Dropdown del carrito */
 .cart-dropdown {

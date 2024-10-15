@@ -17,7 +17,6 @@ function Register() {
   const [emailError, setEmailError] = useState("");
   const [nombreError, setNombreError] = useState("");
   const [apellidoError, setApellidoError] = useState("");
-  const [edadError, setEdadError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [gender, setGender] = useState("");
   const navigate = useNavigate();
@@ -35,11 +34,6 @@ function Register() {
   const validateApellido = (apellido) => {
     const apellidoRegex = /^[a-zA-ZÀ-ÿ\s]{2,30}$/;
     return apellidoRegex.test(apellido);
-  };
-
-  const validateEdad = (edad) => {
-    const edadRegex = /^(1[0-1][0-9]|[1-9][0-9]?)$/; // Acepta solo entre 1 y 119
-    return edadRegex.test(edad);
   };
 
   const validatePassword = (password) => {
@@ -82,16 +76,10 @@ function Register() {
       setApellidoError("");
     }
   };
-
   const handleFechaChange = (e) => {
     const fechaNacimiento = e.target.value;
-    setFecha(fechaNacimiento);
-
-    if (fechaNacimiento === "") {
-      setEdadError("");
-    } else {
-      setEdadError("");
-    }
+    const formattedFecha = new Date(fechaNacimiento).toISOString().split('T')[0]; // Convertir a formato YYYY-MM-DD
+    setFecha(formattedFecha);
   };
 
   const handlePasswordChange = (e) => {
@@ -197,13 +185,6 @@ function Register() {
                   onChange={handleFechaChange}
                   required
                 />
-                <p
-                  className={`error-message ${
-                    edadError ? "error-visible" : ""
-                  }`}
-                >
-                  {edadError}
-                </p>
               </div>
             </div>
 
