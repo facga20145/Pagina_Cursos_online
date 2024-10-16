@@ -14,7 +14,7 @@ export default function Header({onExploreClick, cartItems, removeItemFromCart}) 
   const linkHeaders = [
     { name: "Explorar", url: "/" },
     { name: "Comunidad", url: "/Comunidad" },
-    { name: "Planes", url: "/premium" },
+    { name: "Planes", url: "/KidPlan" },
     { name: "Cursos", url: "/planesKids" },
     { name: "Becas", url: "/Becas" },
   ];

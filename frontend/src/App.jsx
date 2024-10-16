@@ -16,6 +16,8 @@ import PlanesKids from './components/PlanesKids.jsx';
 import Comunidad from './components/comunidad.jsx';
 import Foro from './components/foro.jsx';
 import Admin from './components/Admin/Admin.jsx';
+import KidPlan from './components/KidPlan.jsx';
+import YoungPlan from './components/YoungPlan.jsx';
 
 
 
@@ -36,6 +38,10 @@ function App() {
         <Route path="/Comunidad" element={<Comunidad/>} />
         <Route path="/admin" element={<Admin/>} />
         <Route path="/Foro" element={<Foro/>} />
+        <Route path="/KidPlan" element={<KidPlan/>} />
+        <Route path="/YoungPlan" element={<YoungPlan/>} />
+        
+
       </Routes>
     </Router>
   );

@@ -13,7 +13,7 @@ function HeaderYoung({ onExploreClick, cartItems, removeItemFromCart }) {
   const linkHeaders = [
     { name: "Explorar", url: "/", onClick: onExploreClick }, // Cambia la URL según corresponda
     { name: "Comunidad", url: "/Comunidad" },
-    { name: "Planes", url: "/Premium" },
+    { name: "Planes", url: "/YoungPlan" },
     { name: "Cursos", url: "/PlanesKids" },
     { name: "Becas", url: "/Becas" },
   ];
