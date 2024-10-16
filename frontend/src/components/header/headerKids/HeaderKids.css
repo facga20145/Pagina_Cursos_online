@@ -4,9 +4,9 @@
   justify-content: space-between;
   text-align: center;
   padding: 20px 20px;
-  margin-left: 100px;
+  margin-left: 150px;
   font-family: "Hammersmith One", sans-serif;
-  width: 90%;
+  width: 100%;
   background-color: #ffffff;
 }
 
@@ -71,7 +71,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  margin-left: 20px;
+  margin-right: 100px;
   gap: 20px; /* Añade espacio uniforme entre elementos */
 }
 .ctaList-Kids > div {

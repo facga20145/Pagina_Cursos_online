@@ -1,4 +1,4 @@
-import React from 'react'
+import { useEffect } from "react";
 import HeaderKids from '../../../components/header/headerKids/HeaderKids'
 import SectionKids from '../../section/sectionKids/SectionKids'
 import Section2Kids from '../../section2/Section2Kids/Section2Kids'
@@ -8,6 +8,10 @@ import Section5Kids from '../../section5/Section5Kids/Section5Kids'
 import FooterKids from '../../Footers/footerKids/FooterKids'
 
 export default function Childlandingpage() {
+  useEffect(() => {
+    // Almacenar el tipo de landing cuando el componente se monta
+    localStorage.setItem("landingPage", "child");
+  }, []);
   return (
     <div>
         <HeaderKids/>

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import PhotoPerfil from '../images/Photo-perfil.svg'
 import "./UserProfile.css";
 
 const UserProfile = () => {
@@ -37,7 +38,9 @@ const UserProfile = () => {
   return (
     <div className="user-profile">
       <div className="profile-info" onClick={toggleDropdown}>
-        <img src="/ruta/a/imagen/perfil.jpg" alt="Profile" className="profile-picture" />
+        <div className="profile-picture">
+        <img src={PhotoPerfil} alt="Profile" />
+        </div>
         <div className="Datos">
           <span className="user-name">{userName}</span>
           <span className="user-email">{userEmail}</span>

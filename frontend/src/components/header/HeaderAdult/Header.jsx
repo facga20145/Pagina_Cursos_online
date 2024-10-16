@@ -3,8 +3,11 @@ import "../HeaderAdult/Header.css";
 import logo from "../../images/Logo-White.svg";
 import { useNavigate, Link } from "react-router-dom";  // Importa Link
 import Cart from '../../Cart'; 
+import UserProfile from '../../UserProfile/UserProfile'
 
 export default function Header({ onExploreClick, cartItems, removeItemFromCart }) { 
+  const storedUser = localStorage.getItem("user");
+  const isLoggedIn = storedUser && storedUser !== "undefined";
 
   const navigate = useNavigate();
 
@@ -45,12 +48,19 @@ export default function Header({ onExploreClick, cartItems, removeItemFromCart }
         </div>
 
         <div className="ctaList">
-          <div className="login">
-            <button onClick={handleLoginClick}>Inicia Sesion</button>
-          </div>
-          <div className="Register">
-            <button onClick={handleRegisterClick}>Registrate gratis</button>
-          </div>
+        {/* Si el usuario está logueado, mostrar el perfil, sino los botones */}
+        {!isLoggedIn ? (
+            <>
+              <div className="login">
+                <button onClick={() => navigate("/login")}>Inicia Sesion</button>
+              </div>
+              <div className="Register">
+                <button onClick={() => navigate("/register")}>Registrate gratis</button>
+              </div>
+            </>
+          ) : (
+            <UserProfile />
+          )}
         </div>
 
         <Cart cartItems={cartItems} removeItemFromCart={removeItemFromCart} /> {/* Aquí pasamos el carrito */}

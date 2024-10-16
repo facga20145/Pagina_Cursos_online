@@ -66,8 +66,19 @@ function Login() {
         sessionStorage.setItem("refreshToken", refreshToken);
         sessionStorage.setItem("expirationTime", expirationTime);
 
-        // Redirigir al usuario a la página principal o el dashboard
-        navigate("/landingyoung");
+        // Leer el tipo de landing almacenado
+        const landingPage = localStorage.getItem("landingPage");
+
+        // Redirigir según el tipo de landing
+        if (landingPage === "child") {
+          navigate("/childlandingpage");
+        } else if (landingPage === "young") {
+          navigate("/landingyoung");
+        } else if (landingPage === "adult") {
+          navigate("/landingpage");
+        } else {
+          navigate("/landingpage"); // Página por defecto si no se encuentra el valor
+        }
       } else {
         setError("Datos de autenticación inválidos.");
       }

@@ -10,7 +10,11 @@ import ServisAdult from "../../Servis/ServisAdult/ServisAdult";
 import FooterAdult from "../../Footers/FooterAdult/FooterAdult";
 
 export default function LandingPage() {
-  const [showModal, setShowModal] = useState(() => {
+  useEffect(() => {
+    // Almacenar el tipo de landing cuando el componente se monta
+    localStorage.setItem("landingPage", "adult");
+  }, []);
+    const [showModal, setShowModal] = useState(() => {
     const hasShownModal = localStorage.getItem("hasShownModal");
     return !hasShownModal; // Si ya se mostró, no volver a mostrar el modal
   });

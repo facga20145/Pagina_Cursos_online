@@ -17,14 +17,23 @@
 }
 
 .profile-picture {
-  width: 40px;
-  height: 40px;
+  
+  width: 50px; /* Ajusta el tamaño según lo que necesites */
+  height: 50px; /* El mismo valor que el ancho para mantener el círculo */
   border-radius: 50%;
-  margin-right: 30px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+}
+.profile-picture img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que la imagen SVG llene todo el espacio */
 }
 .Datos {
   font-family: "Hammersmith One", sans-serif;
-  margin: 10px;
 }
 .user-name {
   display: flex;

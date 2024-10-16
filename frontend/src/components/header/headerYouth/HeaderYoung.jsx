@@ -1,6 +1,5 @@
 import "./HeaderYoung.css";
 import { useNavigate, Link } from "react-router-dom";
-import { useState, useEffect } from "react";
 import logo from "../../images/Logo-White.svg";
 import UserProfile from '../../UserProfile/UserProfile'
 import Cart from "../../Cart";

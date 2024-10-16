@@ -1,12 +1,14 @@
-import React from "react";
-import { FaSearch } from "react-icons/fa";
+
 import "./HeaderKids.css";
 import logo from "../../../components/images/LogoKids.svg";
-import { TiThMenu } from "react-icons/ti";
 import { useNavigate } from "react-router-dom";
 import Cart from "../../Cart";
+import UserProfile from '../../UserProfile/UserProfile'
 
 export default function Header({onExploreClick, cartItems, removeItemFromCart}) {
+  const storedUser = localStorage.getItem("user");
+  const isLoggedIn = storedUser && storedUser !== "undefined";
+
   const navigate = useNavigate(); // Hook para redirigir
 
   const linkHeaders = [
@@ -39,12 +41,19 @@ export default function Header({onExploreClick, cartItems, removeItemFromCart}) 
           ))}
         </div>
         <div className="ctaList-Kids">
-          <div className="login-Kids">
-            <button onClick={handleLoginClick}>Inicia Sesion</button>
-          </div>
-          <div className="Register-Kids">
-            <button onClick={handleRegisterClick}>Registra</button>
-          </div>
+             {/* Si el usuario está logueado, mostrar el perfil, sino los botones */}
+             {!isLoggedIn ? (
+            <>
+              <div className="login-Kids">
+                <button onClick={() => navigate("/login")}>Inicia Sesion</button>
+              </div>
+              <div className="Register-Kids">
+                <button onClick={() => navigate("/register")}>Registrate gratis</button>
+              </div>
+            </>
+          ) : (
+            <UserProfile />
+          )}
         </div>
         <Cart kidsStyle={true} cartItems={cartItems} removeItemFromCart={removeItemFromCart} />{" "}
         {/* Aquí pasamos el carrito */}

@@ -7,7 +7,7 @@
   padding: 20px 20px;
   margin-left: 150px;
   font-family: "Hammersmith One", sans-serif;
-  width: 100%;
+  width: 90%;
 
 }
 
@@ -87,17 +87,6 @@
   background-color: #f9de70;
   color: black; /* Cambia el color del texto */
   transition: background-color 0.3s ease; /* Animación suave para el cambio */
-}
-
-.registerButton button {
-  padding: 10px;
-  background-color: #ae9cdb;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  width: 80%;
 }
 
 /* Estilo para los enlaces del header */

@@ -9,11 +9,10 @@
     align-items: center; /* Alinear verticalmente el logo y las columnas */
 
   }
-  
+
   /* Logo del footer */
   .footer-logo img {
     width: 150px;
-    margin-left: 430px; /* Empuja el logo a la derecha */
   }
   
   /* Contenedor de las columnas del footer */
@@ -33,6 +32,7 @@
     border-bottom: 2px solid #ffffff40;
     flex: 1;
     padding-bottom: 40px;
+    padding-left: 50px;
   }
   
   /* Título de cada columna */
