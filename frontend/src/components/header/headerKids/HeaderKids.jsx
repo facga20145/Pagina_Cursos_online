@@ -16,7 +16,7 @@ export default function Header({onExploreClick, cartItems, removeItemFromCart}) 
     { name: "Comunidad", url: "/Comunidad" },
     { name: "Planes", url: "/KidPlan" },
     { name: "Cursos", url: "/planesKids" },
-    { name: "Becas", url: "/Becas" },
+    { name: "Becas", url: "/Beca" },
   ];
 
   // Función que redirige al login

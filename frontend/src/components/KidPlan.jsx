@@ -1,7 +1,7 @@
 import React from 'react';
 import PricingCard from './Premiun/PricingCard';
-import Header from './header/headerKids/HeaderKids'; // Asumiendo que tienes un Header específico para niños
-import './KidPlan.css'; // Archivo de estilos para KidPlan
+import Header from './header/headerKids/HeaderKids'; 
+import './KidPlan.css'; 
 
 function KidPlan() {
   return (
