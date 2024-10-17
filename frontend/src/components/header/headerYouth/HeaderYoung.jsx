@@ -15,7 +15,7 @@ function HeaderYoung({ onExploreClick, cartItems, removeItemFromCart }) {
     { name: "Comunidad", url: "/Comunidad" },
     { name: "Planes", url: "/YoungPlan" },
     { name: "Cursos", url: "/PlanesKids" },
-    { name: "Becas", url: "/Becas" },
+    { name: "Becas", url: "/Beca" },
   ];
   return (
     <div>
