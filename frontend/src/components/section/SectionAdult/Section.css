@@ -38,7 +38,7 @@
 
 .buttonSection {
     display: flex;
-    width: 40%;
+    width: 30%;
     margin: auto;
     padding-top: 20px;
 }
@@ -48,7 +48,9 @@
     margin: 1rem;
     border-radius: 1.5rem;
     padding: 1rem;
-    font-size: 1.2rem;
+    font-weight: 600;
+    font-size: 1.4rem;
+    width: 100%;
     border: none;
     cursor: pointer;
 }
@@ -56,4 +58,78 @@
 .btnTwo {
     color: black;
     background-color: #ffde59;
+}
+.btnTwo:hover{
+    background-color: #ffcc00;
+}
+/* Responsivo para pantallas grandes (1440px) */
+@media (max-width: 1440px) {
+    .phrase {
+        font-size: 2.3rem; /* Reducimos ligeramente el tamaño del título */
+    }
+
+    .titlePhrase {
+        font-size: 3.5rem; /* Ajustamos el tamaño de la frase destacada */
+    }
+
+    .paragraphContainer {
+        width: 26rem; /* Ajustamos el ancho del contenedor de párrafos */
+        font-size: 1.2em;
+    }
+
+    .buttonSection {
+        width: 35%; /* Aumentamos el ancho para pantallas grandes */
+    }
+}
+
+/* Responsivo para pantallas medianas (768px) */
+@media (max-width: 768px) {
+    .phrase {
+        font-size: 2rem; /* Reducimos el tamaño del título */
+        padding-top: 1.5rem;
+    }
+
+    .titlePhrase {
+        font-size: 3rem; /* Ajustamos el tamaño de la frase destacada */
+    }
+
+    .paragraphContainer {
+        width: 90%; /* Hacemos que ocupe más espacio en pantallas medianas */
+        font-size: 1.1em;
+    }
+
+    .buttonSection {
+        width: 60%; /* Aumentamos el ancho de los botones para tablets */
+    }
+
+    .buttonSection button {
+        font-size: 1.2rem; /* Reducimos ligeramente el tamaño del texto del botón */
+        padding: 0.8rem;
+    }
+}
+
+/* Responsivo para pantallas pequeñas (390px) */
+@media (max-width: 390px) {
+    .phrase {
+        font-size: 1.8rem; /* Reducimos el tamaño del título */
+        padding-top: 1rem;
+    }
+
+    .titlePhrase {
+        font-size: 2.5rem; /* Reducimos el tamaño de la frase destacada */
+    }
+
+    .paragraphContainer {
+        width: 100%; /* El contenedor de párrafos ocupa todo el ancho */
+        font-size: 1rem; /* Ajustamos el tamaño del texto */
+    }
+
+    .buttonSection {
+        width: 100%; /* Los botones ocupan todo el ancho disponible */
+    }
+
+    .buttonSection button {
+        font-size: 1rem; /* Reducimos el tamaño del texto del botón */
+        padding: 0.7rem; /* Ajustamos el padding para dispositivos pequeños */
+    }
 }

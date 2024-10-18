@@ -54,20 +54,80 @@
   color: black;
 }
 
-/* Responsivo */
-@media (max-width: 768px) {
+
+/* Responsivo para pantallas grandes (1440px) */
+@media (max-width: 1440px) {
+  .HeroSection{
+    height: 70vh;
+  }
+  .hero-container {
+    padding-top: 150px;
+    max-width: 900px;
+  }
+
   .hero-container h1 {
-    font-size: 2rem;
+    font-size: 2.8rem; /* Reducimos ligeramente el tamaño del título */
   }
 
   .hero-container p {
-    color: #a6a8ac;
+    font-size: 1.1rem; /* Reducimos ligeramente el tamaño del subtítulo */
+    max-width: 600px;
+  }
+
+  .HeroSection-button {
     font-size: 1rem;
-    max-width: 100%;
+    width: 60%; /* Hacemos el botón un poco más grande */
+  }
+}
+
+/* Responsivo para pantallas medianas (768px) */
+@media (max-width: 768px) {
+  .HeroSection{
+    height: 50vh;
+  }
+  .hero-container {
+    padding-top: 100px;
+    max-width: 90%;
+  }
+
+  .hero-container h1 {
+    font-size: 2rem; /* Reducimos el tamaño del título */
+  }
+
+  .hero-container p {
+    font-size: 1rem;
+    max-width: 100%; /* Aseguramos que el texto ocupe el ancho completo */
   }
 
   .HeroSection-button {
     font-size: 0.9rem;
     padding: 10px 20px;
+    width: 80%; /* El botón será más grande en pantallas medianas */
+  }
+}
+
+/* Responsivo para pantallas pequeñas (390px) */
+@media (max-width: 400px) {
+  .HeroSection{
+    height: 50vh;
+  }
+  .hero-container {
+    padding-top: 80px;
+    max-width: 90%;
+  }
+
+  .hero-container h1 {
+    font-size: 1.6rem; /* Ajustamos el tamaño del título */
+  }
+
+  .hero-container p {
+    font-size: 0.9rem; /* Reducimos el tamaño del subtítulo */
+    max-width: 100%;
+  }
+
+  .HeroSection-button {
+    font-size: 0.8rem;
+    padding: 8px 15px;
+    width: 100%; /* El botón ocupa todo el ancho disponible */
   }
 }

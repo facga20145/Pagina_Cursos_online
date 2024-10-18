@@ -12,7 +12,8 @@
 /* Logo del footer */
 .footerAdult-logo img {
     width: 150px;
-    margin-left: 430px; /* Empuja el logo a la derecha */
+
+    margin-right: 800px;
 }
 
 /* Contenedor de las columnas del footer */
@@ -63,19 +64,69 @@
     color: #ffffff;
 }
 
-/* Estilos responsivos */
+/* Responsivo para pantallas grandes (1440px) */
+@media (max-width: 1440px) {
+    .footerAdult-logo {
+        margin-right: 300px;
+    }
+    .footerAdult-container {
+        padding: 40px 10px; /* Ajustamos el padding para pantallas grandes */
+    }
+
+    .footerAdult-columns {
+        max-width: 900px; /* Ajustamos el ancho máximo de las columnas */
+    }
+
+    .footerAdult-logo img {
+        width: 140px; /* Reducción del tamaño del logo */
+        margin-left: 350px; /* Ajustamos el margen para centrar mejor */
+    }
+}
+
+/* Responsivo para pantallas medianas (768px) */
 @media (max-width: 768px) {
+    .footerAdult-logo{
+        margin-right: 0;
+        margin-left: 680px;
+    }
+    .footerAdult-container {
+        padding: 30px 20px; /* Reducimos el padding para pantallas medianas */
+    }
 
     .footerAdult-columns {
         flex-direction: column;
-        text-align: center;
+        text-align: center; /* Centramos el contenido */
     }
 
     .footerAdult-column {
         margin-bottom: 20px;
     }
+
     .footerAdult-logo img {
-        width: 120px;
+        width: 160px; /* Ajustamos el tamaño del logo */
         margin-left: 120px;
+    }
+}
+
+/* Responsivo para pantallas pequeñas (390px) */
+@media (max-width: 390px) {
+    .footerAdult-container {
+        padding: 20px 10px; /* Reducimos el padding */
+    }
+
+    .footerAdult-columns {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px; /* Añadimos espacio entre columnas */
+    }
+
+    .footerAdult-column {
+        padding-bottom: 20px;
+        border-bottom: 1px solid #ffffff40; /* Reducimos el grosor del borde */
+    }
+
+    .footerAdult-logo img {
+        width: 100px; /* Reducimos el tamaño del logo */
+        margin-left: 0; /* Alineamos el logo al centro */
     }
 }

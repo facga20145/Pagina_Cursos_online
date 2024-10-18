@@ -26,7 +26,7 @@ const FooterKids = () => {
           </ul>
         </div>
         <div className="column-kids">
-          <h4>Título 3</h4>
+          <h4>Acerca de Nosotros</h4>
           <ul>
             <li><a href="#link7">¿Qué es Guimarbot Kids?</a></li>
             <li><a href="#link8">El equipo</a></li>

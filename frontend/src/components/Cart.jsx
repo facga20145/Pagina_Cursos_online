@@ -1,8 +1,13 @@
 // Cart.js
-import React, { useState } from 'react';
-import './Cart.css';
+import { useState } from "react";
+import "./Cart.css";
 
-export default function Cart({ cartItems = [], removeItemFromCart }) {  // Inicializa cartItems como array vacío por defecto
+export default function Cart({
+  kidsStyle,
+  cartItems = [],
+  removeItemFromCart,
+}) {
+  // Inicializa cartItems como array vacío por defecto
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleCart = () => {
@@ -11,8 +16,11 @@ export default function Cart({ cartItems = [], removeItemFromCart }) {  // Inici
 
   return (
     <div className="cart-container">
-      <button className="cart-icon" onClick={toggleCart}>
-        🛒 {cartItems.length}  {/* cartItems.length ya no causará errores */}
+      <button
+        className={`cart-icon ${kidsStyle ? "Kids-Style" : ""}`}
+        onClick={toggleCart}
+      >
+        🛒 {cartItems.length} {/* cartItems.length ya no causará errores */}
       </button>
       {isOpen && (
         <div className="cart-dropdown">
@@ -23,7 +31,9 @@ export default function Cart({ cartItems = [], removeItemFromCart }) {  // Inici
               {cartItems.map((item, index) => (
                 <li key={index}>
                   {item.title} - {item.price}
-                  <button onClick={() => removeItemFromCart(index)}>Eliminar</button>
+                  <button onClick={() => removeItemFromCart(index)}>
+                    Eliminar
+                  </button>
                 </li>
               ))}
             </ul>

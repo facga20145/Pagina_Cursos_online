@@ -45,5 +45,69 @@
     margin: auto;
     font-weight: 600;
   }
+  .button-kids5:hover{
+    background-color: #f3d458;
+  }
   
+  /* Responsivo para pantallas grandes (1440px) */
+@media (max-width: 1440px) {
+  .title-container-kids {
+      font-size: 2rem; /* Reducimos ligeramente el tamaño del título */
+  }
   
+  .paragraph-container-kids {
+      font-size: 0.95rem; /* Ajustamos el tamaño del párrafo */
+      width: 80%; /* Ajustamos el ancho del contenedor */
+  }
+
+  .button-kids5 {
+      width: 40%; /* Ajustamos el ancho del botón */
+      font-size: 0.95rem; /* Ajustamos el tamaño del texto en el botón */
+  }
+}
+
+/* Responsivo para pantallas medianas (768px) */
+@media (max-width: 768px) {
+  .centered-content-kids {
+      height: auto; /* Ajustamos la altura para pantallas medianas */
+      padding: 20px;
+  }
+
+  .title-container-kids {
+      font-size: 1.8rem; /* Reducimos el tamaño del título */
+  }
+  
+  .paragraph-container-kids {
+      font-size: 0.9rem; /* Ajustamos el tamaño del párrafo */
+      width: 90%; /* Expandimos el ancho del contenedor */
+  }
+
+  .button-kids5 {
+      width: 70%; /* Botón ocupa más ancho en pantallas medianas */
+      padding: 10px 15px; /* Ajustamos el padding */
+      font-size: 1rem; /* Ajustamos el tamaño del texto en el botón */
+  }
+}
+
+/* Responsivo para pantallas pequeñas (390px) */
+@media (max-width: 400px) {
+  .centered-content-kids {
+      height: auto; /* Ajustamos la altura */
+      padding: 15px;
+  }
+
+  .title-container-kids {
+      font-size: 1.5rem; /* Reducimos el tamaño del título */
+  }
+
+  .paragraph-container-kids {
+      font-size: 0.8rem; /* Ajustamos el tamaño del párrafo */
+      width: 100%; /* Expandimos el contenedor */
+  }
+
+  .button-kids5 {
+      width: 400px; /* Botón ocupa casi todo el ancho */
+      padding: 10px 10px; /* Ajustamos el padding */
+      font-size: 0.9rem; /* Reducimos el tamaño del texto en el botón */
+  }
+}

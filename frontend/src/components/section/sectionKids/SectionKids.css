@@ -78,5 +78,89 @@
     }
   }
   
+  /* Responsivo para pantallas grandes (1440px) */
+@media (max-width: 1440px) {
+  .section-kids {
+      grid-template-columns: 1fr 1fr; /* Dos columnas de igual tamaño */
+  }
+  
+  .title-kids h2 {
+      font-size: 2.5rem; /* Reducimos ligeramente el tamaño del título */
+  }
+  
+  .description-kids p {
+      font-size: 1rem;
+  }
+  
+  .button-kids {
+      font-size: 1rem;
+      padding: 10px 20px;
+  }
+
+  .image-kids {
+      max-width: 600px; /* Reducimos el tamaño de la imagen */
+  }
+}
+
+/* Responsivo para pantallas medianas (768px) */
+@media (max-width: 768px) {
+  .section-kids {
+      grid-template-columns: 1fr; /* Una sola columna en tablets */
+      text-align: center;
+  }
+
+  .text-column-kids {
+      align-items: center;
+      padding: 10px; /* Reducimos el padding para tablets */
+  }
+
+  .title-kids h2 {
+      font-size: 2rem; /* Reducimos el tamaño del título */
+  }
+
+  .description-kids p {
+      font-size: 0.9rem; /* Ajustamos el tamaño del texto */
+  }
+
+  .button-kids {
+      width: 100%; /* Botón ocupa todo el ancho */
+      padding: 10px 15px;
+      font-size: 1rem;
+  }
+
+  .image-kids {
+      max-width: 500px; /* Reducimos el tamaño de la imagen */
+  }
+}
+
+/* Responsivo para pantallas pequeñas (390px) */
+@media (max-width: 390px) {
+  .section-kids {
+      grid-template-columns: 1fr; /* Una sola columna en móviles */
+      gap: 10px;
+  }
+
+  .text-column-kids {
+      padding: 5px; /* Reducimos aún más el padding */
+  }
+
+  .title-kids h2 {
+      font-size: 1.8rem; /* Reducimos el tamaño del título en móviles */
+  }
+
+  .description-kids p {
+      font-size: 0.8rem; /* Reducimos el tamaño del texto */
+  }
+
+  .button-kids {
+      width: 100%;
+      padding: 10px 15px;
+      font-size: 0.9rem;
+  }
+
+  .image-kids {
+      max-width: 300px; /* Reducimos el tamaño de la imagen para móviles */
+  }
+}
   
   

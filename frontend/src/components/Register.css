@@ -1,13 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap");
-.conten {
+.contenRegister {
   font-family: "Hammersmith One", sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url('images/fondo.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   height: 100vh;
 }
 
@@ -16,7 +12,7 @@
   flex-direction: column; /* Alinea los elementos en columna */
   align-items: center; /* Centra los elementos horizontalmente */
   width: 550px;
-  min-height: 600px;
+  height: 650px;
   border-radius: 20px;
   background: transparent;
   backdrop-filter: blur(600px); /* Efecto de difuminado */
@@ -25,22 +21,22 @@
   padding: 20px;
 }
 
-.Logo {
+.LogoRegister {
   width: 180px; /* Ajusta el tamaño del logo */
-  margin-top: 10px;
-  margin-bottom: 10px; /* Espacio entre el logo y el título */
+  height: 100px;
+
 }
 
 .content-Register h1 {
   font-weight: 600;
   font-size: 35px;
-  color: #fff;
+  color: #000000;
   text-align: center; /* Alinea el título al centro */
   margin-bottom: 40px;
 }
 
 /* Grid para los inputs */
-.Formulario .boxs {
+.FormularioRegister .boxsRegister {
   display: grid;
   grid-template-columns: 1fr 1fr; /* Dos columnas */
   grid-gap: 20px; /* Espacio entre los inputs */
@@ -48,17 +44,17 @@
 }
 
 /* Inputs que ocupan toda la fila dentro de .box */
-.boxs input[type="email"],
-.boxs input[type="submit"] {
+.boxsRegister input[type="email"],
+.boxsRegister input[type="submit"] {
   grid-column: span 2;
 }
 
 /* Estilo de los inputs dentro de .box */
-.boxs input[type="text"],
-.boxs input[type="number"],
-.boxs input[type="email"],
-.boxs input[type="password"] {
+.boxsRegister input[type="text"],
+.boxsRegister input[type="email"],
+.boxsRegister input[type="password"] {
   padding: 10px;
+  padding-right: 30px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   background-color: rgba(255, 255, 255);
@@ -68,7 +64,7 @@
   font-family: "Hammersmith One", sans-serif;
 }
 /* Estilo de select dentro de .box */
-.boxs select {
+.boxsRegister select {
   font-family: "Hammersmith One", sans-serif;
   width: 100%;
   padding: 10px;
@@ -80,16 +76,24 @@
   box-sizing: border-box;
 }
 
-.boxs select:focus {
-  background-color: #fff; /* Color de fondo al seleccionar */
+.boxsRegister input[type="date"]{
+  font-family: "Hammersmith One", sans-serif;
+  width: 100%;
+  padding: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  background-color: #fff;
+  color: #676767;
+  font-size: 16px;
+  box-sizing: border-box;
 }
 /* Estilo del botón dentro de .box */
-.boxs input[type="submit"] {
+.boxsRegister input[type="submit"] {
   margin-top: 10px;
   padding: 12px;
   border: none;
   border-radius: 10px;
-  background-color: #49408a;
+  background-color: #000000;
   color: #fff;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   cursor: pointer;
@@ -100,11 +104,11 @@
   font-style: normal;
 }
 
-.boxs input[type="submit"]:hover {
-  background-color: #8983b7;
+.boxsRegister input[type="submit"]:hover {
+  background-color: #616161;
 }
 
-.alredy {
+.alredyRegister {
   text-align: center;
   justify-content: center;
   flex-wrap: wrap;
@@ -112,26 +116,26 @@
   font-family: "Hammersmith One", sans-serif;
   margin: 20px 0 15px;
 }
-.alredy label {
-  color: #fff;
+.alredyRegister label {
+  color: #000000;
   margin-right: 10px;
 }
 
-.password-box {
+.password-box-Register {
   position: relative;
   width: 100%;
 }
 
-.password-box input {
+.password-box-Register input {
   width: 100%;
   padding-left: 10px;
   padding-right: 40px; /* Aseguramos espacio para el icono */
 }
 
-.toggle-password {
+.toggle-password-Register {
   position: absolute;
-  top: 50%;
-  right: 10px;
+  top: 55%;
+  right: 12px;
   transform: translateY(-50%);
   cursor: pointer;
   color: #333;
@@ -139,7 +143,7 @@
 
 
 /* Aumentar el tamaño del input de correo */
-.boxs input[type="text"] {
+.boxsRegister input[type="text"] {
   grid-column: span 2; /* Hacemos que el input de correo ocupe todo el ancho de las dos columnas */
   width: 100%; /* Aseguramos que ocupe todo el espacio disponible */
   padding: 10px;
@@ -161,17 +165,24 @@
   grid-column: span 2;
 }
 
-/* Ajustar el input de edad */
-.input-wrapper input[type="number"] {
-  padding: 12px; /* Aumentar el tamaño del input */
-  font-size: 16px; /* Aumentar el tamaño de la fuente */
-  width: 100%; /* Hacer que ocupe todo el ancho disponible */
-  box-sizing: border-box; /* Asegurar que el padding no afecte el ancho */
-}
-
 /* Ajustar el contenedor para que no afecte la disposición del formulario */
-.input-wrapper {
+.input-wrapperRegister {
   grid-column: span 2; /* Aseguramos que el input de edad ocupe dos columnas */
   display: flex;
   flex-direction: column;
+}
+
+.back-arrow-Register {
+  position: absolute;
+  top: 20px;
+  left: -50px;
+  width: 10%;
+  font-size: 24px;  
+  color:black;     
+  cursor: pointer;  /* Cambia el cursor a pointer al pasar sobre la flecha */
+  transition: transform 0.2s ease-in-out;  /* Efecto de transición al hacer hover */
+}
+
+.back-arrow-Register:hover {
+  transform: scale(1.2); /* Efecto de agrandamiento al pasar el cursor */
 }

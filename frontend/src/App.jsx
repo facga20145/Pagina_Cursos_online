@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Login from '../src/components/Login.jsx';
+import Login from '../src/components/Login/Login.jsx';
 import Register from './components/Register.jsx';
 import LandingPage from './components/Landings/LandingAdult/LandingPage.jsx';
 import Premium from './components/Premiun/Premium.jsx';
@@ -12,6 +12,7 @@ import PlanesKids from './components/PlanesKids.jsx';
 import Comunidad from './components/comunidad.jsx';
 import Foro from './components/foro.jsx';
 import Admin from './components/Admin/Admin.jsx';
+import Profile from './components/UserProfile/Profile.jsx';     
 
 
 
@@ -32,6 +33,7 @@ function App() {
         <Route path="/Comunidad" element={<Comunidad/>} />
         <Route path="/admin" element={<Admin/>} />
         <Route path="/Foro" element={<Foro/>} />
+        <Route path="/profile" element={<Profile/>} />
       </Routes>
     </Router>
   );

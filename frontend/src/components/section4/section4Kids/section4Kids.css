@@ -75,3 +75,79 @@
     }
   }
   
+  /* Responsivo para pantallas grandes (1440px) */
+@media (max-width: 1440px) {
+    .firstColumnKidsjugo h3 {
+        font-size: 2.2rem; /* Ajustamos el tamaño del título */
+    }
+
+    .firstColumnKidsjugo img {
+        max-width: 70%; /* Reducimos ligeramente el tamaño de la imagen */
+    }
+
+    .textColumnKids h4 {
+        font-size: 1.1rem; /* Ajustamos el tamaño del texto */
+    }
+
+    .textColumnKids p {
+        font-size: 0.95rem;
+    }
+}
+
+/* Responsivo para pantallas medianas (768px) */
+@media (max-width: 768px) {
+    .gridContainerKids {
+        grid-template-columns: 1fr; /* Una sola columna para tablets */
+        text-align: center;
+    }
+
+    .firstColumnKidsjugo img {
+        max-width: 60%; /* Ajustamos el tamaño de la imagen */
+    }
+
+    .secondColumnKids {
+        grid-template-rows: repeat(4, auto); /* Mantiene el sub-grid */
+    }
+
+    .textColumnKids h4 {
+        font-size: 1rem; /* Ajustamos el tamaño del texto */
+    }
+
+    .textColumnKids p {
+        font-size: 0.9rem; /* Reducimos el tamaño del párrafo */
+    }
+
+    .rowKids {
+        grid-template-columns: 30% 70%; /* Ajustamos el tamaño de las columnas */
+        gap: 8px;
+    }
+}
+
+/* Responsivo para pantallas pequeñas (390px) */
+@media (max-width: 390px) {
+    .gridContainerKids {
+        grid-template-columns: 1fr; /* Una sola columna para móviles */
+        gap: 10px;
+    }
+
+    .firstColumnKidsjugo h3 {
+        font-size: 1.8rem; /* Reducimos el tamaño del título */
+    }
+
+    .firstColumnKidsjugo img {
+        max-width: 50%; /* Ajustamos el tamaño de la imagen */
+    }
+
+    .textColumnKids h4 {
+        font-size: 0.9rem; /* Reducimos el tamaño del texto */
+    }
+
+    .textColumnKids p {
+        font-size: 0.8rem; /* Ajustamos el tamaño del párrafo */
+    }
+
+    .rowKids {
+        grid-template-columns: 35% 65%; /* Ajustamos el tamaño de las columnas */
+        gap: 5px;
+    }
+}

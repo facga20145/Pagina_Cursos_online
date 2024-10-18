@@ -2,8 +2,7 @@ const connection = require("../config/db.js"); // Importa la conexión a la base
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt"); // Para cifrar la contraseña
 
-// Función para generar el token de acceso 
-//jwt.sign (genera el token para cada cliente)
+// Función para generar el token de acceso
 const generateAccessToken = (user) => {
   return jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
     expiresIn: "15s",
@@ -19,7 +18,8 @@ const generateRefreshToken = (user) => {
 
 // Controlador de registro de usuario
 exports.register = async (req, res) => {
-  const { nombre, apellido, fecha_nacimiento, genero, email, password } = req.body;
+  const { nombre, apellido, fecha_nacimiento, genero, email, password } =
+    req.body;
 
   // Validar si el correo ya existe en la base de datos
   const queryCheckEmail = "SELECT * FROM users WHERE email = ?";
@@ -91,8 +91,17 @@ exports.login = (req, res) => {
       const decodedAccessToken = jwt.decode(accessToken);
       const expirationTime = decodedAccessToken.exp; // Tiempo de expiración en formato UNIX (segundos)
 
+
       // Devolver los tokens y el tiempo de expiración al cliente
       return res.json({
+        user: {
+          id: user.id,
+          nombre: user.nombre,
+          apellido: user.apellido,
+          fechaNacimiento: user.fecha_nacimiento, // Cambia a fecha_nacimiento
+          genero: user.genero,
+          email: user.email,
+        },
         accessToken,
         refreshToken,
         expirationTime, // Incluir el tiempo de expiración

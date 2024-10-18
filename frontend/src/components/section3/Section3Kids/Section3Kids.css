@@ -81,20 +81,73 @@
     margin: auto;
 }
 
-@media (max-width: 1200px) {
+/* Responsivo para pantallas grandes (1440px) */
+@media (max-width: 1440px) {
+    .plansContainerKids .headKids {
+        font-size: 1.8rem; /* Reducimos el tamaño del título */
+    }
+
+    .containerBoxKids img {
+        height: 5.5rem; /* Reducimos el tamaño de las imágenes */
+        width: 5.5rem;
+    }
+
+    .plansBoxKids p {
+        font-size: 1rem; /* Ajustamos el tamaño del texto */
+    }
+
     .plansBoxKids {
-        grid-template-columns: repeat(3, 1fr); /* 3 columnas cuando la ventana es más pequeña */
+        grid-template-columns: repeat(3, 1fr); /* 3 columnas */
     }
 }
 
-@media (max-width: 900px) {
+/* Responsivo para pantallas medianas (768px) */
+@media (max-width: 768px) {
+    .plansContainerKids .headKids {
+        font-size: 1.5rem; /* Reducimos el tamaño del título */
+    }
+
+    .containerBoxKids img {
+        height: 5rem; /* Ajustamos el tamaño de las imágenes */
+        width: 5rem;
+    }
+
+    .plansBoxKids p {
+        font-size: 0.9rem; /* Reducimos el tamaño del texto */
+    }
+
     .plansBoxKids {
-        grid-template-columns: repeat(2, 1fr); /* 2 columnas cuando es más pequeña */
+        width: 80%;
+        grid-template-columns: repeat(1, 1fr); /* 2 columnas */
+        gap: 15px; /* Reducimos el espacio entre las columnas */
+    }
+
+    .containerBoxKids button {
+        font-size: 0.9rem; /* Ajustamos el tamaño del botón */
     }
 }
 
-@media (max-width: 600px) {
+/* Responsivo para pantallas pequeñas (390px) */
+@media (max-width: 390px) {
+    .plansContainerKids .headKids {
+        font-size: 1.2rem; /* Reducimos el tamaño del título */
+    }
+
+    .containerBoxKids img {
+        height: 4rem; /* Ajustamos el tamaño de las imágenes */
+        width: 4rem;
+    }
+
+    .plansBoxKids p {
+        font-size: 0.8rem; /* Ajustamos el tamaño del texto */
+    }
+
     .plansBoxKids {
         grid-template-columns: 1fr; /* 1 columna en pantallas pequeñas */
+        gap: 10px; /* Reducimos el espacio entre los cuadros */
+    }
+
+    .containerBoxKids button {
+        font-size: 0.8rem; /* Ajustamos el tamaño del botón */
     }
 }

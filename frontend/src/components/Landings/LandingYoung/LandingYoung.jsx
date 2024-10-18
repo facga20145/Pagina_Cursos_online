@@ -1,5 +1,6 @@
+import { useEffect } from "react";
 import "./LandingYoung.css";
-import HeaderYoung from "../../header/headerYouth/HeaderYoung";
+import Header from '../../header/HeaderAdult/Header'
 import SectionYoung from "../../section/SectionYouth/SectionYoung";
 import AboutUsYoung from "../../AboutUs/AboutUsYoung";
 import FeatureYoung from "../../Features/FeatureYoung";
@@ -7,10 +8,15 @@ import ServisYoung from '../../Servis/ServisYoung/ServisYoung'
 import HeroSection from "../../HeroSection/HeroSection";
 import FooterYoung from '../../Footers/FooterYoung/FooterYoung'
 function LandingYoung() {
+  useEffect(() => {
+    // Almacenar el tipo de landing cuando el componente se monta
+    localStorage.setItem("landingPage", "young");
+  }, []);
+
   return (
     <div className="PrincipalYoung">
       <div className="headeryoung">
-        <HeaderYoung />
+        <Header/>
       </div>
       <div className="Sectionyoung">
         <SectionYoung />

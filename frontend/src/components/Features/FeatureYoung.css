@@ -41,10 +41,15 @@ p {
 @media (max-width: 768px) {
   .FeatureYoung {
     background-size: cover;
-    height: 200vh;
+    height: 150vh;
   }
   .features-container {
     flex-direction: column;
     gap: 20px;
+  }
+}
+@media (max-width:400px){
+  .FeatureYoung{
+    height: 200vh;
   }
 }

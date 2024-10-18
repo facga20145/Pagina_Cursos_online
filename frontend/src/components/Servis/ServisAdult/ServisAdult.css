@@ -40,3 +40,80 @@
     gap: 20px;
   }
   
+
+/* Responsivo para pantallas grandes (1440px) */
+@media (max-width: 1440px) {
+  .Servis-section-adult {
+    padding: 40px; /* Reducimos el padding */
+    max-width: 1100px;
+    gap: 40px; /* Reducimos el espacio entre columnas */
+  }
+
+  .Servisleft-section-adult h1 {
+    font-size: 2.3rem; /* Reducimos ligeramente el tamaño del título */
+  }
+
+  .Servisright-section-adult {
+    gap: 15px; /* Reducimos el espacio entre las tarjetas */
+  }
+}
+
+/* Responsivo para pantallas medianas (768px) */
+@media (max-width: 768px) {
+  .ServisAdult {
+    height: auto; /* Ajustamos la altura automáticamente */
+  }
+
+  .Servis-section-adult {
+    grid-template-columns: 1fr; /* Cambiamos a una sola columna */
+    padding: 30px;
+    gap: 30px;
+  }
+
+  .Servisleft-section-adult {
+    text-align: center; /* Centra el texto y el contenido */
+  }
+
+  .Servisleft-section-adult h1 {
+    font-size: 2rem; /* Ajustamos el tamaño del título */
+  }
+
+  .ServisAdultIcon {
+    max-width: 70%; /* Ajustamos el tamaño de la imagen */
+    margin: 0 auto; /* Centramos la imagen */
+  }
+
+  .Servisright-section-adult {
+    gap: 20px; /* Mantenemos el espacio entre las tarjetas */
+  }
+}
+
+/* Responsivo para pantallas pequeñas (390px) */
+@media (max-width: 390px) {
+  .ServisAdult {
+    height: auto;
+  }
+
+  .Servis-section-adult {
+    grid-template-columns: 1fr; /* Una sola columna en pantallas pequeñas */
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .Servisleft-section-adult {
+    text-align: center;
+  }
+
+  .Servisleft-section-adult h1 {
+    font-size: 1.6rem; /* Reducimos el tamaño del título */
+  }
+
+  .ServisAdultIcon {
+    max-width: 60%; /* Ajustamos el tamaño de la imagen */
+    margin: 0 auto;
+  }
+
+  .Servisright-section-adult {
+    gap: 15px; /* Ajustamos el espacio entre tarjetas para pantallas pequeñas */
+  }
+}

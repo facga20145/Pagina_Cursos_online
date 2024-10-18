@@ -55,4 +55,92 @@
     text-decoration: underline; /* Subrayado al pasar el mouse */
     color: #aa87ef; /* Cambia el color al pasar el mouse */
   }
-  
+  /* Responsivo para pantallas grandes (1440px) */
+@media (max-width: 1440px) {
+  .footer-kids {
+      width: 90%; /* Ajustamos el ancho del footer */
+  }
+
+  .footer-logo-kids {
+      width: 14rem; /* Ajustamos el tamaño del logo */
+      height: 3.5rem;
+  }
+
+  .column-kids h4 {
+      font-size: 1.3rem; /* Ajustamos el tamaño del título */
+  }
+
+  .column-kids a {
+      font-size: 1rem; /* Ajustamos el tamaño de los enlaces */
+  }
+}
+
+/* Responsivo para pantallas medianas (768px) */
+@media (max-width: 768px) {
+  .footer-kids {
+      width: 95%; /* Ajustamos el ancho para pantallas medianas */
+  }
+
+  .footer-row {
+      flex-direction: column; /* Cambiamos a una sola columna */
+      align-items: center; /* Centramos el contenido */
+  }
+
+  .footer-logo-kids {
+      width: 12rem; /* Ajustamos el tamaño del logo */
+      height: 3rem;
+      margin-bottom: 10px; /* Añadimos espacio debajo del logo */
+  }
+
+  .footer-links-kids {
+      flex-direction: column; /* Colocamos las columnas una debajo de otra */
+      align-items: center; /* Centramos las columnas */
+  }
+
+  .column-kids {
+      width: 100%; /* Ocupan todo el ancho en pantallas medianas */
+      text-align: center; /* Centramos el texto */
+  }
+
+  .column-kids h4 {
+      font-size: 1.2rem; /* Ajustamos el tamaño del título */
+  }
+
+  .column-kids a {
+      font-size: 0.95rem; /* Ajustamos el tamaño de los enlaces */
+  }
+}
+
+/* Responsivo para pantallas pequeñas (390px) */
+@media (max-width: 390px) {
+  .footer-kids {
+      width: 100%; /* El footer ocupa todo el ancho */
+  }
+
+  .footer-logo-kids {
+      width: 10rem; /* Ajustamos el tamaño del logo */
+      height: 2.5rem;
+  }
+
+  .footer-row {
+      flex-direction: column; /* Una sola columna */
+  }
+
+  .footer-links-kids {
+      flex-direction: column; /* Las columnas están una debajo de la otra */
+      text-align: center; /* Centramos el contenido */
+  }
+
+  .column-kids {
+      width: 100%; /* Ocupa todo el ancho */
+      padding: 0; /* Eliminamos el padding para pantallas pequeñas */
+  }
+
+  .column-kids h4 {
+      font-size: 1rem; /* Ajustamos el tamaño del título */
+  }
+
+  .column-kids a {
+      font-size: 0.85rem; /* Ajustamos el tamaño de los enlaces */
+  }
+}
