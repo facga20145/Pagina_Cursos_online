@@ -7,7 +7,7 @@ import VideoHtmlKids from '../../VideosCursos/VideoHtmlKids'
 export default function HtmlKids() {
   return (
     <div>
-    <Header/>
+    <Header isKids={true}/>
       <VideoHtmlKids/>
       <CursosKids
         title="Curso de HTML para Niños"
