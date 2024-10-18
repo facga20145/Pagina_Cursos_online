@@ -7,7 +7,7 @@
     background-size: cover; 
     background-position: center;
     background-repeat: no-repeat; 
-    height: 100vh;
+    height: auto;
 }
 .Banner{
     padding-top: 4rem;
@@ -27,7 +27,6 @@
 }
 .Banner-p{
     color: #a6a6a6;
-    width: 88rem;
     margin: auto;
     font-size: 1.5rem;
     font-family: 'Chau Philomene One', sans-serif;
@@ -36,6 +35,11 @@
     margin-bottom: 40px;
     
 }
+
+.Banner-p {
+    text-align: center;
+}
+
 .premium-container {
     display: flex;
     justify-content: center;
