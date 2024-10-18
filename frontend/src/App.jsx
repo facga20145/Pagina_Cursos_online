@@ -27,6 +27,9 @@ import JavaScriptKids from './components/paginasCursos/paginasNiños/JavaScriptK
 import PythonKids from './components/paginasCursos/paginasNiños/PythonKids.jsx';
 import Pago from './components/Pago.jsx';
 
+import KidPlan from './components/KidPlan.jsx';
+import YoungPlan from './components/YoungPlan.jsx';
+import Beca from './components/beca.jsx';
 
 
 function App() {
@@ -55,6 +58,10 @@ function App() {
         <Route path="/javascript-course" element={<JavaScriptKids />} />
         <Route path="/php-course" element={<PhpKids />} />
         <Route path="/python-course" element={<PythonKids/>} />
+        <Route path="/KidPlan" element={<KidPlan/>} />
+        <Route path="/YoungPlan" element={<YoungPlan/>} />
+        <Route path="/Beca" element={<Beca/>} />
+
       </Routes>
     </Router>
   );
