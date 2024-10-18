@@ -61,7 +61,7 @@ export default function CardList() {
       <Header 
         cartItems={cartItems} 
         removeItemFromCart={removeItemFromCart} 
-        isKids={true}
+        isWhite={true}
       /> 
 
       <div>

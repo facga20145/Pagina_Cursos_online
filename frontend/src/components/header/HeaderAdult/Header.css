@@ -26,6 +26,9 @@
 .hamburguer-kids{
   color: black;
 }
+.hamburguer-white{
+  color: black;
+}
 .logo2 {
   content: url("../../images/Logo-White.svg");
   display: flex;
@@ -35,6 +38,14 @@
 }
 .kids-logo{
   content: url('../../images/LogoKids.svg');
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 12rem;
+}
+
+.white-logo{
+  content:url('../../images/Logo-black.svg') ;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -105,6 +116,9 @@
 .kids-link{
   color: black;
 }
+.white-link{
+  color: black;
+}
 .ctaList {
   display: flex;
   align-items: center;
@@ -138,6 +152,10 @@
 }
 .login-kids button,
 .register-Kids button{
+  color: black;
+}
+.login-white button,
+.register-white button{
   color: black;
 }
 .login button:hover,
@@ -236,6 +254,11 @@
     width: 2rem;
     margin: 0;
   }
+  .white-logo{
+    content: url('../../images//Logo-black-Movil.svg');
+    width: 2rem;
+    margin: 0;
+  }
   .hamburger-menu {
     display: block; /* Mostrar el botón de hamburguesa en pantallas pequeñas */
     width: 10%px;
@@ -260,6 +283,10 @@
     font-size: 20px;
   }
   .hamburguer-kids{
+    font-size: 20px;
+    color: black;
+  }
+  .hamburguer-white{
     font-size: 20px;
     color: black;
   }
