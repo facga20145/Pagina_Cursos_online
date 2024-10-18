@@ -11,7 +11,7 @@ const Comunidad = () => {
     ];
     return (
       <>
-        <Header /> 
+        <Header isKids={true} /> 
         <section id="comunidad" className="community-section">
           {/* Sección de Eventos */}
           <div className="community-block eventos">
