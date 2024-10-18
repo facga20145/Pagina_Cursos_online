@@ -1,6 +1,6 @@
 import React from 'react';
 import CursosKids from '../../cursos/cursosKids/CursosKids';
-import Header from '../../header/headerKids/HeaderKids';
+import Header from '../../header/HeaderAdult/Header';
 import Php from '../../images/php10.svg'
 
 export default function PhpKids() {

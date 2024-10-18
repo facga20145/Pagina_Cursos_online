@@ -1,6 +1,6 @@
 import React from 'react';
 import CursosKids from '../../cursos/cursosKids/CursosKids';
-import Header from '../../header/headerKids/HeaderKids';
+import Header from '../../header/HeaderAdult/Header';
 import Html from '../../images/html10.svg'
 import VideoHtmlKids from '../../VideosCursos/VideoHtmlKids'
 

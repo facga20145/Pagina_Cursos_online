@@ -1,6 +1,6 @@
 import React from 'react';
 import CursosKids from '../../cursos/cursosKids/CursosKids';
-import Header from '../../header/headerKids/HeaderKids';
+import Header from '../../header/HeaderAdult/Header';
 import Java from '../../images/java10.svg'
 
 export default function JavaKids() {
