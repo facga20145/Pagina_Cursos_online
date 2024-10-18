@@ -9,7 +9,9 @@
   width: 100%;
 }
 @media (max-width: 1440px) {
-
+  .PrincipalYoung{
+    width: 100%;
+  }
 }
 
 @media (max-width: 768px) {

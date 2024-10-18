@@ -85,13 +85,19 @@
 
 /* Ajuste para pantallas 768px (tablets) */
 @media (max-width: 768px) {
+    .plansContainer{
+        height: 90%;
+    }
     .plansBox {
-        grid-template-columns: repeat(2, 1fr); /* 2 columnas en pantallas más pequeñas */
-        gap: 20px;
+        grid-template-columns: 1fr;  /* 1 columna para pantallas muy pequeñas */
+        gap: 30px;
+        margin: 0;
     }
 
     .containerBox {
-        width: 300px;  /* Ajustamos el tamaño de los cuadros */
+        height: 350px;
+        width: 300px;  /* Ocupa el 90% del ancho de la pantalla */
+        margin: 0 auto; /* Centra los cuadros en pantallas pequeñas */
     }
 
     .plansContainer .head {
@@ -104,30 +110,38 @@
 }
 
 /* Ajuste para pantallas pequeñas (smartphones) - 390px */
-@media (max-width: 390px) {
+@media (max-width: 400px) {
+    .plansContainer{
+        height: 80%;
+    }
     .plansBox {
         grid-template-columns: 1fr;  /* 1 columna para pantallas muy pequeñas */
-        gap: 10px;
+        gap: 30px;
+        margin: 0;
     }
 
     .containerBox {
-        width: 90%;  /* Ocupa el 90% del ancho de la pantalla */
-        padding: 15px;
+        height: 250px;
+        width: 200px;  /* Ocupa el 90% del ancho de la pantalla */
+        margin: 0 auto; /* Centra los cuadros en pantallas pequeñas */
     }
 
     .plansContainer .head {
         font-size: 1.8rem;  /* Reducimos más el tamaño del título */
     }
-
+    .plansContainer h3{
+        margin: 10px 0;
+    }
     .plansContainer p {
         font-size: 0.8rem;  /* Ajustamos el tamaño del texto */
     }
 
     .containerBox img {
-        height: 5rem;
-        width: 7rem;  /* Reducimos el tamaño de la imagen */
+        height: 4rem;
+        width: 4rem;  /* Reducimos el tamaño de la imagen */
     }
 }
+
 
 /* Efecto hover en los cuadros */
 .containerBox:hover {

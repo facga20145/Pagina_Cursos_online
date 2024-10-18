@@ -56,3 +56,81 @@
     background-color: #27ba89;
   }
   
+/* Responsivo para pantallas grandes (1440px) */
+@media (max-width: 1440px) {
+  .HeroSectionAdult{
+    height: 70vh;
+  }
+  .hero-container-adult {
+    padding-top: 80px;
+    max-width: 900px;
+  }
+
+  .hero-container-adult h1 {
+    font-size: 2.8rem; /* Reducimos ligeramente el tamaño del título */
+  }
+
+  .hero-container-adult p {
+    font-size: 1.1rem;
+    max-width: 600px; /* Ajustamos el ancho máximo del subtítulo */
+  }
+
+  .HeroSectionAdult-button {
+    width: 60%; /* Hacemos el botón un poco más grande */
+    padding: 12px 25px;
+  }
+}
+
+/* Responsivo para pantallas medianas (768px) */
+@media (max-width: 768px) {
+  .HeroSectionAdult {
+    height: 60vh; /* Ajustamos la altura automáticamente */
+  }
+
+  .hero-container-adult {
+    padding-top: 60px;
+    max-width: 90%;
+  }
+
+  .hero-container-adult h1 {
+    font-size: 2.2rem; /* Reducimos el tamaño del título */
+  }
+
+  .hero-container-adult p {
+    font-size: 1rem;
+    max-width: 100%; /* Ajustamos el subtítulo para pantallas medianas */
+  }
+
+  .HeroSectionAdult-button {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+    width: 80%; /* Botón más grande en pantallas medianas */
+  }
+}
+
+/* Responsivo para pantallas pequeñas (390px) */
+@media (max-width: 400px) {
+  .HeroSectionAdult {
+    height: 60vh;
+  }
+
+  .hero-container-adult {
+    padding-top: 50px;
+    max-width: 90%;
+  }
+
+  .hero-container-adult h1 {
+    font-size: 1.8rem; /* Reducimos el tamaño del título */
+  }
+
+  .hero-container-adult p {
+    font-size: 0.9rem;
+    max-width: 100%; /* Ajustamos el tamaño del subtítulo */
+  }
+
+  .HeroSectionAdult-button {
+    font-size: 0.8rem;
+    padding: 8px 15px;
+    width: 100%; /* El botón ocupa todo el ancho disponible */
+  }
+}

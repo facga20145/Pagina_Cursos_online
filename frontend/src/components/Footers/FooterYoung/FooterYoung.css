@@ -64,20 +64,81 @@
     color: #ffffff;
   }
   
-  /* Estilos responsivos */
-  @media (max-width: 768px) {
-   
-    .footer-columns {
-      flex-direction: column;
-      text-align: center;
-    }
-  
-    .footer-column {
-      margin-bottom: 20px;
-    }
-    .footer-logo img{
-        width: 120px;
-        margin-left: 120px;
-    }
+ /* Media Query para pantallas grandes (1440px) */
+@media (max-width: 1440px) {
+  .footer-container {
+      padding: 30px 15px;
+  }
+
+  .footer-columns {
+      max-width: 900px; /* Reducimos el ancho máximo */
+  }
+
+  .footer-column {
+      padding-left: 30px; /* Reducimos el padding en las columnas */
   }
   
+  .footer-logo img {
+      width: 130px; /* Reducimos el tamaño del logo */
+  }
+}
+
+/* Media Query para pantallas medianas (768px) */
+@media (max-width: 768px) {
+  .footer-columns {
+      flex-direction: column; /* Cambiamos a una columna en pantallas medianas */
+      align-items: center;
+      padding-top: 20px;
+  }
+
+  .footer-column {
+      width: 100%; /* Hacemos que cada columna ocupe todo el ancho */
+      padding-left: 0; /* Eliminamos el padding lateral */
+      text-align: center;
+      padding-bottom: 20px;
+  }
+
+  .footer-logo img {
+      width: 120px; /* Reducimos el tamaño del logo */
+      margin-bottom: 20px; /* Añadimos un margen inferior para separar el logo */
+  }
+
+  .footer-column h3 {
+      font-size: 1.1rem;
+  }
+
+  .footer-column a {
+      font-size: 0.85rem; /* Reducimos el tamaño de los enlaces */
+  }
+}
+
+/* Media Query para pantallas pequeñas (390px) */
+@media (max-width: 390px) {
+  .footer-container {
+      padding: 20px 10px; /* Ajustamos el padding del contenedor */
+  }
+
+  .footer-logo img {
+      width: 100px; /* Reducimos aún más el tamaño del logo */
+  }
+
+  .footer-columns {
+      flex-direction: column; /* Las columnas se apilan verticalmente */
+      padding-top: 20px;
+  }
+
+  .footer-column {
+      padding-left: 0;
+      padding-bottom: 15px;
+      width: 100%;
+      text-align: center; /* Centramos el texto */
+  }
+
+  .footer-column h3 {
+      font-size: 1rem;
+  }
+
+  .footer-column a {
+      font-size: 0.8rem; /* Ajustamos el tamaño de los enlaces */
+  }
+}

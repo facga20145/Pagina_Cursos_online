@@ -92,3 +92,86 @@
     }
 }
 
+/* Responsivo para pantallas grandes (1440px) */
+@media (max-width: 1440px) {
+  .section2-kids2 {
+      grid-template-columns: 1fr 1fr; /* Mantiene dos columnas */
+  }
+  
+  .title-kids2 h2 {
+      font-size: 2rem; /* Reducimos ligeramente el tamaño del título */
+  }
+  
+  .description-kids2 p {
+      font-size: 0.95rem; /* Ajustamos el tamaño del texto */
+  }
+
+  .button-kids2 {
+      font-size: 1rem;
+      padding: 10px 15px;
+  }
+
+  .image-kids2 {
+      max-width: 600px; /* Ajustamos el tamaño de la imagen */
+  }
+}
+
+/* Responsivo para pantallas medianas (768px) */
+@media (max-width: 768px) {
+  .section2-kids2 {
+      grid-template-columns: 1fr; /* Cambiamos a una columna para tablets */
+      text-align: center;
+  }
+
+  .text-column-kids2 {
+      padding: 10px; /* Reducimos el padding */
+      align-items: center;
+  }
+
+  .title-kids2 h2 {
+      font-size: 1.8rem; /* Ajustamos el tamaño del título */
+  }
+
+  .description-kids2 p {
+      font-size: 0.9rem; /* Ajustamos el tamaño del texto */
+  }
+
+  .button-kids2 {
+      width: 100%; /* Botón ocupa todo el ancho */
+      padding: 10px 15px;
+  }
+
+  .image-kids2 {
+      max-width: 500px; /* Reducimos el tamaño de la imagen */
+  }
+}
+
+/* Responsivo para pantallas pequeñas (390px) */
+@media (max-width: 390px) {
+  .section2-kids2 {
+      grid-template-columns: 1fr; /* Una sola columna en móviles */
+      gap: 10px;
+  }
+
+  .text-column-kids2 {
+      padding: 5px; /* Reducimos aún más el padding */
+  }
+
+  .title-kids2 h2 {
+      font-size: 1.6rem; /* Reducimos el tamaño del título */
+  }
+
+  .description-kids2 p {
+      font-size: 0.8rem; /* Reducimos el tamaño del texto */
+  }
+
+  .button-kids2 {
+      width: 100%;
+      padding: 8px 12px;
+      font-size: 0.9rem;
+  }
+
+  .image-kids2 {
+      max-width: 300px; /* Ajustamos el tamaño de la imagen */
+  }
+}
