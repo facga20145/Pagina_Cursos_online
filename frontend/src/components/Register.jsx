@@ -77,11 +77,8 @@ function Register() {
     }
   };
   const handleFechaChange = (e) => {
-    const fechaNacimiento = e.target.value;
-    const formattedFecha = new Date(fechaNacimiento).toISOString().split('T')[0]; // Convertir a formato YYYY-MM-DD
-    setFecha(formattedFecha);
+    setFecha(e.target.value); // Eliminar la conversión adicional
   };
-
   const handlePasswordChange = (e) => {
     const passwordValue = e.target.value;
     setPassword(passwordValue);
@@ -130,7 +127,7 @@ function Register() {
         {
           nombre,
           apellido,
-          fechaNacimiento,
+         /*  fecha_nacimiento: */fechaNacimiento ,
           genero,
           email,
           password,

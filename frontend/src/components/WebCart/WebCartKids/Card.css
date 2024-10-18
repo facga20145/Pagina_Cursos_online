@@ -5,7 +5,7 @@
   gap: 26px;
   padding: 16px;
   justify-content: center;
-  background-color: #2C2E31; /* Fondo oscuro que coincide con la temática */
+  background-color: #ffffff; /* Fondo oscuro que coincide con la temática */
 }
 
 /* Ajuste general de la tarjeta */
@@ -15,7 +15,7 @@
 }
 
 .card {
-  background-color: #181A1B;  /* Color de fondo oscuro */
+  background-color: #262e33;  /* Color de fondo oscuro */
   border-top: 5px solid #FDD835;  /* Color de borde superior amarillo */
   border-radius: 8px; 
   overflow: hidden;
@@ -92,6 +92,10 @@
   font-weight: 800;
   font-size: 1rem;
   transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.card a {
+  margin: auto;
 }
 
 /* Efecto de hover en los botones */
