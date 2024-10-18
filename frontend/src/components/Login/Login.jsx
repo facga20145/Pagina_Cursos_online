@@ -9,7 +9,7 @@ import "./Login.css";
 function Login() {
   // Definir el estado para verificar si el usuario está logueado
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");  // Cambiado de username a email
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
@@ -23,7 +23,7 @@ function Login() {
 
   const handleEmailChange = (e) => {
     const email = e.target.value;
-    setUsername(email);
+    setEmail(email);  // Usar email en lugar de username
 
     if (email === "") {
       setError("");
@@ -46,7 +46,7 @@ function Login() {
       const response = await axios.post(
         "http://localhost:4000/api/auth/login",
         {
-          username,
+          email,  // Cambiado a email
           password,
         }
       );
@@ -117,7 +117,7 @@ function Login() {
             <input
               type="text"
               placeholder="Escribe tu correo Electrónico"
-              value={username}
+              value={email}  // Cambiado a email
               onChange={handleEmailChange}
               className={error ? "error" : ""}
               required
