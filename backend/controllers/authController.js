@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt");
 // Función para generar el token de acceso
 const generateAccessToken = (user) => {
   return jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
-    expiresIn: "15m",  // Tiempo de expiración del accessToken (15 minutos)
+    expiresIn: "15s",  // Tiempo de expiración del accessToken (15 minutos)
   });
 };
 
@@ -16,15 +16,18 @@ const generateRefreshToken = (user) => {
   });
 };
 
-// Función para el registro de usuario
+// Función para formatear la fecha a 'YYYY-MM-DD'
+const formatDate = (dateString) => {
+  const date = new Date(dateString);
+  const year = date.getFullYear();
+  const month = ('0' + (date.getMonth() + 1)).slice(-2); // Mes con dos dígitos
+  const day = ('0' + date.getDate()).slice(-2); // Día con dos dígitos
+  return `${year}-${month}-${day}`;
+};
+
+// Controlador de registro de usuario
 exports.register = async (req, res) => {
   const { nombre, apellido, fecha_nacimiento, genero, email, password } = req.body;
-
-  console.log("Fecha de nacimiento recibida en el backend:", fecha_nacimiento);
-
-  if (!fecha_nacimiento) {
-    return res.status(400).json({ message: "La fecha de nacimiento es obligatoria" });
-  }
 
   // Validar si el correo ya existe en la base de datos
   const queryCheckEmail = "SELECT * FROM users WHERE email = ?";
@@ -38,6 +41,8 @@ exports.register = async (req, res) => {
       return res.status(400).json({ message: "El correo ya está registrado" });
     }
 
+    const formattedDate = formatDate(fecha_nacimiento); // Formatear la fecha
+
     // Cifrar la contraseña antes de guardarla
     const hashedPassword = await bcrypt.hash(password, 10);
 
@@ -47,9 +52,19 @@ exports.register = async (req, res) => {
       VALUES (?, ?, ?, ?, ?, ?, 'usuario')
     `;
 
+    // Mostrar los valores que se van a insertar (para debug)
+    console.log("Valores que se van a insertar:", {
+      nombre,
+      apellido,
+      email,
+      hashedPassword,
+      genero,
+      fecha_nacimiento: formattedDate,
+    });
+
     connection.query(
       queryInsertUser,
-      [nombre, apellido, fecha_nacimiento, genero, email, hashedPassword],
+      [nombre, apellido, formattedDate, genero, email, hashedPassword],
       (err, result) => {
         if (err) {
           console.error("Error al registrar al usuario:", err);
@@ -72,35 +87,56 @@ exports.register = async (req, res) => {
   });
 };
 
-// Función para el login de usuario
+// Controlador de login de usuario
 exports.login = (req, res) => {
-  const { email, password } = req.body;
+  const { email, password } = req.body; // Cambiar 'username' a 'email'
 
+  console.log("Datos recibidos:", { email, password }); // Log para ver los datos recibidos
+
+  // Consulta a la base de datos para verificar si el usuario existe
   const query = "SELECT * FROM users WHERE email = ?";
   connection.query(query, [email], async (err, results) => {
     if (err) {
+      console.error("Error en la consulta a la base de datos:", err);
       return res.status(500).json({ message: "Error en el servidor" });
     }
 
-    if (results.length === 0) {
-      return res.status(400).json({ message: "Usuario no encontrado" });
+    if (results.length > 0) {
+      const user = results[0]; // El usuario encontrado en la base de datos
+      console.log("Usuario encontrado:", user); // Log para ver el usuario encontrado
+
+      // Comparar la contraseña cifrada
+      const isPasswordValid = await bcrypt.compare(password, user.contrasena);
+      if (!isPasswordValid) {
+        return res.status(401).json({ message: "Contraseña incorrecta" });
+      }
+
+      // Generar tokens
+      const accessToken = generateAccessToken(user);
+      const refreshToken = generateRefreshToken(user);
+
+      // Decodificar el token para obtener el tiempo de expiración
+      const decodedAccessToken = jwt.decode(accessToken);
+      const expirationTime = decodedAccessToken.exp; // Tiempo de expiración en formato UNIX (segundos)
+
+      // Devolver los tokens y el tiempo de expiración al cliente
+      return res.json({
+        user: {
+          id: user.id,
+          nombre: user.nombre,
+          apellido: user.apellido,
+          fechaNacimiento: user.fecha_nacimiento, // Cambia a 'fecha_nacimiento'
+          genero: user.genero,
+          email: user.email,
+        },
+        accessToken,
+        refreshToken,
+        expirationTime, // Incluir el tiempo de expiración
+      });
+    } else {
+      return res
+        .status(401)
+        .json({ message: "Usuario no encontrado o contraseña incorrecta" });
     }
-
-    const user = results[0];
-    const isValidPassword = await bcrypt.compare(password, user.contrasena);
-
-    if (!isValidPassword) {
-      return res.status(401).json({ message: "Contraseña incorrecta" });
-    }
-
-    // Generar tokens
-    const accessToken = generateAccessToken(user);
-    const refreshToken = generateRefreshToken(user);
-
-    // Devolver los tokens al cliente
-    return res.json({
-      accessToken,
-      refreshToken,
-    });
   });
 };
