@@ -18,7 +18,8 @@ const generateRefreshToken = (user) => {
 
 // Controlador de registro de usuario
 exports.register = async (req, res) => {
-  const { nombre, apellido, fechaNacimiento, genero, email, password } = req.body;
+  const { nombre, apellido, fecha_nacimiento, genero, email, password } =
+    req.body;
 
   // Validar si el correo ya existe en la base de datos
   const queryCheckEmail = "SELECT * FROM users WHERE email = ?";
@@ -40,7 +41,7 @@ exports.register = async (req, res) => {
 
     connection.query(
       queryInsertUser,
-      [nombre, apellido, fechaNacimiento, genero, email, hashedPassword],
+      [nombre, apellido, fecha_nacimiento, genero, email, hashedPassword],
       (err, result) => {
         if (err) {
           console.error("Error al registrar al usuario:", err);
@@ -88,12 +89,15 @@ exports.login = (req, res) => {
       const decodedAccessToken = jwt.decode(accessToken);
       const expirationTime = decodedAccessToken.exp; // Tiempo de expiración en formato UNIX (segundos)
 
+
       // Devolver los tokens y el tiempo de expiración al cliente
       return res.json({
         user: {
           id: user.id,
           nombre: user.nombre,
           apellido: user.apellido,
+          fechaNacimiento: user.fecha_nacimiento, // Cambia a fecha_nacimiento
+          genero: user.genero,
           email: user.email,
         },
         accessToken,

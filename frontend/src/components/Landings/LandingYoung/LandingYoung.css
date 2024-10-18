@@ -1,15 +1,22 @@
 .PrincipalYoung {
   padding: 0;
+  margin: 0;
   background-image: url('../../images/Fondo-young.png');
   background-size: cover; 
   background-position: center;
   background-repeat: no-repeat; 
-  height: 100vh;
+  height: 100%;
+  width: 100%;
 }
-@media (max-width: 1024px) {
-    .PrincipalYoung {
-      background-size: cover; /* Ajustamos la imagen para que se vea completa */
-      height: auto; /* Ajustamos la altura para tablets */
-      padding: 0px; /* Añadimos algo de padding para mejorar el layout */
-    }
+@media (max-width: 1440px) {
+
+}
+
+@media (max-width: 768px) {
+  .PrincipalYoung {
+    background-position: center; /* Centra la imagen en pantallas más pequeñas */ 
+    height: 150vh; /* Ajusta la altura del contenedor en pantallas más pequeñas */
+    padding: 5px; /* Añade un poco de relleno para asegurar que el contenido no se salga */
   }
+}
+

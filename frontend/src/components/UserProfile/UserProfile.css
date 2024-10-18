@@ -5,46 +5,30 @@
   justify-content: center;
   align-items: center;
   padding-left: 80px;
-  border-left: 2px solid rgba(255, 255, 255, 0.5); /* Línea vertical con transparencia */
+  border-left: 2px solid rgba(255, 255, 255, 0.5);
 }
 
 .profile-info {
   display: flex;
   align-items: center;
   cursor: pointer;
-  margin-right: 20px;
- 
 }
 
 .profile-picture {
-  
-  width: 50px; /* Ajusta el tamaño según lo que necesites */
-  height: 50px; /* El mismo valor que el ancho para mantener el círculo */
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 20px;
-}
-.profile-picture img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Asegura que la imagen SVG llene todo el espacio */
-}
-.Datos {
-  font-family: "Hammersmith One", sans-serif;
-}
-.user-name {
-  display: flex;
-  font-size: 1rem;
-  font-weight: bold;
-  color: #ffffff;
+  margin-right: 10px;
 }
 
-.user-email {
-  font-size: 1rem;
-  color: #a9a9a9;
+.profile-picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .dropdown-icon {
@@ -53,15 +37,43 @@
   color: #d2ac15;
 }
 
+.Datos {
+  display: block; /* Ocultar por defecto en pantallas grandes */
+  padding: 10px;
+  font-family: "Hammersmith One", sans-serif;
+  text-align: left;
+}
+
+.user-name {
+  display: block;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #000000;
+}
+
+.user-email {
+  font-size: 1rem;
+  color: #a9a9a9;
+}
+
+/* Menu desplegable */
 .dropdown-menu {
   position: absolute;
   top: 100%;
-  right: 0;
-  width: 80%;
+  right: -70px;
+  left: auto;
+  width: 200px;
+  padding: 10px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
   border-radius: 4px;
   overflow: hidden;
   z-index: 1;
+  background-color: #fee47d; /* Añadido para que se vea mejor */
+}
+
+.dropdown-menu .Datos {
+  padding: 10px;
+  background-color: #fee47d;
 }
 
 .dropdown-menu button {
@@ -76,4 +88,66 @@
 
 .dropdown-menu button:hover {
   background-color: #f1f1f1;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .user-profile {
+    padding-left: 20px;
+    justify-content: flex-start;
+  }
+
+  .profile-info {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .profile-picture {
+    width: 40px;
+    height: 40px;
+  }
+
+  .dropdown-menu{
+    right: -150px;
+    left: auto;
+    width: 200px;
+  }
+
+  .dropdown-menu .Datos {
+    display: block; /* Mostrar los datos del usuario dentro del menú en pantallas pequeñas */
+    width: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .user-profile {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 10px;
+  }
+
+  .profile-info {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .profile-picture {
+    width: 35px;
+    height: 35px;
+  }
+
+  .user-name,
+  .user-email {
+    font-size: 0.8rem;
+  }
+
+  .dropdown-menu {
+    width: 100%;
+    right: auto; /* Centrar mejor el menú en móviles */
+  }
+
+  .dropdown-menu .Datos {
+    padding: 10px;
+    background-color: #f1f1f1;
+  }
 }

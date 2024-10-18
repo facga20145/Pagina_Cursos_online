@@ -3,21 +3,42 @@
   align-items: center;
   justify-content: space-between;
   text-align: center;
-  padding: 20px 20px;
-  margin-left: 150px;
+  padding: 20px 0;
+  margin-left: 120px;
   font-family: "Hammersmith One", sans-serif;
   width: 90%;
+  position: relative;  /* Asegura que los elementos hijos con position absolute se posicionen con respecto a este */
+  z-index: 10; /* Asegura que el header esté siempre visible sobre otros elementos */
+}
+.kids-version{
+  margin-left: 100px;
+}
+/* Botón hamburguesa para móviles */
+.hamburger-menu {
+  display: none; /* Se oculta en pantallas grandes */
+  cursor: pointer;
 }
 
+.hamburger-icon {
+  font-size: 24px;
+  color: white;
+}
+.hamburguer-kids{
+  color: black;
+}
 .logo2 {
+  content: url("../../images/Logo-White.svg");
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.logo2 img {
   width: 12rem;
-  
+}
+.kids-logo{
+  content: url('../../images/LogoKids.svg');
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 12rem;
 }
 
 .listHeader {
@@ -32,6 +53,34 @@
   margin: 0 40px;
   font-size: 1rem;
   text-align: center;
+}
+
+/* Estilos cuando el menú está abierto */
+.listHeader.open {
+  position: absolute;
+  margin: 0;
+  top: 100%; /* Justo debajo del header */
+  left: 0;
+  width: 80%; /* Ocupar todo el ancho de la pantalla */
+  background-color: rgba(0, 0, 0, 0.9); /* Fondo oscuro */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  z-index: 0; /* Asegura que esté por encima del contenido de la página */
+  padding: 10px 0;
+}
+
+.listHeader.open a {
+  color: #fff; /* Color blanco para los enlaces */
+  margin: 10px 0;
+  font-size: 1.2rem; /* Aumentar un poco el tamaño de la fuente en móviles */
+  transition: color 0.3s ease;
+}
+
+.listHeader.open a:hover {
+  color: #ffc107; /* Cambiar color al pasar el mouse */
 }
 .headerLink::after {
   content: "";
@@ -53,22 +102,24 @@
   color: #ffffff;
   font-size: 16px;
 }
-
+.kids-link{
+  color: black;
+}
 .ctaList {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   margin-right: 100px;
-  gap: 20px; /* Añade espacio uniforme entre elementos */
+  gap: 30px; /* Añade espacio uniforme entre elementos */
 }
 
 .ctaList > div {
-  margin-left: 20px;
+  margin-left: 30px;
 }
 
 .login{
   padding: 0 10px;
-  border-left: 1px solid rgba(255, 255, 255, 0.5); /* Línea vertical con transparencia */
+  border-left: 1px solid rgba(0, 0, 0, 0.5); /* Línea vertical con transparencia */
   margin-right: 10px;
 }
 /* Botón de login y register */
@@ -83,10 +134,147 @@
   border-radius: 10px;
   cursor: pointer;
   font-size: 16px;
-  width: 120%;
+  width: 100%;
+}
+.login-kids button,
+.register-Kids button{
+  color: black;
 }
 .login button:hover,
 .Register button:hover {
   color: black;
   background-color: #ffde59;
+}
+/* ajuste de tamaño */
+@media (max-width: 1440px) {
+.headerStructure{
+  width: 90%;
+  margin-left: 50px;
+}
+.logo2 {
+  width: 10rem;
+  margin-right: 50px;
+}
+.listHeader{
+  padding: 0;
+}
+.listHeader a {
+  font-size: 1.2rem;
+  margin: 10px 30px;
+}
+
+.ctaList{
+  margin-right: 0;
+}
+.login button,
+.Register button {
+  font-size: 14px;
+  margin-left:0px;
+  width: 150%;
+}
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+  .headerStructure {
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .logo2 {
+    margin-left: 0;
+    width: 10rem;
+  }
+
+  .hamburger-menu {
+    display: block; /* Mostrar el botón de hamburguesa en pantallas pequeñas */
+ 
+  }
+
+
+  .listHeader {
+    display: none; /* Ocultar el menú cuando no está abierto */
+  }
+
+  .listHeader.open {
+    top: 70%;
+    left: 160px;
+  }
+  .listHeader a {
+    font-size: 1.2rem;
+    margin: 10px 0;
+  }
+
+  .ctaList {
+    justify-content: center;
+    margin-right: 10px;
+  }
+
+  .login button,
+.Register button {
+  font-size: 14px;
+  width: 120%;
+}
+}
+
+/* Estilos para pantallas muy pequeñas (móviles) */
+@media (max-width: 480px) {
+  .headerStructure {
+    margin-left: 0;
+  }
+  .kids-version{
+    margin-left: 0;
+  }
+
+  .logo2 {
+    content: url('../../images/Logo-White-mobil.svg');
+    width: 3rem;
+  }
+  .kids-logo{
+    content: url('../../images/Logo-black-Movil.svg');
+    width: 2rem;
+    margin: 0;
+  }
+  .hamburger-menu {
+    display: block; /* Mostrar el botón de hamburguesa en pantallas pequeñas */
+    width: 10%px;
+ 
+  }
+  .hamburger-icon {
+    font-size: 10px;
+    color: white;
+  }
+  .ctaList{
+    gap: 0px;
+  }
+  .ctaList > div {
+    margin: 0px;
+  }
+  .listHeader {
+    flex-direction: column;
+    padding: 0;
+  }
+  
+  .hamburger-icon {
+    font-size: 20px;
+  }
+  .hamburguer-kids{
+    font-size: 20px;
+    color: black;
+  }
+  .listHeader a {
+    font-size: 1rem;
+  }
+  .listHeader.open {
+    top: 90%;
+    left: 100px;
+  }
+
+  .login button,
+  .Register button {
+    font-size: 10px;
+    padding: 10px;
+    width: 100%;
+  }
 }

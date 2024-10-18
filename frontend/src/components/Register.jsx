@@ -18,7 +18,7 @@ function Register() {
   const [nombreError, setNombreError] = useState("");
   const [apellidoError, setApellidoError] = useState("");
   const [passwordError, setPasswordError] = useState("");
-  const [gender, setGender] = useState("");
+  const [genero, setGenero] = useState("");
   const navigate = useNavigate();
 
   const validateEmail = (email) => {
@@ -112,8 +112,8 @@ function Register() {
     }
   };
 
-  const handleGenderChange = (event) => {
-    setGender(event.target.value);
+  const handleGeneroChange = (event) => {
+    setGenero(event.target.value);
   };
 
   const handleRegister = async (e) => {
@@ -131,7 +131,7 @@ function Register() {
           nombre,
           apellido,
           fechaNacimiento,
-          genero: gender,
+          genero,
           email,
           password,
         }
@@ -190,8 +190,8 @@ function Register() {
 
             <select
               name="genero"
-              value={gender}
-              onChange={handleGenderChange}
+              value={genero}
+              onChange={handleGeneroChange}
               required
             >
               <option value="" disabled>

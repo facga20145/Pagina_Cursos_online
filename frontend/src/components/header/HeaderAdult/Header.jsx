@@ -1,18 +1,21 @@
 import "../../Login/Login";
 import "../HeaderAdult/Header.css";
 import logo from "../../images/Logo-White.svg";
+import LogoKids from '../../images/LogoKids.svg'
 import { useNavigate, Link } from "react-router-dom";  // Importa Link
 import Cart from '../../Cart'; 
-import UserProfile from '../../UserProfile/UserProfile'
+import UserProfile from '../../UserProfile/UserProfile';
+import { useState } from "react"; // Importamos useState para manejar el estado del menú
 
-export default function Header({ onExploreClick, cartItems, removeItemFromCart }) { 
+export default function Header({  isKids,onExploreClick, cartItems, removeItemFromCart }) { 
   const storedUser = localStorage.getItem("user");
   const isLoggedIn = storedUser && storedUser !== "undefined";
 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);  // Estado para el menú responsive
   const navigate = useNavigate();
 
   const linkHeaders = [
-    { name: 'Explorar', url: '/', onClick: onExploreClick },  // Cambia la URL según corresponda
+    { name: 'Explorar', url: '/', onClick: onExploreClick },  
     { name: 'Comunidad', url: '/Comunidad' },
     { name: 'Planes', url: '/Premium' },
     { name: 'Becas', url: '/Becas' },
@@ -27,20 +30,26 @@ export default function Header({ onExploreClick, cartItems, removeItemFromCart }
     navigate('/register');
   };
 
+  // Función para manejar la apertura/cierre del menú
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <div>
-      <header className='headerStructure'>
-        <div className="logo2">
-          <img src={logo} />
+      <header className={`headerStructure ${isKids ? 'kids-version' : ''}`}>
+        <div className={`logo2 ${isKids ? 'kids-logo' : ''}`}>
+          <img src={isKids ? LogoKids : logo} alt="Logo" />
         </div>
 
-        <div className="listHeader">
+   
+        <div className={`listHeader ${isMenuOpen ? 'open' : ''}`}>  {/* Clase 'open' para abrir el menú */}
           {linkHeaders.map((link, index) => (
-            <Link  // Utilizamos Link en lugar de <a>
+            <Link  
               key={index}
-              to={link.url}  // Cambiamos href a "to" para que sea manejado por React Router
-              className="headerLink"
-              onClick={link.onClick || null}  // Si existe onClick, lo ejecuta
+              to={link.url}  
+              className={`headerLink ${isKids ? 'kids-link' : ''}`}
+              onClick={link.onClick || null}  
             >
               {link.name}
             </Link>
@@ -48,22 +57,25 @@ export default function Header({ onExploreClick, cartItems, removeItemFromCart }
         </div>
 
         <div className="ctaList">
-        {/* Si el usuario está logueado, mostrar el perfil, sino los botones */}
-        {!isLoggedIn ? (
+          {!isLoggedIn ? (
             <>
-              <div className="login">
-                <button onClick={() => navigate("/login")}>Inicia Sesion</button>
+              <div className={`login ${isKids ? 'login-kids' : ''}`}>
+                <button onClick={handleLoginClick}>Inicia Sesión</button>
               </div>
-              <div className="Register">
-                <button onClick={() => navigate("/register")}>Registrate gratis</button>
+              <div className={`Register ${isKids ? 'register-Kids' : ''}`}>
+                <button onClick={handleRegisterClick}>Regístrate gratis</button>
               </div>
             </>
           ) : (
             <UserProfile />
           )}
+    
+        <Cart  cartItems={cartItems} removeItemFromCart={removeItemFromCart} kidsStyle={isKids} />
+          </div>
+             {/* Botón del menú para móviles */}
+             <div className="hamburger-menu" onClick={toggleMenu}>
+          <span className={`hamburger-icon ${isKids ? 'hamburguer-kids' : ''}`}>&#9776;</span>  {/* Icono del menú */}
         </div>
-
-        <Cart cartItems={cartItems} removeItemFromCart={removeItemFromCart} /> {/* Aquí pasamos el carrito */}
       </header>
     </div>
   );

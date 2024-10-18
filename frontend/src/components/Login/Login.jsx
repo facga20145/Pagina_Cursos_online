@@ -50,6 +50,7 @@ function Login() {
           password,
         }
       );
+    
       // Verificar si la respuesta tiene el token y el usuario
       if (response.data && response.data.accessToken && response.data.user) {
         // Guardar el token de acceso y los datos del usuario en localStorage

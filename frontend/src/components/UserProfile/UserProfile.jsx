@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import PhotoPerfil from '../images/Photo-perfil.svg'
+import PhotoPerfil from '../images/Photo-perfil.svg';
 import "./UserProfile.css";
 
 const UserProfile = () => {
@@ -10,7 +10,6 @@ const UserProfile = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Obtener los datos del usuario de localStorage
     const storedUser = localStorage.getItem("user");
     if (storedUser && storedUser !== "undefined") {
       try {
@@ -39,17 +38,18 @@ const UserProfile = () => {
     <div className="user-profile">
       <div className="profile-info" onClick={toggleDropdown}>
         <div className="profile-picture">
-        <img src={PhotoPerfil} alt="Profile" />
-        </div>
-        <div className="Datos">
-          <span className="user-name">{userName}</span>
-          <span className="user-email">{userEmail}</span>
+          <img src={PhotoPerfil} alt="Profile" />
         </div>
         <span className="dropdown-icon">▼</span>
       </div>
 
       {showDropdown && (
         <div className="dropdown-menu">
+          {/* Mostrar los datos solo dentro del menú cuando está abierto en pantallas pequeñas */}
+          <div className="Datos">
+            <span className="user-name">{userName}</span>
+            <span className="user-email">{userEmail}</span>
+          </div>
           <button onClick={() => navigate("/profile")}>Ver perfil</button>
           <button onClick={handleLogout}>Cerrar sesión</button>
         </div>
