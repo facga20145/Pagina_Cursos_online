@@ -1,12 +1,12 @@
 import React from "react";
-import Header from "./header/headerKids/HeaderKids";
+import Header from "./header/HeaderAdult/Header";
 import "./beca.css";
 import FooterAdult from "./Footers/FooterAdult/FooterAdult";
 
 function Beca() {
     return (
         <>
-            <Header />
+            <Header isKids={true}/>
             <div className="content-container">
                 <div className="left-text">
                     <h2 className="highlight-text">¡Felicidades por pasar las pruebas!</h2>
