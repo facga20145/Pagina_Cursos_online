@@ -1,13 +1,13 @@
 import React from 'react';
 import './FooterKids.css'; // Asegúrate de importar el archivo CSS
-import logoKids from '../../images/logoKids.png'
+import logo from "../../../components/images/LogoKids.svg";
 
 const FooterKids = () => {
   return (
     <div><br />
     <footer className="footer-kids">
       <div className="footer-row">
-        <img src={logoKids} alt="Logo" className="footer-logo-kids" />
+        <img src={logo} alt="Logo" className="footer-logo-kids" />
       </div>
       <div className="footer-row footer-links-kids">
         <div className="column-kids">

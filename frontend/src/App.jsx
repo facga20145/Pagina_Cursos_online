@@ -11,11 +11,20 @@ import ManageScholarships from './components/Admin/ManageScholarships';
 import UploadVideos from './components/Admin/UploadVideos';
 import './App.css';
 import Childlandingpage from './components/Landings/Landingkids/Childlandingpage.jsx';
-import DemoLandingPage from './components/DemoLandingPage.jsx'
+import DemoLandingPage from './components/DemoLandingPage.jsx';
 import PlanesKids from './components/PlanesKids.jsx';
 import Comunidad from './components/comunidad.jsx';
 import Foro from './components/foro.jsx';
 import Admin from './components/Admin/Admin.jsx';
+
+// Importamos las nuevas páginas de los cursos
+import HtmlKids from './components/paginasCursos/paginasNiños/HtmlKids.jsx';
+import CssKids from './components/paginasCursos/paginasNiños/CssKids.jsx';
+import JavaKids from './components/paginasCursos/paginasNiños/JavaKids.jsx';
+import PhpKids from './components/paginasCursos/paginasNiños/PhpKids.jsx';
+import JavaScriptKids from './components/paginasCursos/paginasNiños/JavaScriptKids.jsx';
+import PythonKids from './components/paginasCursos/paginasNiños/PythonKids.jsx';
+import Pago from './components/Pago.jsx';
 
 
 
@@ -36,6 +45,14 @@ function App() {
         <Route path="/Comunidad" element={<Comunidad/>} />
         <Route path="/admin" element={<Admin/>} />
         <Route path="/Foro" element={<Foro/>} />
+        <Route path="/Pago" element={<Pago/>} />
+        
+        <Route path="/html-course" element={<HtmlKids/>} />
+        <Route path="/css-course" element={<CssKids />} />
+        <Route path="/java-course" element={<JavaKids />} />
+        <Route path="/javascript-course" element={<JavaScriptKids />} />
+        <Route path="/php-course" element={<PhpKids />} />
+        <Route path="/python-course" element={<PythonKids/>} />
       </Routes>
     </Router>
   );
