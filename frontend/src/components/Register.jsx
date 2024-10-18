@@ -8,7 +8,7 @@ import { FaEye, FaEyeSlash, FaArrowLeft } from 'react-icons/fa';
 function Register() {
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
-  const [edad, setEdad] = useState("");
+  const [fechaNacimiento, setFechaNacimiento] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -17,7 +17,6 @@ function Register() {
   const [emailError, setEmailError] = useState('');
   const [nombreError, setNombreError] = useState('');
   const [apellidoError, setApellidoError] = useState('');
-  const [edadError, setEdadError] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [gender, setGender] = useState("");
   const navigate = useNavigate();
@@ -37,13 +36,8 @@ function Register() {
     return apellidoRegex.test(apellido);
   };
 
-  const validateEdad = (edad) => {
-    const edadRegex = /^(1[0-1][0-9]|[1-9][0-9]?)$/; // Acepta solo entre 1 y 119
-    return edadRegex.test(edad);
-  };
-
   const validatePassword = (password) => {
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/; // Mínimo 8 caracteres, una mayúscula, una minúscula y un número
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
     return passwordRegex.test(password);
   };
 
@@ -63,7 +57,7 @@ function Register() {
     const nombreValue = e.target.value;
     setNombre(nombreValue);
     if (nombreValue === '') {
-      setNombreError(''); // Si está vacío, no mostrar error
+      setNombreError('');
     } else if (!validateNombre(nombreValue)) {
       setNombreError('El nombre debe tener entre 2 y 30 letras.');
     } else {
@@ -75,7 +69,7 @@ function Register() {
     const apellidoValue = e.target.value;
     setApellido(apellidoValue);
     if (apellidoValue === '') {
-      setApellidoError(''); // Si está vacío, no mostrar error
+      setApellidoError('');
     } else if (!validateApellido(apellidoValue)) {
       setApellidoError('El apellido debe tener entre 2 y 30 letras.');
     } else {
@@ -83,43 +77,16 @@ function Register() {
     }
   };
 
-  const handleEdadChange = (e) => {
-    const edadValue = e.target.value;
-    setEdad(edadValue);
-    if (edadValue === '') {
-      setEdadError(''); // Si está vacío, no mostrar error
-    } else if (!validateEdad(edadValue)) {
-      setEdadError('La edad debe estar entre 1 y 119.');
-    } else {
-      setEdadError('');
-    }
-  };
-
   const handlePasswordChange = (e) => {
     const passwordValue = e.target.value;
     setPassword(passwordValue);
 
-    if(passwordValue === ''){
+    if (passwordValue === '') {
       setPasswordError('');
-    }else if (!validatePassword(passwordValue)) {
+    } else if (!validatePassword(passwordValue)) {
       setPasswordError('La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un número.');
     } else {
       setPasswordError('');
-    }
-  };
-
-  // Modificamos la función handleBackClick
-  const handleBackClick = () => {
-    const userType = localStorage.getItem('userType');
-
-    if (userType === 'child') {
-      navigate('/childlandingpage');
-    } else if (userType === 'teen') {
-      navigate('/landingyoung');
-    } else if (userType === 'adult') {
-      navigate('/landingpage');
-    } else {
-      navigate('/landingpage');  // Ruta por defecto
     }
   };
 
@@ -139,7 +106,7 @@ function Register() {
       const response = await axios.post('http://localhost:4000/api/auth/register', {
         nombre,
         apellido,
-        edad,
+        fecha_nacimiento: fechaNacimiento,
         genero: gender,
         email,
         password,
@@ -159,7 +126,7 @@ function Register() {
 
   return (
     <div className="conten">
-      <FaArrowLeft className="back-arrow" onClick={handleBackClick} />
+      <FaArrowLeft className="back-arrow" onClick={() => navigate('/')} />
 
       <div className="content-Register">
         <img className="Logo" src={Logo} alt="Logo" />
@@ -173,24 +140,17 @@ function Register() {
             {apellidoError && <p className="error-message">{apellidoError}</p>}
 
             <div className="boxs">
-              <div className="input-wrapper">
-                <input
-                  type="number"
-                  placeholder="Edad"
-                  value={edad}
-                  onChange={handleEdadChange}
-                  required
-                />
-                <p className={`error-message ${edadError ? 'error-visible' : ''}`}>
-                  {edadError}
-                </p>
-              </div>
+              <input
+                type="date"
+                placeholder="Fecha de nacimiento"
+                value={fechaNacimiento}
+                onChange={(e) => setFechaNacimiento(e.target.value)}
+                required
+              />
             </div>
 
             <select name="genero" value={gender} onChange={handleGenderChange} required>
-              <option value="" disabled>
-                Selecciona tu género
-              </option>
+              <option value="" disabled>Selecciona tu género</option>
               <option value="masculino">Masculino</option>
               <option value="femenino">Femenino</option>
               <option value="otro">Otro</option>
