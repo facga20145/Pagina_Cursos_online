@@ -19,7 +19,6 @@ function Register() {
   const [apellidoError, setApellidoError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [genero, setGenero] = useState("");
-  const [passwordError, setPasswordError] = useState("");
   const navigate = useNavigate();
 
   // Validaciones
