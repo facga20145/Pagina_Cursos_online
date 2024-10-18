@@ -5,6 +5,10 @@ import LandingPage from './components/Landings/LandingAdult/LandingPage.jsx';
 import Premium from './components/Premiun/Premium.jsx';
 import Dashboard from '../src/components/Dashboard.jsx'; 
 import LandingYoung from './components/Landings/LandingYoung/LandingYoung.jsx';
+import AdminDashboard from './components/Admin/AdminDashboard.jsx';
+import ManageUsers from './components/Admin/ManageUsers';
+import ManageScholarships from './components/Admin/ManageScholarships';
+import UploadVideos from './components/Admin/UploadVideos';
 import './App.css';
 import Childlandingpage from './components/Landings/Landingkids/Childlandingpage.jsx';
 import DemoLandingPage from './components/DemoLandingPage.jsx'
@@ -27,7 +31,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/landingyoung" element={<LandingYoung />} />
         <Route path="/" element={<LandingPage />} />
-        <Route path="/childlandingpage" element={<Childlandingpage />} />
+        <Route path='/childlandingpage' element={<Childlandingpage/>}/>
         <Route path="/DemoLandingPage" element={<DemoLandingPage />} />
         <Route path="/planesKids" element={<PlanesKids/>} />
         <Route path="/Comunidad" element={<Comunidad/>} />

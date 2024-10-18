@@ -37,8 +37,8 @@ exports.register = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     // Insertar el nuevo usuario en la base de datos
-    const queryInsertUser =
-      "INSERT INTO users (nombre, apellido, fecha_nacimiento, genero, email, contrasena, rol) VALUES (?, ?, ?, ?, ?, ?, 'usuario')";
+    const queryInsertUser = `INSERT INTO users (nombre, apellido, fecha_nacimiento, genero, email, contrasena) VALUES (?, ?, ?, ?, ?, ?)`;
+
     connection.query(
       queryInsertUser,
       [nombre, apellido, fecha_nacimiento, genero, email, hashedPassword],
@@ -48,7 +48,10 @@ exports.register = async (req, res) => {
           return res.status(500).json({ message: "Error en el servidor" });
         }
 
-        return res.status(201).json({ message: "Usuario registrado exitosamente" });
+        // Devolver una respuesta exitosa al cliente
+        return res
+          .status(201)
+          .json({ message: "Usuario registrado exitosamente" });
       }
     );
   });
@@ -78,11 +81,6 @@ exports.login = (req, res) => {
         return res.status(401).json({ message: "Contraseña incorrecta" });
       }
 
-      // Verificar el rol del usuario, evitar que admin o superadmin accedan aquí
-      if (user.rol === 'superadmin' || user.rol === 'admin') {
-        return res.status(403).json({ message: "Acceso denegado" });
-      }
-
       // Generar tokens
       const accessToken = generateAccessToken(user);
       const refreshToken = generateRefreshToken(user);
@@ -105,7 +103,6 @@ exports.login = (req, res) => {
         accessToken,
         refreshToken,
         expirationTime, // Incluir el tiempo de expiración
-        role: user.rol
       });
     } else {
       return res
