@@ -1,0 +1,160 @@
+/* Fondo principal con degradado */
+.body-KidPlan {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(90deg, #8c52ff, #1bdaff); /* Degradado colorido */
+    min-height: 100vh; /* Asegurar que cubra al menos la pantalla completa */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Mantener el contenido en la parte superior */
+    position: relative; /* Para posicionar imágenes */
+}
+
+/* Banner principal */
+.Banner {
+    padding-top: 4rem;
+    text-align: center;
+    width: 100%;
+    position: relative; /* Para las imágenes */
+}
+
+/* Texto grande con más estilo */
+.Banner h1 {
+    color: #FFD700; /* Amarillo brillante */
+    font-size: 5rem; /* Tamaño grande para destacar */
+    font-family: 'Fredoka One', sans-serif;
+    margin-bottom: 1rem;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); /* Sombra suave para destacar */
+}
+
+/* Subtítulo */
+.Banner h2 {
+    color: #FFFFFF; /* Blanco */
+    font-size: 3rem;
+    font-family: 'Fredoka One', sans-serif;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Párrafo con estilo */
+.Banner-p p {
+    color: #FFFFFF;
+    font-size: 1.8rem;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.5;
+    font-family: 'Fredoka One', sans-serif;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Sombra ligera para mejorar visibilidad */
+}
+
+/* Estilos para las imágenes */
+.Banner .image-left {
+    position: absolute;
+    top: -50px;
+    left: -150px;
+    width: 250px; /* Tamaño ajustable */
+    height: auto;
+}
+
+.Banner .image-right {
+    position: absolute;
+    top: -50px;
+    right: -150px;
+    width: 250px; /* Tamaño ajustable */
+    height: auto;
+}
+
+/* Contenedor de planes */
+.premium-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Mayor separación entre las tarjetas */
+    padding: 50px;
+    margin-top: 3rem;
+    flex-wrap: wrap; /* Permitir que las tarjetas se muevan a una nueva línea si es necesario */
+    width: 100%;
+}
+
+/* Estilos para las tarjetas de planes */
+.PricingCard {
+    background-color: #240046; /* Fondo oscuro para contraste */
+    border-radius: 20px; /* Bordes más redondeados */
+    padding: 20px;
+    width: 280px; /* Ancho fijo para uniformidad */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Sombra pronunciada */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.PricingCard:hover {
+    transform: scale(1.1); /* Efecto hover de mayor crecimiento */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+.PricingCard .planName {
+    color: #F9DE70; /* Amarillo brillante */
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.PricingCard .price {
+    color: #FFFFFF; /* Blanco para el precio */
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.PricingCard .discountText {
+    color: #76D12F; /* Verde para el descuento */
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.PricingCard .buttonText {
+    background-color: #FF4B92; /* Botón rosa chicle */
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border-radius: 12px;
+    font-size: 1.4rem;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    width: fit-content;
+    transition: background-color 0.3s ease;
+}
+
+.PricingCard .buttonText:hover {
+    background-color: #f9de70; /* Cambiar a amarillo en hover */
+    color: #240046; /* Texto oscuro */
+}
+
+/* Etiqueta de mejor oferta */
+.PricingCard .bestOffer {
+    background-color: #FFD700; /* Amarillo brillante */
+    color: #240046; /* Texto oscuro */
+    padding: 5px 12px;
+    border-radius: 5px;
+    font-size: 1rem;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+}
+
+/* Botón de llamada a la acción */
+.Banner .cta-button {
+    background-color: #ff4b92;
+    color: #fff;
+    padding: 15px 25px;
+    border-radius: 15px;
+    font-size: 1.5rem;
+    margin-top: 20px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.Banner .cta-button:hover {
+    background-color: #f9de70;
+    color: #240046;
+}

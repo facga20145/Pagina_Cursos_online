@@ -18,7 +18,7 @@ export default function Header({  isKids,onExploreClick, cartItems, removeItemFr
     { name: 'Explorar', url: '/', onClick: onExploreClick },  
     { name: 'Comunidad', url: '/Comunidad' },
     { name: 'Planes', url: '/Premium' },
-    { name: 'Becas', url: '/Becas' },
+    { name: 'Becas', url: '/Beca' },
     { name: 'Cursos', url: '/PlanesKids' }
   ];
 

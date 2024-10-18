@@ -6,7 +6,7 @@ import FooterKids from './Footers/footerKids/FooterKids'
 export default function Pago() {
   return (
     <div>
-        <Header/>
+        <Header isKids={true}/>
         <PurchaseSteps/>
         <FooterKids/>
     </div>

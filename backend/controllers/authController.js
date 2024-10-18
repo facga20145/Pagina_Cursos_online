@@ -5,24 +5,21 @@ const bcrypt = require("bcrypt");
 // Función para generar el token de acceso
 const generateAccessToken = (user) => {
   return jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
-    expiresIn: "15s",  // Tiempo de expiración del accessToken (15 minutos)
+    expiresIn: "15s",
   });
 };
 
 // Función para generar el token de refresco
 const generateRefreshToken = (user) => {
   return jwt.sign({ id: user.id }, process.env.JWT_REFRESH_SECRET, {
-    expiresIn: "7d",  // Tiempo de expiración del refreshToken (7 días)
+    expiresIn: "7d",
   });
 };
 
-// Función para formatear la fecha a 'YYYY-MM-DD'
+// Formatear la fecha para que sea compatible con el formato que espera MySQL
 const formatDate = (dateString) => {
-  const date = new Date(dateString);
-  const year = date.getFullYear();
-  const month = ('0' + (date.getMonth() + 1)).slice(-2); // Mes con dos dígitos
-  const day = ('0' + date.getDate()).slice(-2); // Día con dos dígitos
-  return `${year}-${month}-${day}`;
+  const [day, month, year] = dateString.split('/'); // Dividimos la fecha en componentes día, mes, año
+  return `${year}-${month}-${day}`; // Retornamos la fecha en el formato aaaa-mm-dd
 };
 
 // Controlador de registro de usuario
