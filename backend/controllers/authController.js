@@ -16,10 +16,9 @@ const generateRefreshToken = (user) => {
   });
 };
 
-// Formatear la fecha para que sea compatible con el formato que espera MySQL
 const formatDate = (dateString) => {
   const [day, month, year] = dateString.split('/'); // Dividimos la fecha en componentes día, mes, año
-  return ${year}-${month}-${day}; // Retornamos la fecha en el formato aaaa-mm-dd
+  return `${year}-${month}-${day}`; // Retornamos la fecha en el formato aaaa-mm-dd
 };
 
 // Controlador de registro de usuario
