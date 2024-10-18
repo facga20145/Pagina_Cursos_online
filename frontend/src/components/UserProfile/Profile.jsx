@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import './Profile.css'
 
 function Profile() {
   const [user, setUser] = useState(null);
@@ -24,13 +25,15 @@ function Profile() {
   }
 
   return (
-    <div>
+    <div className="Profile-contend">
+      <div className="Profile-info">
       <h1>Perfil del Usuario</h1>
       <p>Nombre: {user.nombre}</p>
       <p>Apellido:{user.apellido}</p>
       <p>Fecha de Nacimiento: {formatDate(user.fechaNacimiento)}</p> {/* Formatea la fecha */}
       <p>Genero:{user.genero}</p> {/* Mostrar el género */}
       <p>Correo Electrónico: {user.email}</p>
+      </div>
     </div>
   );
 }

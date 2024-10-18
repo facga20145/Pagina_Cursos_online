@@ -30,7 +30,7 @@ import Pago from './components/Pago.jsx';
 import KidPlan from './components/KidPlan.jsx';
 import YoungPlan from './components/YoungPlan.jsx';
 import Beca from './components/beca.jsx';
-
+import CertificatePage from './components/Certificado/CertifactePage.jsx'
 
 function App() {
   return (
@@ -61,6 +61,7 @@ function App() {
         <Route path="/KidPlan" element={<KidPlan/>} />
         <Route path="/YoungPlan" element={<YoungPlan/>} />
         <Route path="/Beca" element={<Beca/>} />
+        <Route path="/Certificado" element={<CertificatePage/>} />
 
       </Routes>
     </Router>

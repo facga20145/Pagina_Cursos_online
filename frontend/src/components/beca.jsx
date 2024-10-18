@@ -6,7 +6,7 @@ import FooterAdult from "./Footers/FooterAdult/FooterAdult";
 function Beca() {
     return (
         <>
-            <Header isKids={true}/>
+            <Header isWhite={true}/>
             <div className="content-container">
                 <div className="left-text">
                     <h2 className="highlight-text">¡Felicidades por pasar las pruebas!</h2>

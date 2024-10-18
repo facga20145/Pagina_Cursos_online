@@ -209,6 +209,7 @@ function Register() {
               <span className="toggle-password-Register" onClick={() => setShowPassword(!showPassword)}>
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
               </span>
+              {passwordError && <p className="error-message">{passwordError}</p>}
             </div>
 
             <div className="password-box-Register">
