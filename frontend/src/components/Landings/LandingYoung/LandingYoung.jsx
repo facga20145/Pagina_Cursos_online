@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import "./LandingYoung.css";
-import HeaderYoung from "../../header/headerYouth/HeaderYoung";
+import Header from '../../header/HeaderAdult/Header'
 import SectionYoung from "../../section/SectionYouth/SectionYoung";
 import AboutUsYoung from "../../AboutUs/AboutUsYoung";
 import FeatureYoung from "../../Features/FeatureYoung";
@@ -16,7 +16,7 @@ function LandingYoung() {
   return (
     <div className="PrincipalYoung">
       <div className="headeryoung">
-        <HeaderYoung />
+        <Header/>
       </div>
       <div className="Sectionyoung">
         <SectionYoung />

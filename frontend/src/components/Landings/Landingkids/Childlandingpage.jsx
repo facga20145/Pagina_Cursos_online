@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import HeaderKids from '../../../components/header/headerKids/HeaderKids'
+import Header from '../../header/HeaderAdult/Header'
 import SectionKids from '../../section/sectionKids/SectionKids'
 import Section2Kids from '../../section2/Section2Kids/Section2Kids'
 import Section3Kids from '../../section3/Section3Kids/Section3Kids'
@@ -14,7 +14,7 @@ export default function Childlandingpage() {
   }, []);
   return (
     <div>
-        <HeaderKids/>
+        <Header isKids={true}/>
         <SectionKids/>
         <Section2Kids/>
         <Section3Kids/>
