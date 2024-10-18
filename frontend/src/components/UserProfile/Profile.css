@@ -3,3 +3,10 @@
     align-items: center;
     justify-content: center;
 }
+.Profile-info{
+    margin-top: 12rem;
+}
+
+.Profile-info p{
+    color: black;
+}
