@@ -14,107 +14,22 @@ function Register() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [emailError, setEmailError] = useState("");
-  const [nombreError, setNombreError] = useState("");
-  const [apellidoError, setApellidoError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
   const [genero, setGenero] = useState("");
   const navigate = useNavigate();
 
-  const validateEmail = (email) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  };
-
-  const validateNombre = (nombre) => {
-    const nombreRegex = /^[a-zA-ZÀ-ÿ\s]{2,30}$/;
-    return nombreRegex.test(nombre);
-  };
-
-  const validateApellido = (apellido) => {
-    const apellidoRegex = /^[a-zA-ZÀ-ÿ\s]{2,30}$/;
-    return apellidoRegex.test(apellido);
-  };
-
-  const validatePassword = (password) => {
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/; // Mínimo 8 caracteres, una mayúscula, una minúscula y un número
-    return passwordRegex.test(password);
-  };
-
-  const handleEmailChange = (e) => {
-    const emailValue = e.target.value;
-    setEmail(emailValue);
-    if (emailValue === "") {
-      setEmailError("");
-    } else if (!validateEmail(emailValue)) {
-      setEmailError("El formato del correo es incorrecto.");
-    } else {
-      setEmailError("");
-    }
-  };
-
-  const handleNombreChange = (e) => {
-    const nombreValue = e.target.value;
-    setNombre(nombreValue);
-    if (nombreValue === "") {
-      setNombreError(""); // Si está vacío, no mostrar error
-    } else if (!validateNombre(nombreValue)) {
-      setNombreError("El nombre debe tener entre 2 y 30 letras.");
-    } else {
-      setNombreError("");
-    }
-  };
-
-  const handleApellidoChange = (e) => {
-    const apellidoValue = e.target.value;
-    setApellido(apellidoValue);
-    if (apellidoValue === "") {
-      setApellidoError(""); // Si está vacío, no mostrar error
-    } else if (!validateApellido(apellidoValue)) {
-      setApellidoError("El apellido debe tener entre 2 y 30 letras.");
-    } else {
-      setApellidoError("");
-    }
-  };
-  const handleFechaChange = (e) => {
-    setFecha(e.target.value); // Eliminar la conversión adicional
-  };
-  const handlePasswordChange = (e) => {
-    const passwordValue = e.target.value;
-    setPassword(passwordValue);
-
-    if (passwordValue === "") {
-      setPasswordError("");
-    } else if (!validatePassword(passwordValue)) {
-      setPasswordError(
-        "La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un número."
-      );
-    } else {
-      setPasswordError("");
-    }
-  };
-
-  // Modificamos la función handleBackClick
   const handleBackClick = () => {
-    const userType = localStorage.getItem("userType");
-
-    if (userType === "child") {
-      navigate("/childlandingpage");
-    } else if (userType === "teen") {
-      navigate("/landingyoung");
-    } else if (userType === "adult") {
-      navigate("/landingpage");
-    } else {
-      navigate("/landingpage"); // Ruta por defecto
-    }
+    navigate(-1); // Esto te lleva de vuelta a la página anterior
   };
 
-  const handleGeneroChange = (event) => {
-    setGenero(event.target.value);
+  const handleFechaChange = (e) => {
+    setFecha(e.target.value); // Usar el valor directamente del input de fecha
   };
 
   const handleRegister = async (e) => {
     e.preventDefault();
+
+    // Verificar que la fecha se esté enviando correctamente
+    console.log("Fecha de nacimiento:", fechaNacimiento); 
 
     if (password !== confirmPassword) {
       alert("Las contraseñas no coinciden.");
@@ -127,7 +42,7 @@ function Register() {
         {
           nombre,
           apellido,
-         /*  fecha_nacimiento: */fechaNacimiento ,
+          fecha_nacimiento: fechaNacimiento,  // Se pasa la fecha correctamente
           genero,
           email,
           password,
@@ -159,19 +74,17 @@ function Register() {
               type="text"
               placeholder="Nombre"
               value={nombre}
-              onChange={handleNombreChange}
+              onChange={(e) => setNombre(e.target.value)}
               required
             />
-            {nombreError && <p className="error-message">{nombreError}</p>}
 
             <input
               type="text"
               placeholder="Apellido"
               value={apellido}
-              onChange={handleApellidoChange}
+              onChange={(e) => setApellido(e.target.value)}
               required
             />
-            {apellidoError && <p className="error-message">{apellidoError}</p>}
 
             <div className="boxsRegister">
               <div className="input-wrapperRegister">
@@ -188,7 +101,7 @@ function Register() {
             <select
               name="genero"
               value={genero}
-              onChange={handleGeneroChange}
+              onChange={(e) => setGenero(e.target.value)}
               required
             >
               <option value="" disabled>
@@ -199,26 +112,21 @@ function Register() {
             </select>
 
             <input
-              type="text"
+              type="email"
               placeholder="Correo electrónico"
               value={email}
-              onChange={handleEmailChange}
-              className={emailError ? "error" : ""}
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
-            {emailError && <p className="error-message">{emailError}</p>}
 
             <div className="password-box-Register">
               <input
                 type={showPassword ? "text" : "password"}
                 placeholder="Contraseña"
                 value={password}
-                onChange={handlePasswordChange}
+                onChange={(e) => setPassword(e.target.value)}
                 required
               />
-              {passwordError && (
-                <p className="error-message">{passwordError}</p>
-              )}
               <span
                 className="toggle-password-Register"
                 onClick={() => setShowPassword(!showPassword)}
