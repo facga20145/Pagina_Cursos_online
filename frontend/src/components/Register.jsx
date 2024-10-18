@@ -15,7 +15,26 @@ function Register() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [genero, setGenero] = useState("");
+  const [passwordError, setPasswordError] = useState("");
   const navigate = useNavigate();
+
+  // Validación de contraseña: al menos 8 caracteres, con mayúsculas, minúsculas, números y caracteres especiales
+  const validatePassword = (password) => {
+    const passwordRegex = /^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&#])[A-Za-z\d@$!%?&#]{8,}$/;
+    return passwordRegex.test(password);
+  };
+
+  const handlePasswordChange = (e) => {
+    const pwd = e.target.value;
+    setPassword(pwd);
+    if (!validatePassword(pwd)) {
+      setPasswordError(
+        "La contraseña debe tener al menos 8 caracteres, incluyendo mayúsculas, minúsculas, números y un carácter especial."
+      );
+    } else {
+      setPasswordError("");
+    }
+  };
 
   const handleBackClick = () => {
     navigate(-1); // Esto te lleva de vuelta a la página anterior
@@ -29,10 +48,17 @@ function Register() {
     e.preventDefault();
 
     // Verificar que la fecha se esté enviando correctamente
-    console.log("Fecha de nacimiento:", fechaNacimiento); 
+    console.log("Fecha de nacimiento:", fechaNacimiento);
 
+    // Validar que las contraseñas coincidan
     if (password !== confirmPassword) {
       alert("Las contraseñas no coinciden.");
+      return;
+    }
+
+    // Verificar si la contraseña cumple con los requisitos de seguridad
+    if (passwordError) {
+      alert(passwordError);
       return;
     }
 
@@ -124,7 +150,7 @@ function Register() {
                 type={showPassword ? "text" : "password"}
                 placeholder="Contraseña"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={handlePasswordChange}
                 required
               />
               <span
@@ -133,6 +159,7 @@ function Register() {
               >
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
               </span>
+              {passwordError && <p className="error-message">{passwordError}</p>}
             </div>
 
             <div className="password-box-Register">

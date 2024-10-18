@@ -1,3 +1,4 @@
+routes
 const express = require("express");
 const jwt = require("jsonwebtoken"); 
 const authController = require("../controllers/authController.js");
@@ -42,4 +43,4 @@ router.get("/userdata", (req, res) => {
 // Ruta para registro de usuario
 router.post("/register", authController.register);
 
-module.exports = router;
+module.exports = router;

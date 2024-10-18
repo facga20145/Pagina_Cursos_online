@@ -69,7 +69,7 @@ export default function Header({  isKids, isWhite,onExploreClick, cartItems, rem
             <UserProfile />
           )}
     
-          <Cart  cartItems={cartItems} removeItemFromCart={removeItemFromCart} kidsStyle={{isKids ,isWhite}} />
+          <Cart  cartItems={cartItems} removeItemFromCart={removeItemFromCart} isKids={isKids} isWhite={isWhite} />
         </div>
 
         {/* Botón del menú para móviles */}
