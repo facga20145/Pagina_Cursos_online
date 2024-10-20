@@ -9,7 +9,7 @@
 }
 
 .login-box{
-background: transparent; /* Transparente opaco */
+background:#fff;
 width: 420px;
 height: 460px;
 padding: 40px;
@@ -138,4 +138,85 @@ input.error {
 
 .back-arrow-Login:hover {
   transform: scale(1.2); /* Efecto de agrandamiento al pasar el cursor */
+}
+/* Responsivo para pantallas grandes (1440px) */
+@media (max-width: 1440px) {
+  .login-box {
+    width: 380px;
+    height: 430px;
+  }
+
+  .logo-Login {
+    width: 180px;
+    height: 90px;
+    margin-left: 100px;
+  }
+
+  .login-box h1 {
+    font-size: 28px;
+  }
+
+  .btn-submit-Login {
+    width: 100%;
+  }
+}
+
+/* Responsivo para pantallas medianas (768px) */
+@media (max-width: 768px) {
+  .login-box {
+    width: 340px;
+    height: 450px;
+    padding: 30px;
+  }
+
+  .back-arrow-Login{
+    left: 0;
+  }
+
+  .logo-Login {
+    width: 160px;
+    height: 80px;
+    margin-left: 90px;
+  }
+
+  .login-box h1 {
+    font-size: 26px;
+  }
+
+  .input-box-Login input {
+    font-size: 15px;
+  }
+
+  .btn-submit-Login {
+    font-size: 15px;
+    width: 100%;
+  }
+}
+
+/* Responsivo para pantallas pequeñas (390px) */
+@media (max-width: 400px) {
+  .login-box {  
+    width: 300px;
+    height: 50    0px;
+    padding: 20px;
+  }
+
+  .logo-Login {
+    width: 140px;
+    height: 70px;
+    margin-left: 80px;
+  }
+
+  .login-box h1 {
+    font-size: 22px;
+  }
+
+  .input-box-Login input {
+    font-size: 14px;
+  }
+
+  .btn-submit-Login {
+    font-size: 14px;
+    width: 100%;
+  }
 }

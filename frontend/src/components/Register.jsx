@@ -80,7 +80,9 @@ function Register() {
 
   const handleFechaChange = (e) => {
     const fechaNacimiento = e.target.value;
-    const formattedFecha = new Date(fechaNacimiento).toISOString().split("T")[0]; // Convertir a formato YYYY-MM-DD
+    const formattedFecha = new Date(fechaNacimiento)
+      .toISOString()
+      .split("T")[0]; // Convertir a formato YYYY-MM-DD
     setFecha(formattedFecha);
   };
 
@@ -91,7 +93,9 @@ function Register() {
     if (passwordValue === "") {
       setPasswordError("");
     } else if (!validatePassword(passwordValue)) {
-      setPasswordError("La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un número.");
+      setPasswordError(
+        "La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un número."
+      );
     } else {
       setPasswordError("");
     }
@@ -119,14 +123,17 @@ function Register() {
     }
 
     try {
-      const response = await axios.post("http://localhost:4000/api/auth/register", {
-        nombre,
-        apellido,
-        fecha_nacimiento: fechaNacimiento,
-        genero,
-        email,
-        password,
-      });
+      const response = await axios.post(
+        "http://localhost:4000/api/auth/register",
+        {
+          nombre,
+          apellido,
+          fecha_nacimiento: fechaNacimiento,
+          genero,
+          email,
+          password,
+        }
+      );
 
       console.log("Respuesta del servidor:", response.data);
 
@@ -149,24 +156,32 @@ function Register() {
         <h1>Crea tu cuenta</h1>
         <form className="FormularioRegister" onSubmit={handleRegister}>
           <div className="boxsRegister">
-            <input
-              type="text"
-              placeholder="Nombre"
-              value={nombre}
-              onChange={handleNombreChange}
-              required
-            />
-            {nombreError && <p className="error-message">{nombreError}</p>}
-
-            <input
-              type="text"
-              placeholder="Apellido"
-              value={apellido}
-              onChange={handleApellidoChange}
-              required
-            />
-            {apellidoError && <p className="error-message">{apellidoError}</p>}
-
+            <div className="input-contend">
+              <input
+                type="text"
+                name="nombre"
+                placeholder="Nombre"
+                value={nombre}
+                onChange={handleNombreChange}
+                className="input-field"
+                required
+              />
+              {nombreError && <p className="error-message">{nombreError}</p>}
+            </div>
+            <div className="input-contend">
+              <input
+                type="text"
+                name="apellido"
+                placeholder="Apellido"
+                value={apellido}
+                onChange={handleApellidoChange}
+                className="input-field"
+                required
+              />
+              {apellidoError && (
+                <p className="error-message">{apellidoError}</p>
+              )}
+            </div>
             <div className="boxsRegister">
               <div className="input-wrapperRegister">
                 <input
@@ -179,24 +194,30 @@ function Register() {
               </div>
             </div>
 
-            <select name="genero" value={genero} onChange={handleGeneroChange} required>
+            <select
+              name="genero"
+              value={genero}
+              onChange={handleGeneroChange}
+              required
+            >
               <option value="" disabled>
                 Selecciona tu género
               </option>
               <option value="masculino">Masculino</option>
               <option value="femenino">Femenino</option>
             </select>
-
-            <input
-              type="email"
-              placeholder="Correo electrónico"
-              value={email}
-              onChange={handleEmailChange}
-              className={emailError ? "error" : ""}
-              required
-            />
-            {emailError && <p className="error-message">{emailError}</p>}
-
+            <div className="input-contend">
+              <input
+                type="email"
+                name="email"
+                placeholder="Correo electrónico"
+                value={email}
+                onChange={handleEmailChange}
+                className="input-field"
+                required
+              />
+              {emailError && <p className="error-message">{emailError}</p>}
+            </div>
             <div className="password-box-Register">
               <input
                 type={showPassword ? "text" : "password"}
@@ -205,11 +226,15 @@ function Register() {
                 onChange={handlePasswordChange}
                 required
               />
-              {passwordError && <p className="error-message">{passwordError}</p>}
-              <span className="toggle-password-Register" onClick={() => setShowPassword(!showPassword)}>
+              {passwordError && (
+                <div className="error-message">{passwordError}</div>
+              )}
+              <span
+                className="toggle-password-Register"
+                onClick={() => setShowPassword(!showPassword)}
+              >
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
               </span>
-              {passwordError && <p className="error-message">{passwordError}</p>}
             </div>
 
             <div className="password-box-Register">
@@ -220,7 +245,10 @@ function Register() {
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 required
               />
-              <span className="toggle-password-Register" onClick={() => setShowConfirmPassword(!showConfirmPassword)}>
+              <span
+                className="toggle-password-Register"
+                onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+              >
                 {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
               </span>
             </div>
