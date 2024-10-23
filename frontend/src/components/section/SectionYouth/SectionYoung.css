@@ -12,6 +12,7 @@
 }
 .text-sectionyoung {
   grid-column: 1 / 2; /* Ubica el texto en la primera columna */
+  margin-left: 200px;
   max-width: 70%;
   color: white;
 }

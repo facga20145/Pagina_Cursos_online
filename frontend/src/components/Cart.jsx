@@ -3,7 +3,8 @@ import { useState } from "react";
 import "./Cart.css";
 
 export default function Cart({
-  kidsStyle,
+  KidsStyle,
+  WhiteStyle,
   cartItems = [],
   removeItemFromCart,
 }) {
@@ -17,7 +18,8 @@ export default function Cart({
   return (
     <div className="cart-container">
       <button
-        className={`cart-icon ${kidsStyle ? "Kids-Style" : ""}`}
+        className={`cart-icon ${KidsStyle ? "Kids-Style" : ''} 
+        ${WhiteStyle ? "White-Style":''}`}
         onClick={toggleCart}
       >
         🛒 {cartItems.length} {/* cartItems.length ya no causará errores */}

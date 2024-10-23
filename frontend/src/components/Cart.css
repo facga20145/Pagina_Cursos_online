@@ -25,7 +25,14 @@
   position: relative;
   color: #000000;
 }
-
+.White-Style{
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  position: relative;
+  color: #000000;
+}
 /* Dropdown del carrito */
 .cart-dropdown {
   position: absolute;

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Photo from '../images/Photo-perfil.svg'
 import './Profile.css'
 
 function Profile() {
@@ -9,7 +10,6 @@ function Profile() {
     // Obtener los datos del usuario de localStorage o hacer una llamada a una API
     const userData = JSON.parse(localStorage.getItem("user"));
     if (userData) {
-      console.log(userData);
       setUser(userData);
     }
   }, []);
@@ -26,6 +26,9 @@ function Profile() {
 
   return (
     <div className="Profile-contend">
+      <div className="Profile-Photo">
+        <img src={Photo} alt="" />
+      </div>
       <div className="Profile-info">
       <h1>Perfil del Usuario</h1>
       <p>Nombre: {user.nombre}</p>

@@ -115,7 +115,7 @@ function Login() {
           <h1>Inicio de Sesión</h1>
           <div className="input-box-Login">
             <input
-              type="text"
+              type="email"
               placeholder="Escribe tu correo Electrónico"
               value={email}  // Cambiado a email
               onChange={handleEmailChange}
