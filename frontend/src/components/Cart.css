@@ -1,6 +1,6 @@
 /* Contenedor del carrito */
 .cart-container {
-  width: 15%;
+  width: 100%;
   position: relative; /* Permite que el dropdown esté alineado al icono del carrito */
   display: flex;
   align-items: center; /* Alinea verticalmente los elementos en el centro */
