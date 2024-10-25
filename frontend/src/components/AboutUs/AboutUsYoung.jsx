@@ -8,7 +8,7 @@ function AboutUsYoung() {
           <h3>Próximo Curso</h3>
         </div>
         <div className="AboutUs-Title">
-          <h1>GuimartBot 2024: Programacion para jovenes</h1>
+          <h1>Skill Connect 2024: Programacion para jovenes</h1>
           <p className="release-date"> Disponible desde el viernes 20 de diciembre</p>
           <p className="main-description">
             Conviértete en el creador de tu propio futuro! Aprende a programar y
