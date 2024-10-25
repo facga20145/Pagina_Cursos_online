@@ -7,8 +7,8 @@
   margin-left: 120px;
   font-family: "Hammersmith One", sans-serif;
   width: 90%;
-  position: relative;  /* Asegura que los elementos hijos con position absolute se posicionen con respecto a este */
-  z-index: 10; /* Asegura que el header esté siempre visible sobre otros elementos */
+  /* position: relative;  */ /* Asegura que los elementos hijos con position absolute se posicionen con respecto a este */
+  z-index: 1000; /* Asegura que el header esté siempre visible sobre otros elementos */
 }
 .kids-version{
   margin-left: 100px;
@@ -203,6 +203,7 @@
   .logo2 {
     margin-left: 0;
     width: 10rem;
+    margin-right: 12rem;
   }
 
   .hamburger-menu {
@@ -239,7 +240,8 @@
 /* Estilos para pantallas muy pequeñas (móviles) */
 @media (max-width: 480px) {
   .headerStructure {
-    margin-left: 0;
+    margin-top: 1rem;
+    margin-left: 0.5rem;
   }
   .kids-version{
     margin-left: 0;
@@ -248,16 +250,17 @@
   .logo2 {
     content: url('../../images/Logo-White-mobil.svg');
     width: 3rem;
+    margin-right: 10rem;
   }
   .kids-logo{
     content: url('../../images/Logo-black-Movil.svg');
-    width: 2rem;
-    margin: 0;
+    width: 3rem;
+    margin-right: 10rem;
   }
   .white-logo{
     content: url('../../images//Logo-black-Movil.svg');
-    width: 2rem;
-    margin: 0;
+    width: 3rem;
+    margin-right: 10rem;
   }
   .hamburger-menu {
     display: block; /* Mostrar el botón de hamburguesa en pantallas pequeñas */

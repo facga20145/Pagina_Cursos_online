@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import PhotoPerfil from '../images/Photo-perfil.svg';
+import PhotoPerfil from '../images/Photo-profile2.svg';
 import "./UserProfile.css";
 
 const UserProfile = () => {
