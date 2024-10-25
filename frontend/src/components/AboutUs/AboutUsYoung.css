@@ -89,7 +89,7 @@
 @media (max-width: 768px) {
   .AboutUsYoung {
     background-size: cover;
-    height: auto;
+    height: 100vh;
   }
 
   .AboutUsYoung-Contend {
@@ -121,9 +121,9 @@
 }
 
 /* Media Query para pantallas pequeñas (390px) */
-@media (max-width: 390px) {
+@media (max-width: 400px) {
   .AboutUsYoung {
-    height: auto;
+    height: 100vh;
     padding-top: 20px;
     margin-top: 0;
   }

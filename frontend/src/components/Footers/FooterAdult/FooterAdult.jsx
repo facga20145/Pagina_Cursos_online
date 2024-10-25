@@ -1,10 +1,10 @@
-import logo from '../../images/Logo-Young.png'
+import logo from '../../images/Logo-White.svg'
 import './FooterAdult.css'
 function FooterAdult() {
   return (
     <footer className="footerAdult-container">
   <div className="footerAdult-logo">
-    <img src={logo} alt="GuimarbOT logo" />
+    <img src={logo} alt="skillconnect-logo" />
   </div>
   <div className="footerAdult-columns">
     <div className="footerAdult-column">

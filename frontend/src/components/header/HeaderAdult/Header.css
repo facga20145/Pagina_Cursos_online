@@ -170,15 +170,15 @@
   margin-left: 50px;
 }
 .logo2 {
-  width: 10rem;
-  margin-right: 50px;
+  width: 8rem;
+  margin-right: 10px;
 }
 .listHeader{
   padding: 0;
 }
 .listHeader a {
-  font-size: 1.2rem;
-  margin: 10px 30px;
+  font-size: 0.5 rem;
+  margin: 10px 20px;
 }
 
 .ctaList{
@@ -186,12 +186,49 @@
 }
 .login button,
 .Register button {
-  font-size: 14px;
+  font-size: 10px;
   margin-left:0px;
-  width: 150%;
+  width: 100%;
 }
 }
+@media (max-width: 1000px) {
+  .headerStructure {
+    width: 80%; /* Ajuste del ancho para pantallas más pequeñas */
+    margin-left: 20px; /* Ajuste del margen para centrado */
+    padding: 10px; /* Reducir el padding para optimizar el espacio */
+  }
 
+  .logo2, .kids-logo, .white-logo {
+    width: 8rem; /* Ajustar el tamaño del logo */
+    margin-right: 1.2rem; /* Ajustar el espacio a la derecha del logo */
+  }
+
+  .listHeader a {
+    font-size: .8rem; /* Reducir el tamaño de las fuentes para los enlaces */
+    margin: 0 10px; /* Ajustar los márgenes de los enlaces */
+  }
+
+  .listHeader.open {
+    left: 150px; /* Ajuste de posición para pantallas de 1000px */
+    top: 12%; /* Ajuste de la posición superior */
+  }
+
+  .ctaList {
+    margin-right: 10px; /* Ajustar el margen derecho para centrar los elementos */
+    gap: 20px; /* Reducir el espacio entre los elementos */
+  }
+  .ctaList > div{
+    margin-left: 10px;
+  }
+
+  .login button,
+  .Register button {
+    font-size: 10px; /* Ajustar el tamaño de los botones */
+    padding: 5px 8px; /* Reducir el padding */
+    margin-left: 5px; /* Ajustar el margen izquierdo */
+  }
+
+}
 /* Media query para pantallas pequeñas */
 @media (max-width: 768px) {
   .headerStructure {
@@ -201,9 +238,9 @@
   }
 
   .logo2 {
-    margin-left: 0;
+    margin-left: 2rem;
     width: 10rem;
-    margin-right: 1rem;
+    margin-right: 5rem;
   }
 
   .hamburger-menu {
@@ -227,7 +264,7 @@
 
   .ctaList {
     justify-content: center;
-    margin-right: 10px;
+    margin-right: 20px;
   }
 
   .login button,
@@ -304,6 +341,80 @@
   .login button,
   .Register button {
     font-size: 10px;
+    padding: 10px;
+    width: 100%;
+  }
+}
+@media (max-width: 400px) {
+  .headerStructure {
+    margin-top: 1rem;
+    margin-left: 0;
+  }
+  .kids-version{
+    margin-left: 0;
+  }
+
+  .logo2 {
+    content: url('../../images/Logo-White-mobil.svg');
+    width: 2rem;
+    margin-left: 0;
+    margin-right: 2rem;
+  }
+  .kids-logo{
+    content: url('../../images/Logo-black-Movil.svg');
+    width: 2rem;
+    margin-left: 0;
+    margin-right: 2rem;
+  }
+  .white-logo{
+    content: url('../../images//Logo-black-Movil.svg');
+    width: 2rem;
+    margin-left: 0;
+    margin-right: 2rem;
+  }
+  .hamburger-menu {
+    display: block; /* Mostrar el botón de hamburguesa en pantallas pequeñas */
+    width: 10px;
+ 
+  }
+  .hamburger-icon {
+    font-size: 10px;
+    color: white;
+  }
+  .ctaList{
+    gap: 0px;
+  }
+  .ctaList > div {
+    margin: 0px;
+  }
+  .listHeader {
+    flex-direction: column;
+    padding: 0;
+  }
+  
+  .hamburger-icon {
+    font-size: 20px;
+  }
+  .hamburguer-kids{
+    font-size: 20px;
+    color: black;
+  }
+  .hamburguer-white{
+    font-size: 20px;
+    color: black;
+  }
+  .listHeader a {
+    font-size: 1rem;
+  }
+  .listHeader.open {
+    top: 10%;
+    left: 100px;
+  }
+
+  .login button,
+  .Register button {
+    margin-right: 1rem;
+    font-size: 8px;
     padding: 10px;
     width: 100%;
   }

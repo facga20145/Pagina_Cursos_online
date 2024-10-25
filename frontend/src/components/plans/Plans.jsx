@@ -2,7 +2,7 @@ import "./Plans.css";
 import Books from '../images/Books-Icon.png'
 import Activity from '../images/Activity-Icon.png'
 import Languages from '../images/Language-Icon.png'
-export default function Plans() {
+export default function Plans({isWhite}) {
   const Plan = ({ img, text, para }) => {
     return (
       <div className="containerBox">
@@ -16,9 +16,9 @@ export default function Plans() {
   };
 
   return (
-    <div className="plansContainer">
+    <div className={`plansContainer ${isWhite ? "plansContainer-White":""}`}>
       <h3 className="head">No aplaces tu
-        <span className="highlight"> educación</span>
+        <span className={`highlight ${isWhite ? "highlight-White":""}`}> educación</span>
         </h3>
       <p>Actívate y crea cosas asombrosas usando la programación</p>
 

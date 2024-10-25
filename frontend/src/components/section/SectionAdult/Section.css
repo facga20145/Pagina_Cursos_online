@@ -19,11 +19,16 @@
     padding-top: 2rem;
     color: #9484bc;
 }
-
+.title2-White{
+    color: #615e69;
+}
 .titlePhrase {
     color: white;
     font-size: 4rem;
     text-align: center;
+}
+.titlePhrase-White{
+    color: #000;
 }
 
 .paragraphContainer {
@@ -34,6 +39,9 @@
     font-family: 'Chau Philomene One', sans-serif;
     text-align: center;
      
+}
+.paragraphContainer-White p {
+    color: #000000;
 }
 
 .buttonSection {

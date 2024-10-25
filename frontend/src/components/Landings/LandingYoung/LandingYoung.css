@@ -9,16 +9,4 @@
   height: 100%;
   width: 100%;
 }
-@media (max-width: 1440px) {
-  .PrincipalYoung{
-    width: 100%;
-  }
-}
-
-@media (max-width: 768px) {
-  .PrincipalYoung {
-    background-position: center; /* Centra la imagen en pantallas más pequeñas */ 
-    padding: 5px; /* Añade un poco de relleno para asegurar que el contenido no se salga */
-  }
-}
 
