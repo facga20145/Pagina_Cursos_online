@@ -203,7 +203,7 @@
   .logo2 {
     margin-left: 0;
     width: 10rem;
-    margin-right: 12rem;
+    margin-right: 1rem;
   }
 
   .hamburger-menu {
@@ -217,7 +217,7 @@
   }
 
   .listHeader.open {
-    top: 70%;
+    top: 10%;
     left: 160px;
   }
   .listHeader a {
@@ -250,17 +250,17 @@
   .logo2 {
     content: url('../../images/Logo-White-mobil.svg');
     width: 3rem;
-    margin-right: 10rem;
+    margin-right: 5rem;
   }
   .kids-logo{
     content: url('../../images/Logo-black-Movil.svg');
     width: 3rem;
-    margin-right: 10rem;
+    margin-right: 5rem;
   }
   .white-logo{
     content: url('../../images//Logo-black-Movil.svg');
     width: 3rem;
-    margin-right: 10rem;
+    margin-right: 5rem;
   }
   .hamburger-menu {
     display: block; /* Mostrar el botón de hamburguesa en pantallas pequeñas */
@@ -297,7 +297,7 @@
     font-size: 1rem;
   }
   .listHeader.open {
-    top: 90%;
+    top: 10%;
     left: 100px;
   }
 

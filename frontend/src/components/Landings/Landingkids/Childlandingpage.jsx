@@ -13,7 +13,7 @@ export default function Childlandingpage() {
     localStorage.setItem("landingPage", "child");
   }, []);
   return (
-    <div>
+    <div className="landingchild-container">
         <Header isKids={true}/>
         <SectionKids/>
         <Section2Kids/>

@@ -86,7 +86,7 @@
 /* Ajuste para pantallas 768px (tablets) */
 @media (max-width: 768px) {
     .plansContainer{
-        height: 90%;
+        height: 1400px;
     }
     .plansBox {
         grid-template-columns: 1fr;  /* 1 columna para pantallas muy pequeñas */
