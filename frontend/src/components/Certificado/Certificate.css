@@ -1,42 +1,68 @@
 .certificate-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f4f4f9;
-  }
-  
-  .certificate-content {
-    text-align: center;
-    padding: 20px;
-    border: 2px solid #3949ab;
-    border-radius: 10px;
-    background-color: white;
-    width: 80%;
-    max-width: 600px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .certificate-title {
-    font-size: 24px;
-    color: #084891;
-    margin-bottom: 20px;
-  }
-  
-  .certificate-text {
-    font-size: 16px;
-    color: #333;
-    margin: 10px 0;
-  }
-  
-  .student-name, .course-name {
-    font-size: 20px;
-    font-weight: bold;
-    margin: 10px 0;
-  }
-  
-  .signature-section {
-    margin-top: 40px;
-    font-size: 16px;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+  background-color:#0d3b66;
+}
+
+.certificate-content {
+  text-align: center;
+  padding: 40px 30px;
+  border: 3px solid #2c3e50;
+  border-radius: 12px;
+  background-color: #fcfcfc;
+  width: 80%;
+  max-width: 650px;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+  font-family: 'Georgia', serif;
+
+  background-image: url('../images//Certificado.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.certificate-title {
+  font-size: 32px;
+  color: #2c3e50;
+  margin-bottom: 15px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.certificate-text {
+  font-size: 18px;
+  color: #333;
+  margin: 10px 0;
+  line-height: 1.4;
+}
+
+.student-name,
+.course-name {
+  font-size: 24px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin: 8px 0;
+  letter-spacing: 0.5px;
+}
+
+.signature-section {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #333;
+  font-weight: 500;
+}
+
+.signature-section p {
+  margin: 0;
+  color:#2c3e50
+}
+
+.signature-section p:first-child {
+  font-size: 18px;
+  font-weight: 300;
+  margin-bottom: 6px;
+  letter-spacing: 1px;
+}
