@@ -2,7 +2,7 @@ import React from 'react'
 import './Section.css'
 import { useNavigate } from 'react-router-dom';
 
-export default function Section() {
+export default function Section({isWhite}) {
     
     const navigate = useNavigate();
 
@@ -13,16 +13,16 @@ export default function Section() {
   return (
     <div className='sectionContainer'>
         <div className="phrase">
-            <h3 className="titlePhrase">
+            <h3 className={`titlePhrase ${isWhite ? "titlePhrase-White" : ""}`}>
                 La escuela de programación <br></br> 
-                <span className="title2">
+                <span className={`title2 ${isWhite ? "title2-White" : ""}`}>
                      Líder en Perú
                 </span>
             </h3>
         </div>
 
-        <div className="paragraphContainer">
-            <p>Más de 5,000 jóvenes y niños aprenden programación con nosotros, transformando su futuro</p>
+        <div className={`paragraphContainer ${isWhite ? "paragraphContainer-White":""}`}>
+            <p>Impulsa tu futuro con las herramientas y el apoyo para desarrollar habilidades en programación y destacar en el mundo digital</p>
         </div>
 
         <div className="buttonSection">

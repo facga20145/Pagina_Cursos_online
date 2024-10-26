@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Landing from './components/Landings/Landing/Landing.jsx'
 import Login from '../src/components/Login/Login.jsx';
 import Register from './components/Register.jsx';
 import LandingPage from './components/Landings/LandingAdult/LandingPage.jsx';
@@ -30,13 +31,14 @@ import Pago from './components/Pago.jsx';
 import KidPlan from './components/KidPlan.jsx';
 import YoungPlan from './components/YoungPlan.jsx';
 import Beca from './components/beca.jsx';
-
+import CertificatePage from './components/Certificado/CertifactePage.jsx'
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/landingpage" element={<LandingPage />} />
+        <Route path="/landing" element={<Landing />} />
         <Route path="/login" element={<Login />} />
         <Route path="/premium" element={<Premium />} />
         <Route path="/register" element={<Register />} />
@@ -61,6 +63,7 @@ function App() {
         <Route path="/KidPlan" element={<KidPlan/>} />
         <Route path="/YoungPlan" element={<YoungPlan/>} />
         <Route path="/Beca" element={<Beca/>} />
+        <Route path="/Certificado" element={<CertificatePage/>} />
 
       </Routes>
     </Router>

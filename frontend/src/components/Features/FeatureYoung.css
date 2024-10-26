@@ -40,8 +40,7 @@ p {
 /* Media Queries para Pantallas Pequeñas */
 @media (max-width: 768px) {
   .FeatureYoung {
-    background-size: cover;
-    height: 150vh;
+    height: 170vh;
   }
   .features-container {
     flex-direction: column;

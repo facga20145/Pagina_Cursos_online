@@ -5,21 +5,24 @@ const bcrypt = require("bcrypt");
 // Función para generar el token de acceso
 const generateAccessToken = (user) => {
   return jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
-    expiresIn: "15s",
+    expiresIn: "15s",  // Tiempo de expiración del accessToken (15 minutos)
   });
 };
 
 // Función para generar el token de refresco
 const generateRefreshToken = (user) => {
   return jwt.sign({ id: user.id }, process.env.JWT_REFRESH_SECRET, {
-    expiresIn: "7d",
+    expiresIn: "7d",  // Tiempo de expiración del refreshToken (7 días)
   });
 };
 
-// Formatear la fecha para que sea compatible con el formato que espera MySQL
+// Función para formatear la fecha a 'YYYY-MM-DD'
 const formatDate = (dateString) => {
-  const [day, month, year] = dateString.split('/'); // Dividimos la fecha en componentes día, mes, año
-  return ${year}-${month}-${day}; // Retornamos la fecha en el formato aaaa-mm-dd
+  const date = new Date(dateString);
+  const year = date.getFullYear();
+  const month = ('0' + (date.getMonth() + 1)).slice(-2); // Mes con dos dígitos
+  const day = ('0' + date.getDate()).slice(-2); // Día con dos dígitos
+  return `${year}-${month}-${day}`;
 };
 
 // Controlador de registro de usuario
@@ -37,8 +40,9 @@ exports.register = async (req, res) => {
     if (results.length > 0) {
       return res.status(400).json({ message: "El correo ya está registrado" });
     }
-    
-    const formattedDate = formatDate(fecha_nacimiento); // Asegura que la fecha esté en el formato correcto para MySQL
+
+    const formattedDate = formatDate(fecha_nacimiento); // Formatear la fecha
+
     // Cifrar la contraseña antes de guardarla
     const hashedPassword = await bcrypt.hash(password, 10);
 
@@ -47,7 +51,8 @@ exports.register = async (req, res) => {
       INSERT INTO users (nombre, apellido, fecha_nacimiento, genero, email, contrasena, rol) 
       VALUES (?, ?, ?, ?, ?, ?, 'usuario')
     `;
-    
+
+    // Mostrar los valores que se van a insertar (para debug)
     console.log("Valores que se van a insertar:", {
       nombre,
       apellido,
@@ -66,22 +71,31 @@ exports.register = async (req, res) => {
           return res.status(500).json({ message: "Error en el servidor" });
         }
 
-        // Devolver una respuesta exitosa al cliente
-        return res.status(201).json({ message: "Usuario registrado exitosamente" });
+        // Usuario registrado con éxito, ahora generamos los tokens
+        const newUser = { id: result.insertId, email };
+        const accessToken = generateAccessToken(newUser);
+        const refreshToken = generateRefreshToken(newUser);
+
+        // Devolver los tokens al cliente
+        return res.status(201).json({
+          message: "Usuario registrado exitosamente",
+          accessToken,
+          refreshToken,
+        });
       }
     );
   });
 };
 
-// Controlador de login
+// Controlador de login de usuario
 exports.login = (req, res) => {
-  const { username, password } = req.body;
+  const { email, password } = req.body; // Cambiar 'username' a 'email'
 
-  console.log("Datos recibidos:", { username, password });
+  console.log("Datos recibidos:", { email, password }); // Log para ver los datos recibidos
 
   // Consulta a la base de datos para verificar si el usuario existe
   const query = "SELECT * FROM users WHERE email = ?";
-  connection.query(query, [username], async (err, results) => {
+  connection.query(query, [email], async (err, results) => {
     if (err) {
       console.error("Error en la consulta a la base de datos:", err);
       return res.status(500).json({ message: "Error en el servidor" });
@@ -89,7 +103,7 @@ exports.login = (req, res) => {
 
     if (results.length > 0) {
       const user = results[0]; // El usuario encontrado en la base de datos
-      console.log("Usuario encontrado:", user);
+      console.log("Usuario encontrado:", user); // Log para ver el usuario encontrado
 
       // Comparar la contraseña cifrada
       const isPasswordValid = await bcrypt.compare(password, user.contrasena);
@@ -111,16 +125,18 @@ exports.login = (req, res) => {
           id: user.id,
           nombre: user.nombre,
           apellido: user.apellido,
-          fechaNacimiento: user.fecha_nacimiento,
+          fechaNacimiento: user.fecha_nacimiento, // Cambia a 'fecha_nacimiento'
           genero: user.genero,
           email: user.email,
         },
         accessToken,
         refreshToken,
-        expirationTime,
+        expirationTime, // Incluir el tiempo de expiración
       });
     } else {
-      return res.status(401).json({ message: "Usuario no encontrado o contraseña incorrecta" });
+      return res
+        .status(401)
+        .json({ message: "Usuario no encontrado o contraseña incorrecta" });
     }
   });
 };

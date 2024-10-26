@@ -1,4 +1,4 @@
-import logo from '../../images/Logo-Young.png'; // Importa el logo de GuimarbOT
+import logo from '../../images/Logo-White.svg'; // Importa el logo de GuimarbOT
 import './FooterYoung.css'
 function FooterYoung() {
   return (

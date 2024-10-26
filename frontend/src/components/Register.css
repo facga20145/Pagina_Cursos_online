@@ -12,10 +12,9 @@
   flex-direction: column; /* Alinea los elementos en columna */
   align-items: center; /* Centra los elementos horizontalmente */
   width: 550px;
-  height: 650px;
+  height: 720px;
   border-radius: 20px;
-  background: transparent;
-  backdrop-filter: blur(600px); /* Efecto de difuminado */
+  background: #fff;
   border: 2px solid rgba(255, 253, 253, 0.2);
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.8); /* Sombra */
   padding: 20px;
@@ -24,7 +23,6 @@
 .LogoRegister {
   width: 180px; /* Ajusta el tamaño del logo */
   height: 100px;
-
 }
 
 .content-Register h1 {
@@ -34,7 +32,9 @@
   text-align: center; /* Alinea el título al centro */
   margin-bottom: 40px;
 }
-
+.FormularioRegister {
+  width: 500px;
+}
 /* Grid para los inputs */
 .FormularioRegister .boxsRegister {
   display: grid;
@@ -42,10 +42,14 @@
   grid-gap: 20px; /* Espacio entre los inputs */
   width: 100%;
 }
+.input-contend{
+  position: relative;
+  grid-column: span 2;
+}
 
 /* Inputs que ocupan toda la fila dentro de .box */
-.boxsRegister input[type="email"],
-.boxsRegister input[type="submit"] {
+.boxsRegister input[type="email"] ,
+.boxsRegister input[type="submit"]{
   grid-column: span 2;
 }
 
@@ -53,6 +57,8 @@
 .boxsRegister input[type="text"],
 .boxsRegister input[type="email"],
 .boxsRegister input[type="password"] {
+  position: relative;
+  width: 100%;
   padding: 10px;
   padding-right: 30px;
   border: 1px solid rgba(0, 0, 0, 0.2);
@@ -64,7 +70,7 @@
   font-family: "Hammersmith One", sans-serif;
 }
 /* Estilo de select dentro de .box */
-.boxsRegister select {
+.FormularioRegister select {
   font-family: "Hammersmith One", sans-serif;
   width: 100%;
   padding: 10px;
@@ -76,7 +82,7 @@
   box-sizing: border-box;
 }
 
-.boxsRegister input[type="date"]{
+.boxsRegister input[type="date"] {
   font-family: "Hammersmith One", sans-serif;
   width: 100%;
   padding: 20px;
@@ -89,8 +95,8 @@
 }
 /* Estilo del botón dentro de .box */
 .boxsRegister input[type="submit"] {
-  margin-top: 10px;
   padding: 12px;
+  margin-top: 10px;
   border: none;
   border-radius: 10px;
   background-color: #000000;
@@ -123,6 +129,7 @@
 
 .password-box-Register {
   position: relative;
+  margin-bottom: 20px;
   width: 100%;
 }
 
@@ -141,26 +148,12 @@
   color: #333;
 }
 
-
-/* Aumentar el tamaño del input de correo */
-.boxsRegister input[type="text"] {
-  grid-column: span 2; /* Hacemos que el input de correo ocupe todo el ancho de las dos columnas */
-  width: 100%; /* Aseguramos que ocupe todo el espacio disponible */
-  padding: 10px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
-  background-color: rgba(255, 255, 255);
-  color: #333;
-  font-size: 16px;
-  box-sizing: border-box;
-  font-family: "Hammersmith One", sans-serif;
-}
-
 .error-message {
+  position: absolute;
   color: red;
-  font-size: 12px;
+  font-size: 10px;
   margin-top: 0px;
-  margin-bottom: 0; /* Para que esté pegado al input */
+  margin-bottom: 0; /* Reducimos el margen inferior */
   padding-left: 5px; /* Un pequeño padding para mantener el espacio */
   grid-column: span 2;
 }
@@ -177,12 +170,99 @@
   top: 20px;
   left: -50px;
   width: 10%;
-  font-size: 24px;  
-  color:black;     
-  cursor: pointer;  /* Cambia el cursor a pointer al pasar sobre la flecha */
-  transition: transform 0.2s ease-in-out;  /* Efecto de transición al hacer hover */
+  font-size: 24px;
+  color: black;
+  cursor: pointer; /* Cambia el cursor a pointer al pasar sobre la flecha */
+  transition: transform 0.2s ease-in-out; /* Efecto de transición al hacer hover */
 }
 
 .back-arrow-Register:hover {
   transform: scale(1.2); /* Efecto de agrandamiento al pasar el cursor */
+}
+/* ----------- Media Queries para Responsividad ----------- */
+
+/* Responsivo para pantallas grandes (1440px) */
+@media (max-width: 1440px) {
+  .content-Register {
+    width: 600px;
+    height: 720px;
+  }
+
+  .LogoRegister {
+    width: 160px;
+    height: 90px;
+  }
+
+  .content-Register h1 {
+    font-size: 30px;
+  }
+
+  .boxsRegister input,
+  .boxsRegister select {
+    font-size: 15px;
+  }
+
+  .boxsRegister input[type="submit"] {
+    font-size: 15px;
+  }
+}
+
+/* Responsivo para pantallas medianas (768px) */
+@media (max-width: 768px) {
+  .content-Register {
+    width: 400px;
+    height: 700px;
+  }
+
+  .LogoRegister {
+    width: 140px;
+    height: 80px;
+  }
+  .FormularioRegister{
+    width: 400px;
+  }
+  .back-arrow-Register {
+    left: 0;
+  }
+
+  .content-Register h1 {
+    font-size: 28px;
+  }
+
+  .boxsRegister input,
+  .boxsRegister select {
+    font-size: 14px;
+  }
+
+  .boxsRegister input[type="submit"] {
+    font-size: 14px;
+  }
+}
+
+/* Responsivo para pantallas pequeñas (390px) */
+@media (max-width: 400px) {
+  .content-Register {
+    
+    width: 300px;
+  }
+
+  .LogoRegister {
+    width: 120px;
+    height: 70px;
+  }
+   .FormularioRegister{
+    width: 300px;
+   }
+  .content-Register h1 {
+    font-size: 24px;
+  }
+
+  .boxsRegister input,
+  .boxsRegister select {
+    font-size: 13px;
+  }
+
+  .boxsRegister input[type="submit"] {
+    font-size: 13px;
+  }
 }

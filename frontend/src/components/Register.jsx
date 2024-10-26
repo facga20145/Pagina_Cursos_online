@@ -21,6 +21,7 @@ function Register() {
   const [genero, setGenero] = useState("");
   const navigate = useNavigate();
 
+  // Validaciones
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
@@ -57,7 +58,7 @@ function Register() {
     const nombreValue = e.target.value;
     setNombre(nombreValue);
     if (nombreValue === "") {
-      setNombreError(""); // Si está vacío, no mostrar error
+      setNombreError("");
     } else if (!validateNombre(nombreValue)) {
       setNombreError("El nombre debe tener entre 2 y 30 letras.");
     } else {
@@ -69,16 +70,22 @@ function Register() {
     const apellidoValue = e.target.value;
     setApellido(apellidoValue);
     if (apellidoValue === "") {
-      setApellidoError(""); // Si está vacío, no mostrar error
+      setApellidoError("");
     } else if (!validateApellido(apellidoValue)) {
       setApellidoError("El apellido debe tener entre 2 y 30 letras.");
     } else {
       setApellidoError("");
     }
   };
+
   const handleFechaChange = (e) => {
-    setFecha(e.target.value); // Eliminar la conversión adicional
+    const fechaNacimiento = e.target.value;
+    const formattedFecha = new Date(fechaNacimiento)
+      .toISOString()
+      .split("T")[0]; // Convertir a formato YYYY-MM-DD
+    setFecha(formattedFecha);
   };
+
   const handlePasswordChange = (e) => {
     const passwordValue = e.target.value;
     setPassword(passwordValue);
@@ -94,19 +101,8 @@ function Register() {
     }
   };
 
-  // Modificamos la función handleBackClick
   const handleBackClick = () => {
-    const userType = localStorage.getItem("userType");
-
-    if (userType === "child") {
-      navigate("/childlandingpage");
-    } else if (userType === "teen") {
-      navigate("/landingyoung");
-    } else if (userType === "adult") {
-      navigate("/landingpage");
-    } else {
-      navigate("/landingpage"); // Ruta por defecto
-    }
+    navigate(-1); // Esto te lleva de vuelta a la página anterior
   };
 
   const handleGeneroChange = (event) => {
@@ -121,13 +117,18 @@ function Register() {
       return;
     }
 
+    if (emailError || nombreError || apellidoError || passwordError) {
+      alert("Por favor, corrige los errores antes de continuar.");
+      return;
+    }
+
     try {
       const response = await axios.post(
         "http://localhost:4000/api/auth/register",
         {
           nombre,
           apellido,
-         /*  fecha_nacimiento: */fechaNacimiento ,
+          fecha_nacimiento: fechaNacimiento,
           genero,
           email,
           password,
@@ -155,24 +156,32 @@ function Register() {
         <h1>Crea tu cuenta</h1>
         <form className="FormularioRegister" onSubmit={handleRegister}>
           <div className="boxsRegister">
-            <input
-              type="text"
-              placeholder="Nombre"
-              value={nombre}
-              onChange={handleNombreChange}
-              required
-            />
-            {nombreError && <p className="error-message">{nombreError}</p>}
-
-            <input
-              type="text"
-              placeholder="Apellido"
-              value={apellido}
-              onChange={handleApellidoChange}
-              required
-            />
-            {apellidoError && <p className="error-message">{apellidoError}</p>}
-
+            <div className="input-contend">
+              <input
+                type="text"
+                name="nombre"
+                placeholder="Nombre"
+                value={nombre}
+                onChange={handleNombreChange}
+                className="input-field"
+                required
+              />
+              {nombreError && <p className="error-message">{nombreError}</p>}
+            </div>
+            <div className="input-contend">
+              <input
+                type="text"
+                name="apellido"
+                placeholder="Apellido"
+                value={apellido}
+                onChange={handleApellidoChange}
+                className="input-field"
+                required
+              />
+              {apellidoError && (
+                <p className="error-message">{apellidoError}</p>
+              )}
+            </div>
             <div className="boxsRegister">
               <div className="input-wrapperRegister">
                 <input
@@ -197,17 +206,18 @@ function Register() {
               <option value="masculino">Masculino</option>
               <option value="femenino">Femenino</option>
             </select>
-
-            <input
-              type="text"
-              placeholder="Correo electrónico"
-              value={email}
-              onChange={handleEmailChange}
-              className={emailError ? "error" : ""}
-              required
-            />
-            {emailError && <p className="error-message">{emailError}</p>}
-
+            <div className="input-contend">
+              <input
+                type="email"
+                name="email"
+                placeholder="Correo electrónico"
+                value={email}
+                onChange={handleEmailChange}
+                className="input-field"
+                required
+              />
+              {emailError && <p className="error-message">{emailError}</p>}
+            </div>
             <div className="password-box-Register">
               <input
                 type={showPassword ? "text" : "password"}
@@ -217,7 +227,7 @@ function Register() {
                 required
               />
               {passwordError && (
-                <p className="error-message">{passwordError}</p>
+                <div className="error-message">{passwordError}</div>
               )}
               <span
                 className="toggle-password-Register"
@@ -243,7 +253,7 @@ function Register() {
               </span>
             </div>
 
-            <input type="submit" value={"Registrate ahora"} />
+            <input type="submit" value={"Regístrate ahora"} />
           </div>
           <div className="alredyRegister">
             <label>¿Ya tienes una cuenta?</label>

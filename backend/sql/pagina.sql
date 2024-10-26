@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-10-2024 a las 07:00:55
+-- Tiempo de generación: 18-10-2024 a las 08:49:11
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -29,23 +29,25 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(255) NOT NULL,
-  `apellido` varchar(255) NOT NULL,
-  `edad` int(11) NOT NULL,
-  `genero` enum('masculino','femenino','otro') NOT NULL,
-  `email` varchar(255) NOT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `apellido` varchar(100) NOT NULL,
+  `genero` enum('masculino','femenino') NOT NULL,
+  `fecha_nacimiento` date DEFAULT NULL,
+  `email` varchar(100) NOT NULL,
   `contrasena` varchar(255) NOT NULL,
+  `rol` enum('superadmin','admin','docente','usuario') DEFAULT 'usuario',
   `fecha_creacion` timestamp NOT NULL DEFAULT current_timestamp(),
-  `fecha_actualizacion` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `status` enum('activo','inactivo') DEFAULT 'activo'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`id`, `nombre`, `apellido`, `edad`, `genero`, `email`, `contrasena`, `fecha_creacion`, `fecha_actualizacion`) VALUES
-(2, 'KENITH', 'GUANILO PIZARRO', 20, 'masculino', 'wguanilopi@ucvvirtual.edu.pe', '$2b$10$mP9FW0hhD8Z7MXF/zLSbX.Hao72kgOKARsiqVCN7w7SNQyOh69Du6', '2024-10-04 04:53:24', '2024-10-04 04:53:24'),
-(3, 'FACUNDO', 'GODOY MEJIA', 20, 'masculino', 'fgodoyme@ucvvirtual.edu.pe', '$2b$10$gkqWCkA5id7Em3CHtk0Og.Cnz9nKNpnGH5mTLgYRGnE1PdjJxChg.', '2024-10-04 04:58:25', '2024-10-04 04:58:25');
+INSERT INTO `users` (`id`, `nombre`, `apellido`, `genero`, `fecha_nacimiento`, `email`, `contrasena`, `rol`, `fecha_creacion`, `status`) VALUES
+(1, 'Facundo', 'Godoy Mejia', 'masculino', '2004-08-25', 'facga20145@gmail.com', '$2b$10$frxX42DbldrDDChsTYxYbOE6Zmw7.FOtA3WWRSeWmxEN2um7ibpR2', 'superadmin', '2024-10-12 01:37:56', 'activo'),
+(15, 'Luz', 'FASFAFA', 'femenino', '2024-09-30', 'djashjfkass@gmail.com', '$2b$10$wWOR.tI4l4MMioxeVfcPvecoPfwrPlREZT5n.Rs5bG7tQf6zWMGdG', 'docente', '2024-10-16 16:57:28', 'activo'),
+(25, 'wil', 'kint', 'femenino', '2024-09-16', 'dsaxcxvxvcbv@gmail.com', '$2b$10$uzA7WHGCkND.G1KkyR.MBOX6iLXnjRkFi9yxe2zVGC7T9D.YvAHTe', 'usuario', '2024-10-18 06:47:20', 'activo');
 
 --
 -- Índices para tablas volcadas
@@ -66,7 +68,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

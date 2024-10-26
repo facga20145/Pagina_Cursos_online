@@ -1,5 +1,5 @@
 import '../AboutUsAdult/AboutUsAdult.css'
-import AboutUsIcon from '../../images/AboutUsAdult-Icon.png'
+import AboutUsIcon from '../../images/AboutUsAdult-Icon.svg'
 function AboutUsAdult() {
   return (
     <div className="AboutUsAdult">
@@ -8,7 +8,7 @@ function AboutUsAdult() {
         <h3>Próximo Curso</h3>
       </div>
       <div className="AboutUsAdult-Title">
-        <h1>GuimartBot 2024: Programacion para jovenes</h1>
+        <h1>Skill Connect 2024: Programacion para jovenes</h1>
         <p className="release-dateAdult"> Disponible desde el viernes 20 de diciembre</p>
         <p className="main-descriptionAdult">
           Conviértete en el creador de tu propio futuro! Aprende a programar y

@@ -5,7 +5,7 @@
   justify-content: center;
   align-items: center;
   padding-left: 80px;
-  border-left: 2px solid rgba(255, 255, 255, 0.5);
+  border-left: 2px solid rgb(103, 102, 102);
 }
 
 .profile-info {
@@ -62,7 +62,7 @@
   top: 100%;
   right: -70px;
   left: auto;
-  width: 200px;
+  width: 220px;
   padding: 10px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
   border-radius: 4px;
@@ -110,7 +110,7 @@
   .dropdown-menu{
     right: -150px;
     left: auto;
-    width: 200px;
+    width: 220px;
   }
 
   .dropdown-menu .Datos {
@@ -142,8 +142,8 @@
   }
 
   .dropdown-menu {
-    width: 100%;
-    right: auto; /* Centrar mejor el menú en móviles */
+    width: 160px;
+    right: -50px; /* Centrar mejor el menú en móviles */
   }
 
   .dropdown-menu .Datos {

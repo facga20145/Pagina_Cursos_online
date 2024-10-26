@@ -8,7 +8,7 @@ export default function SectionKids() {
       <div className="text-column-kids2"><br /><br />
         <div className="title-kids2">
           <span className="title-kids2-span">PROXIMO CURSO</span>
-          <h2>Guimarbot 2024:
+          <h2>Skill Connect 2024:
           Programación para niños</h2>
         </div>
         <span className="title-kids2-span2">Disponible desde el viernes 11 de octubre</span>
