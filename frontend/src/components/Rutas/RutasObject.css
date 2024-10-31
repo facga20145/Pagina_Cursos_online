@@ -1,0 +1,185 @@
+/* Estilos generales */
+.ruta-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  display: flex; /* Agregado para centrar */
+  flex-direction: column; /* Agregado para alinear verticalmente */
+  align-items: center; /* Centrado horizontal */
+}
+
+.divBack {
+  background-color: #9484bc;
+  padding: 20px;
+  border-radius: 2rem;
+  width: 45rem;
+}
+
+/* Títulos y textos */
+.rutaCheck {
+  color: #ffffff;
+  font-size: 18px;
+}
+
+.rutaTitle {
+  color: #ffffff;
+  font-size: 24px;
+  margin-top: 5px;
+}
+
+.rutaText {
+  color: #ffffff;
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+/* Acciones (Botón y opciones) */
+.ruta-actions {
+  display: flex;
+  justify-content: center; /* Centrado horizontal */
+  align-items: center;
+  margin-top: 20px;
+  gap: 10px; /* Espaciado entre botones */
+}
+
+.rutaButton,
+.rutaAdd,
+.rutaShare {
+  background-color: #0073e6;
+  color: #fff;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.rutaButton:hover,
+.rutaAdd:hover,
+.rutaShare:hover {
+  background-color: #005bb5;
+}
+
+/* Switch de Opciones */
+.ruta-switch {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center; /* Centrado horizontal */
+  gap: 10px; /* Espaciado entre botones */
+}
+
+.ruta-switch button {
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: #e0e0e0;
+  color: #333;
+  font-size: 16px;
+}
+
+.ruta-switch button:hover {
+  background-color: #d0d0d0;
+}
+
+/* Sección de Cursos */
+.ruta-cursos h3,
+.ruta-acerca h3 {
+  font-size: 20px;
+  color: #222;
+  margin-bottom: 15px;
+}
+
+.curso-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #ffffff;
+}
+
+.ruta-imagen {
+  width: 6rem;
+  height: 6rem;
+  cursor: pointer;
+}
+
+.curso-row {
+  display: flex;
+  gap: 15px;
+  justify-content: center; /* Centrado horizontal */
+}
+
+.curso-imagen {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.curso-info h4 {
+  font-size: 18px;
+  color: #ffffff;
+}
+
+.curso-info p {
+  font-size: 14px;
+  color: #ffffff;
+  margin-top: 5px;
+}
+
+/* Sección Acerca de */
+.ruta-acerca {
+  padding: 10px 0;
+}
+
+.ruta-acerca p {
+  font-size: 16px;
+  color: #ffffff;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .ruta-actions {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center; /* Centrado horizontal en dispositivos móviles */
+  }
+
+  .curso-row {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .curso-imagen {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .rutaTitle {
+    font-size: 20px;
+  }
+
+  .rutaText,
+  .rutaCheck {
+    font-size: 14px;
+  }
+
+  .ruta-switch button {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  .curso-info h4 {
+    font-size: 16px;
+  }
+
+  .curso-info p {
+    font-size: 12px;
+  }
+}

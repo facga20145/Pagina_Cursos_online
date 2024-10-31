@@ -1,0 +1,9 @@
+.rutasContainerGeneral {
+    background-image: url('../components/images/fondo.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 20px; 
+    height: 100vh;
+  }
+  

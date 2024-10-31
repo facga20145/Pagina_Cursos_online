@@ -26,6 +26,7 @@ export default function Header({
     { name: "Planes", url: "/Premium" },
     { name: "Becas", url: "/Beca" },
     { name: "Cursos", url: "/PlanesKids" },
+    { name: "Rutas", url: "/RutasPage" }
   ];
 
   const handleLoginClick = () => {
