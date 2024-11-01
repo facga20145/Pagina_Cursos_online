@@ -1,12 +1,13 @@
 import React from 'react'
 import './RutasPage.css'
-import RutaComponent from '../components/Rutas/RutasObject';
-import html from './images/html10.svg'
-import css from './images/css10.svg'
-import python from './images/python10.svg'
-import machine from './images/machine10.png'
-import swift from './images/swift10.svg'
-import android from './images/android10.svg'
+import Header from '../../header/HeaderAdult/Header'
+import RutaComponent from '../../Rutas/RutasObject';
+import html from '../../images/html10.svg'
+import css from '../../images/css10.svg'
+import python from '../../images/python10.svg'
+import machine from '../../images/machine10.png'
+import swift from '../../images/swift10.svg'
+import android from '../../images/android10.svg'
 
 export default function RutasPage() {
 
@@ -62,6 +63,7 @@ export default function RutasPage() {
       ];
   return (
     <div className='rutasContainerGeneral'>
+      <Header/>
         {rutasData.map((ruta) => (
             <RutaComponent
             rutaTitle={ruta.rutaTitle}

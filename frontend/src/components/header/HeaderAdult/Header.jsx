@@ -21,7 +21,7 @@ export default function Header({
   const navigate = useNavigate();
 
   const linkHeaders = [
-    { name: "Explorar", url: "/", onClick: onExploreClick },
+    { name: "Explorar", url: "/menu", onClick: onExploreClick },
     { name: "Comunidad", url: "/Comunidad" },
     { name: "Planes", url: "/Premium" },
     { name: "Becas", url: "/Beca" },
