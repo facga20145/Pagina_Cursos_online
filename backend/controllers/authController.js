@@ -54,9 +54,9 @@ console.log(req.body); // Para verificar los datos que llegan al servidor
      return res.status(400).json({ message: "El correo ya está registrado" });
    }else{
     console.log("El correo no está registrado");
-
    }
 
+   // Convierte y verifica la fecha
    const formattedDate = formatDate(fechaNacimiento);
    console.log("La fecha es:", fechaNacimiento);
    if (!formattedDate) {
@@ -85,6 +85,7 @@ console.log(req.body); // Para verificar los datos que llegan al servidor
       fechaNacimiento: formattedDate,
     });
 
+    //Realiza la conexión y la consulta a la base de datos
     connection.query(
       queryInsertarCliente,
       [nombre, apellido, formattedDate, genero, correo, hashedPassword],
@@ -95,7 +96,7 @@ console.log(req.body); // Para verificar los datos que llegan al servidor
         }
 
         // Usuario registrado con éxito, ahora generamos los tokens
-        const newUser = { id: result.insertId, correo };
+        const newUser = { id: result.insertId, Correo };
         const accessToken = generateAccessToken(newUser);
         const refreshToken = generateRefreshToken(newUser);
 
@@ -124,8 +125,10 @@ exports.login = (req, res) => {
           return res.status(500).json({ message: "Error en el servidor" });
       }
 
+      //Depuración
       console.log("Resultado de la consulta a la base de datos:", results);
 
+      //Verifica el usuario ingresado con el de la bd
       if (!results[0] || results[0].length === 0) {
           console.log("Usuario no encontrado en la base de datos.");
           return res.status(401).json({ message: "Usuario no encontrado o contraseña incorrecta" });
