@@ -19,38 +19,61 @@ const generateRefreshToken = (user) => {
 // Función para formatear la fecha a 'YYYY-MM-DD'
 const formatDate = (dateString) => {
   const date = new Date(dateString);
+  if (isNaN(date.getTime())) {
+    console.error("Fecha inválida:", dateString);
+    return null; // O algún valor por defecto en caso de que sea necesario
+  }
   const year = date.getFullYear();
   const month = ('0' + (date.getMonth() + 1)).slice(-2); // Mes con dos dígitos
   const day = ('0' + date.getDate()).slice(-2); // Día con dos dígitos
   return `${year}-${month}-${day}`;
 };
 
+
 // Controlador de registro de usuario
 exports.register = async (req, res) => {
-  const { nombre, apellido, fecha_nacimiento, genero, email, password } = req.body;
+  console.log("Iniciando registro de usuario"); // Para ver si el código llega aquí
+console.log(req.body); // Para verificar los datos que llegan al servidor
+
+  const { nombre, apellido, fechaNacimiento, genero, email, contrasena } = req.body;
 
   // Validar si el correo ya existe en la base de datos
-  const queryCheckEmail = "SELECT * FROM users WHERE email = ?";
+  const queryCheckEmail = "CALL consultarCliente (?)";
   connection.query(queryCheckEmail, [email], async (err, results) => {
     if (err) {
       console.error("Error en la consulta a la base de datos:", err);
       return res.status(500).json({ message: "Error en el servidor" });
     }
+     // Mostrar el resultado de la consulta para ver su estructura
+    console.log("Resultado de la consulta de correo:", [email]);
 
-    if (results.length > 0) {
-      return res.status(400).json({ message: "El correo ya está registrado" });
-    }
+   // Verificar si el correo existe
+   const emailExists = results[0] && results[0].length > 0;
+   if (emailExists) {
+     console.log("El correo ya está registrado");
+     return res.status(400).json({ message: "El correo ya está registrado" });
+   }else{
+    console.log("El correo no está registrado");
 
-    const formattedDate = formatDate(fecha_nacimiento); // Formatear la fecha
+   }
+
+   const formattedDate = formatDate(fechaNacimiento);
+   console.log("La fecha es:", fechaNacimiento);
+   if (!formattedDate) {
+     return res.status(400).json({ message: "Fecha de nacimiento inválida" });
+   }
 
     // Cifrar la contraseña antes de guardarla
-    const hashedPassword = await bcrypt.hash(password, 10);
-
+    let hashedPassword;
+    try {
+      hashedPassword = await bcrypt.hash(contrasena, 10);
+    } catch (error) {
+      console.error("Error al hashear la contraseña:", error);
+      return res.status(500).json({ message: "Error al procesar la contraseña" });
+    }
+    
     // Insertar el nuevo usuario en la base de datos con el rol 'usuario'
-    const queryInsertUser = `
-      INSERT INTO users (nombre, apellido, fecha_nacimiento, genero, email, contrasena, rol) 
-      VALUES (?, ?, ?, ?, ?, ?, 'usuario')
-    `;
+    const queryInsertarCliente = "CALL InsertarCliente(?, ?, ?, ?, ?, ?)";
 
     // Mostrar los valores que se van a insertar (para debug)
     console.log("Valores que se van a insertar:", {
@@ -59,11 +82,11 @@ exports.register = async (req, res) => {
       email,
       hashedPassword,
       genero,
-      fecha_nacimiento: formattedDate,
+      fechaNacimiento: formattedDate,
     });
 
     connection.query(
-      queryInsertUser,
+      queryInsertarCliente,
       [nombre, apellido, formattedDate, genero, email, hashedPassword],
       (err, result) => {
         if (err) {

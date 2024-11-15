@@ -10,7 +10,7 @@ function Register() {
   const [apellido, setApellido] = useState("");
   const [fechaNacimiento, setFecha] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [contrasena, setContrasena] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -88,7 +88,7 @@ function Register() {
 
   const handlePasswordChange = (e) => {
     const passwordValue = e.target.value;
-    setPassword(passwordValue);
+    setContrasena(passwordValue);
 
     if (passwordValue === "") {
       setPasswordError("");
@@ -112,7 +112,7 @@ function Register() {
   const handleRegister = async (e) => {
     e.preventDefault();
 
-    if (password !== confirmPassword) {
+    if (contrasena!== confirmPassword) {
       alert("Las contraseñas no coinciden.");
       return;
     }
@@ -128,10 +128,10 @@ function Register() {
         {
           nombre,
           apellido,
-          fecha_nacimiento: fechaNacimiento,
+          fechaNacimiento,
           genero,
           email,
-          password,
+          contrasena,
         }
       );
 
@@ -222,7 +222,7 @@ function Register() {
               <input
                 type={showPassword ? "text" : "password"}
                 placeholder="Contraseña"
-                value={password}
+                value={contrasena}
                 onChange={handlePasswordChange}
                 required
               />
