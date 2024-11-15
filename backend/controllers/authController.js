@@ -35,21 +35,21 @@ exports.register = async (req, res) => {
   console.log("Iniciando registro de usuario"); // Para ver si el código llega aquí
 console.log(req.body); // Para verificar los datos que llegan al servidor
 
-  const { nombre, apellido, fechaNacimiento, genero, email, contrasena } = req.body;
+  const { nombre, apellido, fechaNacimiento, genero, correo, contrasena } = req.body;
 
   // Validar si el correo ya existe en la base de datos
   const queryCheckEmail = "CALL consultarCliente (?)";
-  connection.query(queryCheckEmail, [email], async (err, results) => {
+  connection.query(queryCheckEmail, [correo], async (err, results) => {
     if (err) {
       console.error("Error en la consulta a la base de datos:", err);
       return res.status(500).json({ message: "Error en el servidor" });
     }
      // Mostrar el resultado de la consulta para ver su estructura
-    console.log("Resultado de la consulta de correo:", [email]);
+    console.log("Resultado de la consulta de correo:", [correo]);
 
    // Verificar si el correo existe
-   const emailExists = results[0] && results[0].length > 0;
-   if (emailExists) {
+   const correoExists = results[0] && results[0].length > 0;
+   if (correoExists) {
      console.log("El correo ya está registrado");
      return res.status(400).json({ message: "El correo ya está registrado" });
    }else{
@@ -79,7 +79,7 @@ console.log(req.body); // Para verificar los datos que llegan al servidor
     console.log("Valores que se van a insertar:", {
       nombre,
       apellido,
-      email,
+      correo,
       hashedPassword,
       genero,
       fechaNacimiento: formattedDate,
@@ -87,7 +87,7 @@ console.log(req.body); // Para verificar los datos que llegan al servidor
 
     connection.query(
       queryInsertarCliente,
-      [nombre, apellido, formattedDate, genero, email, hashedPassword],
+      [nombre, apellido, formattedDate, genero, correo, hashedPassword],
       (err, result) => {
         if (err) {
           console.error("Error al registrar al usuario:", err);
@@ -95,7 +95,7 @@ console.log(req.body); // Para verificar los datos que llegan al servidor
         }
 
         // Usuario registrado con éxito, ahora generamos los tokens
-        const newUser = { id: result.insertId, email };
+        const newUser = { id: result.insertId, correo };
         const accessToken = generateAccessToken(newUser);
         const refreshToken = generateRefreshToken(newUser);
 
