@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "./header/HeaderAdult/Header";
+import Header from "../header/HeaderAdult/Header";
 import "./beca.css";
-import FooterAdult from "./Footers/FooterAdult/FooterAdult";
+import FooterAdult from "../Footers/FooterAdult/FooterAdult";
 
 function Beca() {
     return (

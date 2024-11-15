@@ -1,4 +1,4 @@
-import Logo from "./images/Logo-black.svg";
+import Logo from "../images/Logo-black.svg";
 import { Link, useNavigate } from "react-router-dom";
 import "./Register.css";
 import { useState } from "react";

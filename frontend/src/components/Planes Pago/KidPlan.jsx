@@ -1,6 +1,6 @@
 import React from 'react';
-import PricingCard from './Premiun/PricingCard';
-import Header from "./header/HeaderAdult/Header";
+import PricingCard from '../Premiun/PricingCard';
+import Header from "../header/HeaderAdult/Header";
 import './KidPlan.css'; 
 
 function KidPlan() {

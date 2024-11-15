@@ -1,7 +1,7 @@
 import React from 'react'
-import PurchaseSteps from './Pago/pagoKids/PurchaseSteps'
-import Header from './header/HeaderAdult/Header'
-import FooterKids from './Footers/footerKids/FooterKids'
+import PurchaseSteps from './PurchaseSteps'
+import Header from '../../header/HeaderAdult/Header'
+import FooterKids from '../../Footers/footerKids/FooterKids'
 
 export default function Pago() {
   return (

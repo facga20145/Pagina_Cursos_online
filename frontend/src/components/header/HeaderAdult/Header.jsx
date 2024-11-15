@@ -3,7 +3,7 @@ import "../HeaderAdult/Header.css";
 import logo from "../../images/Logo-White.svg";
 import LogoKids from "../../images/LogoKids.svg";
 import { useNavigate, Link } from "react-router-dom"; // Importa Link
-import Cart from "../../Cart";
+import Cart from "../../Carrito/Cart";
 import UserProfile from "../../UserProfile/UserProfile";
 import { useState } from "react"; // Importamos useState para manejar el estado del menú
 

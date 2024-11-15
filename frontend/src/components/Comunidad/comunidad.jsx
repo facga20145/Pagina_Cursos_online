@@ -1,6 +1,6 @@
 
 import "./comunidad.css";
-import Header from './header/HeaderAdult/Header';
+import Header from '../header/HeaderAdult/Header';
 
 const Comunidad = () => {
     // Ejemplo de datos de usuarios con más cursos o certificados

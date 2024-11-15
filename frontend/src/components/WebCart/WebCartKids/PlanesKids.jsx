@@ -1,7 +1,7 @@
 import React from 'react'
-import CardList from './WebCart/WebCartKids/CardExample'
+import CardList from './CardExample'
 import './PlanesKids.css'
-import Header from './header/HeaderAdult/Header'
+import Header from '../../header/HeaderAdult/Header'
 
 export default function PlanesKids() {
   return (
