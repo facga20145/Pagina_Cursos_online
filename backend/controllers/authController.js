@@ -112,54 +112,72 @@ console.log(req.body); // Para verificar los datos que llegan al servidor
 
 // Controlador de login de usuario
 exports.login = (req, res) => {
-  const { email, password } = req.body; // Cambiar 'username' a 'email'
+  const { correo, contrasena } = req.body;
 
-  console.log("Datos recibidos:", { email, password }); // Log para ver los datos recibidos
+  console.log("Datos recibidos del cliente:", { correo, contrasena });
 
   // Consulta a la base de datos para verificar si el usuario existe
-  const query = "SELECT * FROM users WHERE email = ?";
-  connection.query(query, [email], async (err, results) => {
-    if (err) {
-      console.error("Error en la consulta a la base de datos:", err);
-      return res.status(500).json({ message: "Error en el servidor" });
-    }
-
-    if (results.length > 0) {
-      const user = results[0]; // El usuario encontrado en la base de datos
-      console.log("Usuario encontrado:", user); // Log para ver el usuario encontrado
-
-      // Comparar la contraseña cifrada
-      const isPasswordValid = await bcrypt.compare(password, user.contrasena);
-      if (!isPasswordValid) {
-        return res.status(401).json({ message: "Contraseña incorrecta" });
+  const query = "CALL loginCliente(?)";
+  connection.query(query, [correo], async (err, results) => {
+      if (err) {
+          console.error("Error en la consulta a la base de datos:", err);
+          return res.status(500).json({ message: "Error en el servidor" });
       }
 
-      // Generar tokens
+      console.log("Resultado de la consulta a la base de datos:", results);
+
+      if (!results[0] || results[0].length === 0) {
+          console.log("Usuario no encontrado en la base de datos.");
+          return res.status(401).json({ message: "Usuario no encontrado o contraseña incorrecta" });
+      }
+
+      // Si encuentra el usuario, guarda todo en user
+      const user = results[0][0];
+
+      //Depuraciones (no interfiere)
+      console.log("Usuario encontrado:", user);
+      console.log("Contraseña proporcionada:", contrasena);
+      console.log("Hash en la base de datos:", user.Contrasena);
+
+      
+      // Comparar la contraseña cifrada
+      const isPasswordValid = await bcrypt.compare(contrasena, user.Contrasena);
+      if (!isPasswordValid) {
+          console.log("Contraseña incorrecta para el usuario:", correo);
+          return res.status(401).json({ message: "Contraseña incorrecta" });
+      }
+
+      // Verificar si la cuenta está activa
+      const isActive = Boolean(user.Estado && user.Estado[0]);
+      if (!isActive){
+        console.log("La cuenta está inactiva");
+        return res.status(403).json({message : "La cuenta esta inactiva"});
+      }
+
+      // Si todo está correcto, generar tokens
+
       const accessToken = generateAccessToken(user);
       const refreshToken = generateRefreshToken(user);
 
+      console.log("Tokens generados para el usuario:", { accessToken, refreshToken });
+
       // Decodificar el token para obtener el tiempo de expiración
       const decodedAccessToken = jwt.decode(accessToken);
-      const expirationTime = decodedAccessToken.exp; // Tiempo de expiración en formato UNIX (segundos)
+      const expirationTime = decodedAccessToken.exp;
 
       // Devolver los tokens y el tiempo de expiración al cliente
       return res.json({
-        user: {
-          id: user.id,
-          nombre: user.nombre,
-          apellido: user.apellido,
-          fechaNacimiento: user.fecha_nacimiento, // Cambia a 'fecha_nacimiento'
-          genero: user.genero,
-          email: user.email,
-        },
-        accessToken,
-        refreshToken,
-        expirationTime, // Incluir el tiempo de expiración
+          user: {
+              id: user.id,
+              nombre: user.nombre,
+              apellido: user.apellido,
+              fechaNacimiento: user.fecha_nacimiento,
+              genero: user.genero,
+              correo: user.correo,
+          },
+          accessToken,
+          refreshToken,
+          expirationTime,
       });
-    } else {
-      return res
-        .status(401)
-        .json({ message: "Usuario no encontrado o contraseña incorrecta" });
-    }
   });
 };

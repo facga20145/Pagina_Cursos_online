@@ -9,8 +9,8 @@ import "./Login.css";
 function Login() {
   // Definir el estado para verificar si el usuario está logueado
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [email, setEmail] = useState("");  // Cambiado de username a email
-  const [password, setPassword] = useState("");
+  const [correo, setCorreo] = useState("");  // Cambiado de username a email
+  const [contrasena, setContrasena] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -22,12 +22,12 @@ function Login() {
   };
 
   const handleEmailChange = (e) => {
-    const email = e.target.value;
-    setEmail(email);  // Usar email en lugar de username
+    const correo = e.target.value;
+    setCorreo(correo);  // Usar email en lugar de username
 
-    if (email === "") {
+    if (correo === "") {
       setError("");
-    } else if (!validateEmail(email)) {
+    } else if (!validateEmail(correo)) {
       setError("El formato del correo es incorrecto.");
     } else {
       setError("");
@@ -46,8 +46,8 @@ function Login() {
       const response = await axios.post(
         "http://localhost:4000/api/auth/login",
         {
-          email,  // Cambiado a email
-          password,
+          correo,  // Cambiado a email
+          contrasena,
         }
       );
     
@@ -80,6 +80,7 @@ function Login() {
         } else {
           navigate("/landingpage"); // Página por defecto si no se encuentra el valor
         }
+
       } else {
         setError("Datos de autenticación inválidos.");
       }
@@ -117,7 +118,7 @@ function Login() {
             <input
               type="email"
               placeholder="Escribe tu correo Electrónico"
-              value={email}  // Cambiado a email
+              value={correo}  // Cambiado a email
               onChange={handleEmailChange}
               className={error ? "error" : ""}
               required
@@ -128,8 +129,8 @@ function Login() {
             <input
               type={showPassword ? "text" : "password"}
               placeholder="Escribe tu contraseña"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              value={contrasena}
+              onChange={(e) => setContrasena(e.target.value)}
               required
             />
             <span
