@@ -9,8 +9,8 @@ function Register() {
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
   const [fechaNacimiento, setFecha] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [correo, setCorreo] = useState("");
+  const [contrasena, setContrasena] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -42,12 +42,12 @@ function Register() {
     return passwordRegex.test(password);
   };
 
-  const handleEmailChange = (e) => {
-    const emailValue = e.target.value;
-    setEmail(emailValue);
-    if (emailValue === "") {
+  const handleCorreoChange = (e) => {
+    const correoValue = e.target.value;
+    setCorreo(correoValue);
+    if (correoValue === "") {
       setEmailError("");
-    } else if (!validateEmail(emailValue)) {
+    } else if (!validateEmail(correoValue)) {
       setEmailError("El formato del correo es incorrecto.");
     } else {
       setEmailError("");
@@ -88,7 +88,7 @@ function Register() {
 
   const handlePasswordChange = (e) => {
     const passwordValue = e.target.value;
-    setPassword(passwordValue);
+    setContrasena(passwordValue);
 
     if (passwordValue === "") {
       setPasswordError("");
@@ -112,7 +112,7 @@ function Register() {
   const handleRegister = async (e) => {
     e.preventDefault();
 
-    if (password !== confirmPassword) {
+    if (contrasena!== confirmPassword) {
       alert("Las contraseñas no coinciden.");
       return;
     }
@@ -128,10 +128,10 @@ function Register() {
         {
           nombre,
           apellido,
-          fecha_nacimiento: fechaNacimiento,
+          fechaNacimiento,
           genero,
-          email,
-          password,
+          correo,
+          contrasena,
         }
       );
 
@@ -209,10 +209,10 @@ function Register() {
             <div className="input-contend">
               <input
                 type="email"
-                name="email"
+                name="correo"
                 placeholder="Correo electrónico"
-                value={email}
-                onChange={handleEmailChange}
+                value={correo}
+                onChange={handleCorreoChange}
                 className="input-field"
                 required
               />
@@ -222,7 +222,7 @@ function Register() {
               <input
                 type={showPassword ? "text" : "password"}
                 placeholder="Contraseña"
-                value={password}
+                value={contrasena}
                 onChange={handlePasswordChange}
                 required
               />

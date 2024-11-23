@@ -19,52 +19,76 @@ const generateRefreshToken = (user) => {
 // Función para formatear la fecha a 'YYYY-MM-DD'
 const formatDate = (dateString) => {
   const date = new Date(dateString);
+  if (isNaN(date.getTime())) {
+    console.error("Fecha inválida:", dateString);
+    return null; // O algún valor por defecto en caso de que sea necesario
+  }
   const year = date.getFullYear();
   const month = ('0' + (date.getMonth() + 1)).slice(-2); // Mes con dos dígitos
   const day = ('0' + date.getDate()).slice(-2); // Día con dos dígitos
   return `${year}-${month}-${day}`;
 };
 
+
 // Controlador de registro de usuario
 exports.register = async (req, res) => {
-  const { nombre, apellido, fecha_nacimiento, genero, email, password } = req.body;
+  console.log("Iniciando registro de usuario"); // Para ver si el código llega aquí
+console.log(req.body); // Para verificar los datos que llegan al servidor
+
+  const { nombre, apellido, fechaNacimiento, genero, correo, contrasena } = req.body;
 
   // Validar si el correo ya existe en la base de datos
-  const queryCheckEmail = "SELECT * FROM users WHERE email = ?";
-  connection.query(queryCheckEmail, [email], async (err, results) => {
+  const queryCheckEmail = "CALL consultarCliente (?)";
+  connection.query(queryCheckEmail, [correo], async (err, results) => {
     if (err) {
       console.error("Error en la consulta a la base de datos:", err);
       return res.status(500).json({ message: "Error en el servidor" });
     }
+     // Mostrar el resultado de la consulta para ver su estructura
+    console.log("Resultado de la consulta de correo:", [correo]);
 
-    if (results.length > 0) {
-      return res.status(400).json({ message: "El correo ya está registrado" });
-    }
+   // Verificar si el correo existe
+   const correoExists = results[0] && results[0].length > 0;
+   if (correoExists) {
+     console.log("El correo ya está registrado");
+     return res.status(400).json({ message: "El correo ya está registrado" });
+   }else{
+    console.log("El correo no está registrado");
+   }
 
-    const formattedDate = formatDate(fecha_nacimiento); // Formatear la fecha
+   // Convierte y verifica la fecha
+   const formattedDate = formatDate(fechaNacimiento);
+   console.log("La fecha es:", fechaNacimiento);
+   if (!formattedDate) {
+     return res.status(400).json({ message: "Fecha de nacimiento inválida" });
+   }
 
     // Cifrar la contraseña antes de guardarla
-    const hashedPassword = await bcrypt.hash(password, 10);
-
+    let hashedPassword;
+    try {
+      hashedPassword = await bcrypt.hash(contrasena, 10);
+    } catch (error) {
+      console.error("Error al hashear la contraseña:", error);
+      return res.status(500).json({ message: "Error al procesar la contraseña" });
+    }
+    
     // Insertar el nuevo usuario en la base de datos con el rol 'usuario'
-    const queryInsertUser = `
-      INSERT INTO users (nombre, apellido, fecha_nacimiento, genero, email, contrasena, rol) 
-      VALUES (?, ?, ?, ?, ?, ?, 'usuario')
-    `;
+    const queryInsertarCliente = "CALL InsertarCliente(?, ?, ?, ?, ?, ?)";
 
     // Mostrar los valores que se van a insertar (para debug)
     console.log("Valores que se van a insertar:", {
       nombre,
       apellido,
-      email,
+      correo,
       hashedPassword,
       genero,
-      fecha_nacimiento: formattedDate,
+      fechaNacimiento: formattedDate,
     });
 
+    //Realiza la conexión y la consulta a la base de datos
     connection.query(
-      queryInsertUser,
-      [nombre, apellido, formattedDate, genero, email, hashedPassword],
+      queryInsertarCliente,
+      [nombre, apellido, formattedDate, genero, correo, hashedPassword],
       (err, result) => {
         if (err) {
           console.error("Error al registrar al usuario:", err);
@@ -72,7 +96,7 @@ exports.register = async (req, res) => {
         }
 
         // Usuario registrado con éxito, ahora generamos los tokens
-        const newUser = { id: result.insertId, email };
+        const newUser = { id: result.insertId, Correo };
         const accessToken = generateAccessToken(newUser);
         const refreshToken = generateRefreshToken(newUser);
 
@@ -89,54 +113,74 @@ exports.register = async (req, res) => {
 
 // Controlador de login de usuario
 exports.login = (req, res) => {
-  const { email, password } = req.body; // Cambiar 'username' a 'email'
+  const { correo, contrasena } = req.body;
 
-  console.log("Datos recibidos:", { email, password }); // Log para ver los datos recibidos
+  console.log("Datos recibidos del cliente:", { correo, contrasena });
 
   // Consulta a la base de datos para verificar si el usuario existe
-  const query = "SELECT * FROM users WHERE email = ?";
-  connection.query(query, [email], async (err, results) => {
-    if (err) {
-      console.error("Error en la consulta a la base de datos:", err);
-      return res.status(500).json({ message: "Error en el servidor" });
-    }
-
-    if (results.length > 0) {
-      const user = results[0]; // El usuario encontrado en la base de datos
-      console.log("Usuario encontrado:", user); // Log para ver el usuario encontrado
-
-      // Comparar la contraseña cifrada
-      const isPasswordValid = await bcrypt.compare(password, user.contrasena);
-      if (!isPasswordValid) {
-        return res.status(401).json({ message: "Contraseña incorrecta" });
+  const query = "CALL loginCliente(?)";
+  connection.query(query, [correo], async (err, results) => {
+      if (err) {
+          console.error("Error en la consulta a la base de datos:", err);
+          return res.status(500).json({ message: "Error en el servidor" });
       }
 
-      // Generar tokens
+      //Depuración
+      console.log("Resultado de la consulta a la base de datos:", results);
+
+      //Verifica el usuario ingresado con el de la bd
+      if (!results[0] || results[0].length === 0) {
+          console.log("Usuario no encontrado en la base de datos.");
+          return res.status(401).json({ message: "Usuario no encontrado o contraseña incorrecta" });
+      }
+
+      // Si encuentra el usuario, guarda todo en user
+      const user = results[0][0];
+
+      //Depuraciones (no interfiere)
+      console.log("Usuario encontrado:", user);
+      console.log("Contraseña proporcionada:", contrasena);
+      console.log("Hash en la base de datos:", user.Contrasena);
+
+      
+      // Comparar la contraseña cifrada
+      const isPasswordValid = await bcrypt.compare(contrasena, user.Contrasena);
+      if (!isPasswordValid) {
+          console.log("Contraseña incorrecta para el usuario:", correo);
+          return res.status(401).json({ message: "Contraseña incorrecta" });
+      }
+
+      // Verificar si la cuenta está activa
+      const isActive = Boolean(user.Estado && user.Estado[0]);
+      if (!isActive){
+        console.log("La cuenta está inactiva");
+        return res.status(403).json({message : "La cuenta esta inactiva"});
+      }
+
+      // Si todo está correcto, generar tokens
+
       const accessToken = generateAccessToken(user);
       const refreshToken = generateRefreshToken(user);
 
+      console.log("Tokens generados para el usuario:", { accessToken, refreshToken });
+
       // Decodificar el token para obtener el tiempo de expiración
       const decodedAccessToken = jwt.decode(accessToken);
-      const expirationTime = decodedAccessToken.exp; // Tiempo de expiración en formato UNIX (segundos)
+      const expirationTime = decodedAccessToken.exp;
 
       // Devolver los tokens y el tiempo de expiración al cliente
       return res.json({
-        user: {
-          id: user.id,
-          nombre: user.nombre,
-          apellido: user.apellido,
-          fechaNacimiento: user.fecha_nacimiento, // Cambia a 'fecha_nacimiento'
-          genero: user.genero,
-          email: user.email,
-        },
-        accessToken,
-        refreshToken,
-        expirationTime, // Incluir el tiempo de expiración
+          user: {
+              id: user.id,
+              nombre: user.nombre,
+              apellido: user.apellido,
+              fechaNacimiento: user.fecha_nacimiento,
+              genero: user.genero,
+              correo: user.correo,
+          },
+          accessToken,
+          refreshToken,
+          expirationTime,
       });
-    } else {
-      return res
-        .status(401)
-        .json({ message: "Usuario no encontrado o contraseña incorrecta" });
-    }
   });
 };
