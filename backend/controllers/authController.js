@@ -96,7 +96,7 @@ console.log(req.body); // Para verificar los datos que llegan al servidor
         }
 
         // Usuario registrado con éxito, ahora generamos los tokens
-        const newUser = { id: result.insertId, Correo };
+        const newUser = { id: result.insertId, correo };
         const accessToken = generateAccessToken(newUser);
         const refreshToken = generateRefreshToken(newUser);
 
