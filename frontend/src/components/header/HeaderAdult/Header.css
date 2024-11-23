@@ -131,10 +131,18 @@
   margin-left: 30px;
 }
 
+
 .login{
   padding: 0 10px;
-  border-left: 1px solid rgba(0, 0, 0, 0.5); /* Línea vertical con transparencia */
+  border-left: 1px solid rgb(255, 255, 255); /* Línea vertical con transparencia */
   margin-right: 10px;
+
+}
+.login-white{
+  border-left: 1px solid rgba(0, 0, 0, 0.5); /* Línea vertical con transparencia */
+}
+.login-kids{
+  border-left: 1px solid rgba(0, 0, 0, 0.5); /* Línea vertical con transparencia */
 }
 /* Botón de login y register */
 .login button,

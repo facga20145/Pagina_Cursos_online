@@ -1,0 +1,119 @@
+/* Contenedor del quiz */
+.quiz-body{
+  background-image: url("../images/moroccan.svg");
+
+}
+.quiz-container {
+  height: 100vh;
+  margin: auto;
+  padding:  180px 30px 0px 30px; /* Cambia margin-top a padding-top */
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+ 
+}
+
+/* Títulos */
+.quiz-container h2 {
+  font-size: 3.5rem;
+  color: #333;
+  margin-bottom: 50px;
+  margin-top: 20px;
+}
+
+.quiz-container h3 {
+  font-size: 2.8rem;
+  color: #444;
+  margin-bottom: 30px;
+}
+
+/* Botones de opciones */
+.quiz-container button {
+  display: block;
+  margin: 10px auto;
+  padding: 15px 30px;
+  font-size: 1.5rem;
+  color: white;
+  background: #007bff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s ease-in-out;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.quiz-container button:hover {
+  background: #0056b3;
+  transform: scale(1.05);
+}
+
+.quiz-container button:disabled {
+  background-color: #d6d6d6;
+  cursor: not-allowed;
+}
+
+/* Retroalimentación */
+.feedback {
+  margin-top: 20px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.feedback.correct {
+  color: green;
+}
+
+.feedback.incorrect {
+  color: red;
+}
+
+/* Puntaje */
+.quiz-container p {
+  margin-top: 40px;
+  font-size: 1.5rem;
+  color: #666;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+.modal-content h3{
+  font-family: 'Poppins', sans-serif;
+}
+
+.close-button {
+  background-color: #007bff;
+  color: white;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.close-button:hover {
+  background-color: #0056b3;
+}

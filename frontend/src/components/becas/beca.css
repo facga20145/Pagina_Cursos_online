@@ -55,13 +55,20 @@
 }
 
 .form-title {
+  font-family: 'Lato', sans-serif; /* Títulos del formulario */
   font-size: 2em;
   color: #333;
   margin-bottom: 20px;
   text-align: center;
 }
 
+.form-label{
+  font-family: 'Poppins', sans-serif; /* Fuente limpia y moderna */
+  margin: 20px 10px;
+
+}
 .form-group {
+  margin-top: ;
   margin-bottom: 15px;
 }
 
@@ -70,6 +77,7 @@
   padding: 10px;
   border-radius: 5px;
   border: 1px solid #ddd;
+  font-family: 'Roboto', sans-serif;
   font-size: 1em;
 }
 
@@ -85,6 +93,7 @@
 
 .submit-button {
   background-color: #1976D2;
+  font-family: 'Roboto', sans-serif;
   color: white;
   font-size: 1.2em;
   padding: 12px;

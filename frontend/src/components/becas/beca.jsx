@@ -1,9 +1,16 @@
 import React from "react";
+import { useNavigate } from "react-router-dom"; // Importa el hook useNavigate
 import Header from "../header/HeaderAdult/Header";
 import "./beca.css";
 import FooterAdult from "../Footers/FooterAdult/FooterAdult";
 
 function Beca() {
+    const navigate = useNavigate(); // Inicializa el hook de navegación
+
+    // Maneja el clic del botón
+    const handleQuizClick = () => {
+        navigate("/Quiz"); // Redirige a la ruta "/Quiz"
+    };
     return (
         <>
             <Header isWhite={true}/>
@@ -19,12 +26,18 @@ function Beca() {
                     <p className="text-paragraph colorful-text">
                     Nuestros cursos inspiran a los jóvenes, dándoles herramientas para explorar su creatividad y desarrollar habilidades técnicas.
                     </p>
+                    <button 
+                    type="submit" 
+                    className="submit-button"
+                    onClick={handleQuizClick}/*  llama al manejador de clic */> 
+                    Completa este quizz
+                    </button>
                 </div>
                 <div className="contact-form-container">
                     <form className="contact-form">
                         <h2 className="form-title">Solicitud de Beca</h2>
                         <div className="form-group">
-                            <label>Registra tus datos para tu solicitud</label>
+                            <label className="form-label">Registra tus datos para tu solicitud</label>
                             <textarea placeholder="Nombre(s)" className="form-input"></textarea>
                         </div>
                         <div className="form-group">
@@ -42,13 +55,12 @@ function Beca() {
                             />
                         </div>
                         <div className="form-group">
-                            <div className="phone-number-container">
                                 <input
                                     type="text"
                                     placeholder="Número de télefono a contactar"
-                                    className="form-input phone-input"
+                                    className="form-input"
                                 />
-                            </div>
+                           
                         </div>
                         <div className="form-group">
                             <label htmlFor="request-area" className="form-label">

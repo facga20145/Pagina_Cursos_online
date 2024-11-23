@@ -31,6 +31,9 @@ import Beca from './components/becas/beca.jsx';
 import CertificatePage from './components/Certificado/CertifactePage.jsx'
 import RutasPage from './components/Rutas/RutasPage/RutasPage.jsx';
 
+//Impotacion para el quizz
+import Quiz from './components/Quizz/Quiz.jsx'
+
 function App() {
   return (
     <Router>
@@ -59,6 +62,7 @@ function App() {
         <Route path="/KidPlan" element={<KidPlan/>} />
         <Route path="/YoungPlan" element={<YoungPlan/>} />
         <Route path="/Beca" element={<Beca/>} />
+        <Route path="/Quiz" element={<Quiz/>} />
         <Route path="/Certificado" element={<CertificatePage/>} />
         <Route path="/RutasPage" element={<RutasPage/>} />
 

@@ -37,12 +37,12 @@ export default function CardList() {
   const [cartItems, setCartItems] = useState([]); // Estado del carrito
 
   const cardData = [
-    { image: html, title: 'HTML', description: 'Estructura y contenido de páginas web', price: '$10.00', link: '/html-course' },
-    { image: css, title: 'CSS', description: 'Estilos visuales de páginas web', price: '$15.00', link: '/css-course' },
-    { image: java, title: 'JAVA', description: 'Portabilidad y eficiencia en aplicaciones', price: '$20.00', link: '/java-course' },
-    { image: javascript, title: 'JAVASCRIPT', description: 'Interactividad en páginas del navegador', price: '$25.00', link: '/javascript-course' },
-    { image: php, title: 'PHP', description: 'Backend dinámico para sitios web', price: '$30.00', link: '/php-course' },
-    { image: python, title: 'PYTHON', description: 'Lenguaje simple y versátil, multipropósito', price: '$35.00', link: '/python-course' },
+    { image: html, title: 'HTML', description: 'Estructura y contenido de páginas web', price: 's/ 10.00', link: '/html-course' },
+    { image: css, title: 'CSS', description: 'Estilos visuales de páginas web', price: 'S/ 15.00', link: '/css-course' },
+    { image: java, title: 'JAVA', description: 'Portabilidad y eficiencia en aplicaciones', price: 'S/ 20.00', link: '/java-course' },
+    { image: javascript, title: 'JAVASCRIPT', description: 'Interactividad en páginas del navegador', price: 'S/ 25.00', link: '/javascript-course' },
+    { image: php, title: 'PHP', description: 'Backend dinámico para sitios web', price: 'S/ 30.00', link: '/php-course' },
+    { image: python, title: 'PYTHON', description: 'Lenguaje simple y versátil', price: 'S/ 35.00', link: '/python-course' },
   ];
 
   // Función para agregar un ítem al carrito
