@@ -16,15 +16,12 @@ function Beca() {
             <Header isWhite={true}/>
             <div className="content-container">
                 <div className="left-text">
-                    <h2 className="highlight-text">¡Felicidades por pasar las pruebas!</h2>
+                    <h2 className="highlight-text">¡Demuestra tus habilidades y obtén una beca!</h2>
                     <p className="text-paragraph colorful-text">
-                    Regístrate para optar por la beca y disfrutar nuestros cursos. ¡Estamos emocionados de acompañarte en esta aventura de aprendizaje!
+                    Participa en nuestro quiz de programación para tener la oportunidad de acceder a una beca exclusiva para nuestros cursos.
                     </p>
                     <p className="text-paragraph bold-text colorful-text">
-                        ¡No pierdas esta oportunidad de alcanzar tus metas y disfrutar mientras aprendes!
-                    </p>
-                    <p className="text-paragraph colorful-text">
-                    Nuestros cursos inspiran a los jóvenes, dándoles herramientas para explorar su creatividad y desarrollar habilidades técnicas.
+                    ¡Acepta el reto y da el siguiente paso hacia tu futuro como programador!
                     </p>
                     <button 
                     type="submit" 
