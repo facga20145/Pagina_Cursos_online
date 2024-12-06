@@ -1,6 +1,21 @@
 import '../Premiun/PricingCard.css';
 
 function PricingCard({ planName, price, discountText, buttonText, isBestOffer, icon, additionalText }) {
+  const handleButtonClick = () => {
+    // Guardar el plan seleccionado en el localStorage
+    const selectedPlan = {
+      planName,
+      price,
+      discountText,
+    };
+    
+    // Guardamos el plan en el localStorage
+    localStorage.setItem("selectedPlan", JSON.stringify(selectedPlan));
+
+    // Redirigir a la página de pago (puedes cambiar la URL si es necesario)
+    window.location.href = "/Pago"; // Aquí debes colocar la ruta de la interfaz de pago
+  };
+
   return (
     <div className={`pricing-card ${isBestOffer ? 'best-offer' : ''}`}>
       {/* Badge de mejor oferta */}
@@ -19,7 +34,7 @@ function PricingCard({ planName, price, discountText, buttonText, isBestOffer, i
       {additionalText && <p className="additionalText">{additionalText}</p>}
       
       {/* Botón de acción */}
-      <button>{buttonText}</button>
+      <button onClick={handleButtonClick}>{buttonText}</button>
     </div>
   );
 }

@@ -41,5 +41,7 @@ router.get("/userdata", (req, res) => {
 
 // Ruta para registro de usuario
 router.post("/register", authController.register);
+router.post("/validate-members", authControllers.validateMembers);
+
 
 module.exports = router;

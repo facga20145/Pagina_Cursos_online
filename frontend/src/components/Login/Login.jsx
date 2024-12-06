@@ -54,6 +54,7 @@ function Login() {
       // Verificar si la respuesta tiene el token y el usuario
       if (response.data && response.data.accessToken && response.data.user) {
         // Guardar el token de acceso y los datos del usuario en localStorage
+        console.log("Respuesta completa del backend:", response.data);
         localStorage.setItem("accessToken", response.data.accessToken);
         localStorage.setItem("user", JSON.stringify(response.data.user));
 
@@ -104,6 +105,8 @@ function Login() {
       navigate("/landingpage"); // Ruta por defecto
     }
   };
+  console.log(localStorage.getItem("user"));
+
 
   return (
     <div className="contentLogin">

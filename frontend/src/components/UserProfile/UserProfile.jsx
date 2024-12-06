@@ -14,8 +14,9 @@ const UserProfile = () => {
     if (storedUser && storedUser !== "undefined") {
       try {
         const user = JSON.parse(storedUser);
-        setUserName(user.nombre);
-        setUserEmail(user.email);
+        console.log("Datos obtenidos de localStorage en UserProfile:", user);
+        setUserName(user.nombre || "Usuario desconocido"); // Manejo seguro
+        setUserEmail(user.correo || "Correo no disponible");
       } catch (error) {
         console.error("Error al parsear el usuario desde localStorage", error);
       }

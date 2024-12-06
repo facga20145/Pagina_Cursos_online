@@ -134,6 +134,8 @@ exports.login = (req, res) => {
           return res.status(401).json({ message: "Usuario no encontrado o contraseña incorrecta" });
       }
 
+      console.log("resultado", results);  // Verifica la estructura de los resultados
+
       // Si encuentra el usuario, guarda todo en user
       const user = results[0][0];
 
@@ -168,19 +170,136 @@ exports.login = (req, res) => {
       const decodedAccessToken = jwt.decode(accessToken);
       const expirationTime = decodedAccessToken.exp;
 
+      console.log("Datos del usuario antes de enviar al cliente:", {
+        id: user.idUsuario,  // Cambia id -> idUsuario
+        nombre: user.Nombre,  // Cambia nombre -> Nombre
+        apellido: user.Apellido,  // Cambia apellido -> Apellido
+        fechaNacimiento: user.FechaNacimiento,  // Cambia fechaNacimiento -> FechaNacimiento
+        genero: user.Genero,  // Cambia genero -> Genero
+        correo: user.Correo,  // Cambia correo -> Correo
+    });
+
       // Devolver los tokens y el tiempo de expiración al cliente
       return res.json({
           user: {
-              id: user.id,
-              nombre: user.nombre,
-              apellido: user.apellido,
-              fechaNacimiento: user.fecha_nacimiento,
-              genero: user.genero,
-              correo: user.correo,
+            id: user.idUsuario,  // Cambia id -> idUsuario
+            nombre: user.Nombre,  // Cambia nombre -> Nombre
+            apellido: user.Apellido,  // Cambia apellido -> Apellido
+            fechaNacimiento: user.FechaNacimiento,  // Cambia fechaNacimiento -> FechaNacimiento
+            genero: user.Genero,  // Cambia genero -> Genero
+            correo: user.Correo,  // Cambia correo -> Correo
           },
           accessToken,
           refreshToken,
           expirationTime,
       });
+  });
+};
+
+// Controlador de validación de miembros del plan
+exports.validateMembers = async (req, res) => {
+  const { correosMiembros } = req.body;  // Suponemos que se envían los correos en un array
+
+  if (!correosMiembros || correosMiembros.length === 0) {
+    return res.status(400).json({ message: "No se han proporcionado correos de miembros" });
+  }
+
+  // Vamos a verificar cada correo
+  const invalidEmails = [];
+  const activeEmails = [];
+
+  for (const correo of correosMiembros) {
+    const queryCheckEmail = "CALL consultarCliente (?)";
+    
+    await new Promise((resolve, reject) => {
+      connection.query(queryCheckEmail, [correo], async (err, results) => {
+        if (err) {
+          console.error("Error en la consulta a la base de datos:", err);
+          reject(new Error("Error en la base de datos"));
+        }
+
+        if (!results[0] || results[0].length === 0) {
+          invalidEmails.push(correo);  // Correo no encontrado
+        } else {
+          const user = results[0][0];
+          const isActive = Boolean(user.Estado && user.Estado[0]);
+
+          if (!isActive) {
+            invalidEmails.push(correo);  // Correo está inactivo
+          } else {
+            activeEmails.push(correo);  // Correo activo y válido
+          }
+        }
+
+        resolve();
+      });
+    });
+  }
+
+  // Si hay correos inválidos, devolver mensaje de error
+  if (invalidEmails.length > 0) {
+    return res.status(400).json({
+      message: `Los siguientes correos no están registrados o están inactivos: ${invalidEmails.join(", ")}`,
+    });
+  }
+
+  // Si todos los correos son válidos y activos, proceder con el siguiente paso
+  return res.status(200).json({
+    message: "Todos los miembros son válidos y activos",
+    validEmails: activeEmails,  // Devolver los correos válidos
+  });
+};
+
+// Controlador de validación de miembros del plan
+exports.validateMembers = async (req, res) => {
+  const { correosMiembros } = req.body;  // Suponemos que se envían los correos en un array
+
+  if (!correosMiembros || correosMiembros.length === 0) {
+    return res.status(400).json({ message: "No se han proporcionado correos de miembros" });
+  }
+
+  // Vamos a verificar cada correo
+  const invalidEmails = [];
+  const activeEmails = [];
+
+  for (const correo of correosMiembros) {
+    const queryCheckEmail = "CALL consultarCliente (?)";
+    
+    await new Promise((resolve, reject) => {
+      connection.query(queryCheckEmail, [correo], async (err, results) => {
+        if (err) {
+          console.error("Error en la consulta a la base de datos:", err);
+          reject(new Error("Error en la base de datos"));
+        }
+
+        if (!results[0] || results[0].length === 0) {
+          invalidEmails.push(correo);  // Correo no encontrado
+        } else {
+          const user = results[0][0];
+          const isActive = Boolean(user.Estado && user.Estado[0]);
+
+          if (!isActive) {
+            invalidEmails.push(correo);  // Correo está inactivo
+          } else {
+            activeEmails.push(correo);  // Correo activo y válido
+          }
+        }
+
+        resolve();
+      });
+    });
+  }
+
+  // Si hay correos inválidos, devolver mensaje de error
+  if (invalidEmails.length > 0) {
+    return res.status(400).json({
+      message: `Los siguientes correos no están registrados o están inactivos: ${invalidEmails.join(", ")}`,
+    });
+  }
+
+  // Si todos los correos son válidos y activos, proceder con el siguiente paso
+  return res.status(200).json({
+    message: "Todos los miembros son válidos y activos",
+    validEmails: activeEmails,  // Devolver los correos válidos
   });
 };
