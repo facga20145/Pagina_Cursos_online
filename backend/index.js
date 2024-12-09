@@ -1,8 +1,8 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
-const connection = require("../backend/config/db.js"); // Importar la conexión a la BD
-const authRoutes = require("../backend/routes/authRoutes.js");
+const paymentRoutes = require('./routes/paymentRoutes'); // Importamos las rutas de pago
+const authRoutes = require('./routes/authRoutes'); // Ajusta la ruta si es diferente
 
 dotenv.config();
 
@@ -20,6 +20,8 @@ app.get("/", (req, res) => {
 
 // Importar y usar las rutas de autenticación
 app.use("/api/auth", authRoutes);
+app.use('/backend', paymentRoutes); 
+
 
 // Iniciar el servidor
 app.listen(PORT, () => {

@@ -1,5 +1,6 @@
 const express = require("express");
 const jwt = require("jsonwebtoken"); 
+const paymentController = require('../controllers/paymentController');
 const authController = require("../controllers/authController.js");
 const router = express.Router();
 
@@ -41,7 +42,6 @@ router.get("/userdata", (req, res) => {
 
 // Ruta para registro de usuario
 router.post("/register", authController.register);
-router.post("/validate-members", authControllers.validateMembers);
 
 
 module.exports = router;
