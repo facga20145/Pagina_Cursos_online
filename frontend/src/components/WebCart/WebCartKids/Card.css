@@ -130,3 +130,12 @@
   font-weight: 700; /* Resaltado */
   padding-top: 20px;
 }
+
+.header-background {
+  background-color: #f4f4f4; /* Un fondo claro para resaltar el header */
+  height: 80px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+}
