@@ -24,6 +24,7 @@ import PhpKids from './components/paginasCursos/paginasNiños/PhpKids.jsx';
 import JavaScriptKids from './components/paginasCursos/paginasNiños/JavaScriptKids.jsx';
 import PythonKids from './components/paginasCursos/paginasNiños/PythonKids.jsx';
 import Pago from './components/Pago/pagoKids/Pago.jsx';
+import CourseDetail from './components/paginasCursos/CourseDetail.jsx';
 
 import KidPlan from './components/Planes Pago/KidPlan.jsx';
 import YoungPlan from './components/Planes Pago/YoungPlan.jsx';
@@ -65,6 +66,7 @@ function App() {
         <Route path="/Quiz" element={<Quiz/>} />
         <Route path="/Certificado" element={<CertificatePage/>} />
         <Route path="/RutasPage" element={<RutasPage/>} />
+        <Route path="/curso/:idCurso" element={<CourseDetail />} />
 
       </Routes>
     </Router>
