@@ -39,7 +39,7 @@ export default function PurchaseSteps() {
   const calculateAge = (birthDate) => {
     const birth = new Date(birthDate);
     const today = new Date();
-    const age = today.getFullYear() - birth.getFullYear();
+    let age = today.getFullYear() - birth.getFullYear();
     const month = today.getMonth() - birth.getMonth();
     if (month < 0 || (month === 0 && today.getDate() < birth.getDate())) {
       age--;

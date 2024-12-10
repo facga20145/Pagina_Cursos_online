@@ -17,12 +17,19 @@ export default function PlanesKids() {
 
   return (
     <div className="BackPlanes">
-      <Header />
+      {/* Header con fondo */}
+      <div className="header-background">
+        <Header />
+      </div>
+
       <h2 className="tittleCourseKids">Nuestros Cursos en Línea</h2>
 
-      {/* Botones para filtrar por categoría */}
+      {/* Filtros de categorías */}
       <div className="categoryFilters">
-        <button onClick={() => setSelectedCategory(null)} className={!selectedCategory ? 'active' : ''}>
+        <button
+          onClick={() => setSelectedCategory(null)}
+          className={!selectedCategory ? 'active' : ''}
+        >
           Todos
         </button>
         {categories.map(category => (
@@ -36,6 +43,7 @@ export default function PlanesKids() {
         ))}
       </div>
 
+      {/* Lista de tarjetas */}
       <CardList selectedCategory={selectedCategory} />
     </div>
   );

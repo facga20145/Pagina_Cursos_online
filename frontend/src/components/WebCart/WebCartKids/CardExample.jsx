@@ -4,7 +4,6 @@ import './Card.css';
 export default function CardList({ selectedCategory }) {
   const [courses, setCourses] = useState([]);
 
-  // Cargar cursos desde el backend
   useEffect(() => {
     const url = selectedCategory
       ? `http://localhost:4000/api/cursos/categoria/${selectedCategory}`
@@ -18,14 +17,22 @@ export default function CardList({ selectedCategory }) {
 
   return (
     <div className="cardList">
-      {courses.map(course => (
-        <div key={course.idCurso} className="card">
-          <img src={course.enlace} alt={course.nombre_curso} />
-          <h3>{course.nombre_curso}</h3>
-          <p>{course.descripcion}</p>
-          <p>{`S/ ${course.precio}`}</p>
-        </div>
-      ))}
+      {courses.length > 0 ? (
+        courses.map(course => (
+          <div key={course.idCurso} className="card">
+            <img
+              src={`http://localhost:4000/${course.imagen}`}
+              alt={course.nombre_curso}
+            />
+            <h3>{course.nombre_curso}</h3>
+            <p>{course.descripcion}</p>
+            <p className="price">{`S/ ${course.precio}`}</p>
+            <button>INGRESAR</button>
+          </div>
+        ))
+      ) : (
+        <p>No hay cursos disponibles.</p>
+      )}
     </div>
   );
 }

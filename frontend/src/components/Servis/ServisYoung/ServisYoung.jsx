@@ -1,9 +1,5 @@
 import './ServisYoung.css'
-import jsIcon from '../../images/jsIcon.png';  // Importa el icono real
-import phpIcon from '../../images/phpIcon.png'; // Importa el icono real
-import swiftIcon from '../../images/swiftIcon.png'; // Importa el icono real
-import javaIcon from '../../images/javaIcon.png';  // Importa el icono real
-import phoneImage from '../../images/phoneIcon.png'; // Importa la imagen del teléfono
+
 import ProgramCard from './ProgramCard'
 function ServisYoung() {
   return (

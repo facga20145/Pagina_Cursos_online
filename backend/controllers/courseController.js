@@ -15,7 +15,7 @@ exports.getCategories = (req, res) => {
 // Obtener todos los cursos
 exports.getCourses = (req, res) => {
   const query = `
-    SELECT idCurso, nombre_curso, descripcion, precio, idCategoria
+    SELECT idCurso, nombre_curso, descripcion, precio, idCategoria, imagen
     FROM curso
   `;
   connection.query(query, (err, results) => {
@@ -27,11 +27,12 @@ exports.getCourses = (req, res) => {
   });
 };
 
+
 // Obtener cursos por categoría
 exports.getCoursesByCategory = (req, res) => {
   const { idCategoria } = req.params;
   const query = `
-    SELECT idCurso, nombre_curso, descripcion, precio
+    SELECT idCurso, nombre_curso, descripcion, precio, imagen
     FROM curso
     WHERE idCategoria = ?
   `;
@@ -43,3 +44,4 @@ exports.getCoursesByCategory = (req, res) => {
     res.json(results);
   });
 };
+

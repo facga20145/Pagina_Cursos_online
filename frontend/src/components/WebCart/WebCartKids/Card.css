@@ -139,3 +139,104 @@
   z-index: 10;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
 }
+
+/* Botones de filtro */
+.categoryFilters {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.categoryFilters button {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  background-color: #262e33; /* Fondo oscuro */
+  color: #FFFFFF; /* Texto blanco */
+  border: 2px solid #FDD835; /* Borde amarillo */
+  border-radius: 4px;
+  padding: 10px 15px;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.categoryFilters button:hover {
+  background-color: #FDD835; /* Fondo amarillo */
+  color: #000000; /* Texto negro */
+  transform: scale(1.05);
+}
+
+.categoryFilters button.active {
+  background-color: #FDD835; /* Fondo amarillo activo */
+  color: #000000; /* Texto negro */
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombras para resaltar */
+}
+
+/* Ajuste para el header */
+.header-background {
+  background-color: #f4f4f4; /* Un fondo claro para resaltar el header */
+  height: 80px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+}
+
+/* Ajustes extra para las tarjetas */
+.cardList {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* Fondo del header */
+.header-background {
+  background-color: #FFFFFF; /* Fondo blanco */
+  height: 80px;
+  width: 100%; /* Asegurar que ocupe todo el ancho */
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  margin: 0; /* Elimina cualquier margen externo */
+}
+
+/* Estilo del logo */
+.header-background img {
+  height: 50px; /* Ajusta el tamaño del logo */
+  filter: invert(0); /* Asegúrate de que las líneas del logo sean negras */
+  margin-right: 20px; /* Espacio entre el logo y los enlaces */
+}
+
+/* Ocupando todo el ancho */
+.header-background a {
+  flex: 1; /* Asegura que los elementos se distribuyan en toda la barra */
+  text-align: center;
+  color: #000000; /* Texto negro */
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+  margin: 0 15px;
+  transition: color 0.3s ease;
+}
+
+/* Hover en los enlaces */
+.header-background a:hover {
+  color: #555555; /* Gris oscuro al pasar el mouse */
+}
+
+/* Íconos dentro del header */
+.header-background .icon {
+  color: #000000; /* Íconos en negro */
+  margin-left: auto; /* Alinear íconos al final del header */
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+/* Hover en los íconos */
+.header-background .icon:hover {
+  transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
+}

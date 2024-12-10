@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const paymentRoutes = require('./routes/paymentRoutes'); // Importamos las rutas de pago
 const authRoutes = require('./routes/authRoutes'); // Ajusta la ruta si es diferente
 const courseRoutes = require("./routes/courseRoutes"); // Importar las rutas de cursos
+const path = require("path");
 
 dotenv.config();
 
@@ -24,6 +25,9 @@ app.use("/api/auth", authRoutes);
 app.use('/backend', paymentRoutes); 
 app.use("/api/cursos", courseRoutes);
 
+
+// Hacer accesible la carpeta uploads
+app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 
 // Iniciar el servidor
 app.listen(PORT, () => {
