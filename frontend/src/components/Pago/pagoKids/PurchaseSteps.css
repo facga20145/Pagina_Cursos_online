@@ -1,62 +1,134 @@
+/* Contenedor principal con tamaño reducido */
 .purchase-steps-container {
-    max-width: 600px; /* Limita el ancho del contenedor */
-    margin: 20px auto; /* Centra el contenedor */
-    padding: 20px; /* Espaciado interno */
-    border: 1px solid #ccc; /* Borde */
-    border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra */
-    background-color: #fff; /* Fondo blanco */
-  }
-  
-  .step-container {
-    margin-bottom: 20px; /* Espaciado entre pasos */
-    color: black;
-  }
-  
+  max-width: 500px; /* Limita el ancho máximo del formulario */
+  width: 100%; /* Se adapta al tamaño de la pantalla */
+  margin: 40px auto; /* Centrado vertical y horizontal */
+  padding: 20px; /* Espaciado interno */
+  border: 1px solid #ccc; /* Borde suave */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Sombra más suave */
+  background-color: #fff; /* Fondo blanco */
+  font-family: Arial, sans-serif; /* Fuente limpia */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box; /* Asegura que el padding no se quede fuera del ancho total */
+}
+
+/* Contenedor de cada paso con el ancho al 50% y centrado */
+.step-container {
+  width: 50%; /* 50% del ancho del contenedor */
+  margin: 20px auto; /* Centrado horizontal */
+  padding: 20px;
+  background-color: #f9f9f9; /* Fondo gris claro */
+  border-radius: 10px; /* Bordes redondeados */
+  border: 1px solid #ddd; /* Borde suave */
+  box-sizing: border-box;
+}
+
+/* Título de cada sección */
+.step-container h2 {
+  font-size: 1.4rem; /* Tamaño de fuente adecuado */
+  color: #333; /* Color oscuro */
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Inputs más estilizados */
+.input-field {
+  width: 100%; /* Asegura que ocupe todo el ancho del contenedor */
+  padding: 12px; /* Mayor espaciado interno */
+  margin-top: 5px; /* Margen superior */
+  margin-bottom: 15px; /* Margen inferior */
+  border: 1px solid #ccc; /* Borde suave */
+  border-radius: 8px; /* Bordes redondeados */
+  font-size: 1rem; /* Tamaño de texto adecuado */
+  box-sizing: border-box; /* Asegura que padding no afecte el ancho */
+}
+
+.input-field:focus {
+  border-color: #8c52ff; /* Borde morado al enfocar */
+  outline: none; /* Quitar contorno predeterminado */
+}
+
+/* Botones estilizados */
+.next-button, .confirm-button {
+  padding: 12px 20px; /* Espaciado interno */
+  background-color: #8c52ff; /* Color de fondo */
+  color: white; /* Color del texto */
+  border: none; /* Sin borde */
+  border-radius: 6px; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor al pasar el mouse */
+  transition: background-color 0.3s; /* Transición suave */
+  font-size: 1rem; /* Tamaño de texto adecuado */
+  margin-top: 15px;
+  width: 100%; /* Asegura que los botones ocupen todo el ancho disponible */
+  text-align: center; /* Alinea el texto al centro */
+}
+
+.next-button:hover, .confirm-button:hover {
+  background-color: #350791; /* Color más oscuro al pasar el mouse */
+}
+
+/* Opciones de pago con separación adecuada */
 .payment-option label {
-    padding: 10px;
+  padding: 10px;
+  font-size: 1rem;
 }
 
-  .step-container p {
-    color: black;
-  }
+.payment-option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
 
+.payment-option input[type="radio"] {
+  margin-right: 10px;
+}
+
+.titlePay {
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.qr-image {
+  width: 180px;
+  height: 220px; 
+  margin: 10px;
+  display: block; /* Centrado del QR */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Estilo para la lista de miembros */
+.step-container .member-email-inputs {
+  margin-top: 15px;
+}
+
+.step-container .member-email-inputs input {
+  width: 95%;
+  margin-bottom: 10px;
+}
+
+/* Mejorar visibilidad en dispositivos móviles */
+@media (max-width: 600px) {
+  .purchase-steps-container {
+    width: 95%; /* Hacer más estrecho el formulario en pantallas pequeñas */
+    padding: 15px;
+    max-width: 400px; /* Máximo tamaño reducido */
+  }
+  
   .input-field {
-    width: 90%; /* Ancho completo */
-    padding: 10px; /* Espaciado interno */
-    margin-top: 5px; /* Margen superior */
-    margin-bottom: 15px; /* Margen inferior */
-    border: 1px solid #ccc; /* Borde */
-    border-radius: 4px; /* Bordes redondeados */
+    font-size: 0.9rem; /* Ajuste de tamaño de texto */
   }
-  
+
   .next-button, .confirm-button {
-    padding: 15px 25px; /* Espaciado interno */
-    background-color: #8c52ff; /* Color de fondo verde */
-    color: white; /* Color del texto */
-    border: none; /* Sin borde */
-    border-radius: 4px; /* Bordes redondeados */
-    cursor: pointer; /* Cambia el cursor al pasar el mouse */
-    transition: background-color 0.3s; /* Transición suave */  
+    font-size: 0.9rem; /* Ajuste del tamaño de los botones */
+  }
+
+  /* Reducir tamaño de la caja de cada paso en pantallas pequeñas */
+  .step-container {
+    width: 80%;
+  }
 }
-  
-  .next-button:hover, .confirm-button:hover {
-    background-color: #350791; /* Color más oscuro al pasar el mouse */
-  }
-  
-  .payment-option {
-    margin-right: 10px; /* Margen a la derecha */
-  }
-
-  .titlePay{
-    font-size: 1.5rem;
-    text-align: center;
-  }
-
-  .qr-image {
-    width: 200px;
-    height: 250px; 
-    margin: 10px;
-  }
-  
-  

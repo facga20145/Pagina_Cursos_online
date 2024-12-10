@@ -2,17 +2,29 @@ import React, { useState, useEffect } from 'react';
 import './PurchaseSteps.css';
 import YapeQR from '../../images/yapeQR.jpg';
 import axios from 'axios'; // Asegúrate de tener Axios para hacer las peticiones
+import { useNavigate } from 'react-router-dom';
+
 
 export default function PurchaseSteps() {
   const [userData, setUserData] = useState(null);
   const [planData, setPlanData] = useState(null);
   const [paymentMethod, setPaymentMethod] = useState('');
   const [currentStep, setCurrentStep] = useState(1);
-  const [isPaymentCompleted, setIsPaymentCompleted] = useState(false); 
-  const [isChecked, setIsChecked] = useState(false); 
-  const [memberEmails, setMemberEmails] = useState([]); 
-  const [isEmailValid, setIsEmailValid] = useState(true); // Para manejar la validación de correos
-  const [emailValidationComplete, setEmailValidationComplete] = useState(false); // Nuevo estado
+  const [isPaymentCompleted, setIsPaymentCompleted] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
+  const [memberEmails, setMemberEmails] = useState([]);
+  const [isEmailValid, setIsEmailValid] = useState(true);
+  const [emailValidationComplete, setEmailValidationComplete] = useState(false);
+  const navigate = useNavigate();
+
+  // Estado para los detalles de la tarjeta
+  const [cardDetails, setCardDetails] = useState({
+    name: '',
+    number: '',
+    expDate: '',
+    cvv: ''
+  });
+  const [validationCode, setValidationCode] = useState('');
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
@@ -39,9 +51,19 @@ export default function PurchaseSteps() {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Regex para validar correos
     return emailRegex.test(email);
   };
-  
+
   const handlePaymentChange = (e) => {
     setPaymentMethod(e.target.value);
+    setCardDetails({ name: '', number: '', expDate: '', cvv: '' }); // Reset tarjeta
+    setValidationCode(''); // Reset código de validación
+  };
+
+  const handleCardDetailChange = (e) => {
+    setCardDetails({ ...cardDetails, [e.target.name]: e.target.value });
+  };
+
+  const handleValidationCodeChange = (e) => {
+    setValidationCode(e.target.value);
   };
 
   const calculateNextPaymentDate = () => {
@@ -65,43 +87,77 @@ export default function PurchaseSteps() {
     setMemberEmails(newEmails);
   };
 
-  // Validación de los correos electrónicos de los miembros
   const validateMemberEmails = () => {
     return memberEmails.length > 0 && memberEmails.every(email => email.trim() !== '' && isValidEmail(email));
   };
-  
+
   const handleValidateEmails = async () => {
-    const userEmail = userData?.correo; // Obtener el correo del usuario desde userData
-    const validMemberEmails = memberEmails.filter(email => email !== "").map(email => email.trim()); // Filtrar correos vacíos y recortarlos
+    const userEmail = userData?.correo;
+    const validMemberEmails = memberEmails.filter(email => email !== "").map(email => email.trim());
   
-    // Mensaje de depuración para ver los correos
-    console.log("Correo del usuario:", userEmail);
-    console.log("Correos de los miembros (antes de validación):", memberEmails);
-    console.log("Correos de los miembros (después de validación):", validMemberEmails);
-  
-    // Validar que el correo del usuario y los correos de los miembros no estén vacíos
     if (!userEmail || validMemberEmails.length === 0) {
-      console.log("Error: Los correos no están completos.");
       alert("Por favor, ingrese todos los correos.");
       return;
     }
   
     try {
-      // Hacer la solicitud al backend para validar los correos
+      // Enviar la solicitud para validar los correos
       const response = await axios.post("http://localhost:4000/backend/validateUserSubscription", {
         correo: userEmail,
         memberEmails: validMemberEmails,
       });
   
-      // Si la respuesta es exitosa, marcar como validado
-      console.log("Validación exitosa", response.data);
-      setEmailValidationComplete(true); // Actualizar el estado a 'completado'
+      // Guardar los correos validados en el localStorage (temporal)
+      localStorage.setItem('validatedUserEmail', userEmail);
+      localStorage.setItem('validatedMemberEmails', JSON.stringify(validMemberEmails));
+  
+      setEmailValidationComplete(true); // Marcar como completado
+  
     } catch (error) {
-      // Manejar los errores
-      console.error("Error al validar los correos:", error.response?.data?.message || error.message);
       alert(error.response?.data?.message || "Hubo un error al validar los correos.");
     }
   };
+
+  const handlePayment = async () => {
+  try {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (!user || !user.id) {
+      throw new Error("El usuario no está autenticado. Por favor, inicia sesión.");
+    }
+
+    const userId = user.id;
+
+    if (!planData || !planData.planName || !planData.price) {
+      throw new Error("No se encontró la información del plan. Por favor, selecciona un plan.");
+    }
+
+    const paymentData = {
+      paymentMethod,
+      planName: planData.planName,
+      price: planData.price,
+      userId,
+    };
+
+    console.log("Datos que se enviarán al backend:", paymentData);
+
+    const response = await axios.post("http://localhost:4000/backend/processPayment", paymentData);
+
+    console.log("Respuesta del backend:", response.data);
+    alert("Pago procesado correctamente.");
+
+    if (response.data.redirect) {
+      navigate(response.data.redirect); // Redirigir usando React Router
+    } else {
+      setIsPaymentCompleted(true);
+    }
+  } catch (error) {
+    console.error("Error al procesar el pago:", error.message);
+    alert("Ocurrió un error al procesar el pago. Inténtalo nuevamente.");
+  }
+};
+
+  
+  
 
   if (!userData || !planData) {
     return <div>Cargando...</div>;
@@ -258,9 +314,9 @@ export default function PurchaseSteps() {
                 <button 
                   onClick={() => {
                     if (emailValidationComplete) {
-                      setCurrentStep(3); // Avanzamos al siguiente paso
+                      setCurrentStep(3); 
                     } else {
-                      handleValidateEmails(); // Validamos los correos
+                      handleValidateEmails(); 
                     }
                   }} 
                   className="next-button" 
@@ -280,17 +336,6 @@ export default function PurchaseSteps() {
           <label>
             <input
               type="radio"
-              value="PagoEfectivo"
-              checked={paymentMethod === 'PagoEfectivo'}
-              onChange={handlePaymentChange}
-              className="payment-option"
-            />
-            Pago Efectivo
-          </label>
-          <br /><br />
-          <label>
-            <input
-              type="radio"
               value="Tarjeta"
               checked={paymentMethod === 'Tarjeta'}
               onChange={handlePaymentChange}
@@ -298,7 +343,7 @@ export default function PurchaseSteps() {
             />
             Tarjeta
           </label>
-          <br /><br />
+          <br />
           <label>
             <input
               type="radio"
@@ -307,14 +352,92 @@ export default function PurchaseSteps() {
               onChange={handlePaymentChange}
               className="payment-option"
             />
-            Billetera Digital
+            Yape / Plin
           </label>
-          <br /><br />
 
-          <div className="botonPay">
-            <button onClick={() => alert('Pago completado!')} disabled={!paymentMethod} className="next-button">
-              Pagar
-            </button>
+          {paymentMethod === 'Tarjeta' && (
+            <div>
+              <label>
+                Nombre del Titular:
+                <input
+                  type="text"
+                  name="name"
+                  value={cardDetails.name}
+                  onChange={handleCardDetailChange}
+                  className="input-field"
+                  placeholder="Nombre del titular"
+                />
+              </label>
+              <br />
+              <label>
+                Número de Tarjeta:
+                <input
+                  type="text"
+                  name="number"
+                  value={cardDetails.number}
+                  onChange={handleCardDetailChange}
+                  className="input-field"
+                  placeholder="Número de tarjeta"
+                />
+              </label>
+              <br />
+              <label>
+                Fecha de Vencimiento:
+                <input
+                  type="text"
+                  name="expDate"
+                  value={cardDetails.expDate}
+                  onChange={handleCardDetailChange}
+                  className="input-field"
+                  placeholder="MM/AA"
+                />
+              </label>
+              <label>
+                CVV:
+                <input
+                  type="text"
+                  name="cvv"
+                  value={cardDetails.cvv}
+                  onChange={handleCardDetailChange}
+                  className="input-field"
+                  placeholder="CVV"
+                />
+              </label>
+            </div>
+          )}
+
+          {paymentMethod === 'BilleteraDigital' && (
+            <div>
+              <img src={YapeQR} alt="QR Yape" className="qr-image" />
+              <label>
+                Código de validación:
+                <input
+                  type="text"
+                  value={validationCode}
+                  onChange={handleValidationCodeChange}
+                  className="input-field"
+                  placeholder="Ingrese el código de validación"
+                />
+              </label>
+            </div>
+          )}
+
+          
+
+<div className="botonPay">
+<button
+  onClick={() => handlePayment()}
+  disabled={
+    !paymentMethod ||
+    (paymentMethod === "Tarjeta" && (!cardDetails.name || !cardDetails.number || !cardDetails.expDate || !cardDetails.cvv)) ||
+    (paymentMethod === "BilleteraDigital" && !validationCode)
+  }
+  className="next-button"
+>
+  Pagar
+</button>
+
+
           </div>
         </div>
       )}
