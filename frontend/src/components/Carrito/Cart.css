@@ -1,73 +1,72 @@
-/* Contenedor del carrito */
 .cart-container {
   width: 100%;
-  position: relative; /* Permite que el dropdown esté alineado al icono del carrito */
+  position: relative;
   display: flex;
-  align-items: center; /* Alinea verticalmente los elementos en el centro */
-  justify-content: flex-start; /* Alinea los elementos horizontalmente al inicio */
+  align-items: center;
+  justify-content: flex-start;
 }
 
 /* Icono del carrito */
-.cart-icon{
+.cart-icon {
   background-color: transparent;
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
   position: relative;
-  color: #ffffff;
+  color: #000000; /* Negro para visibilidad */
   display: flex;
 }
+
 .Kids-Style {
-  background-color: transparent;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  position: relative;
-  color: #000000;
+  color: #000000; /* Estilo Kids */
 }
-.White-Style{
-  background-color: transparent;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  position: relative;
-  color: #000000;
+
+.White-Style {
+  color: #000000; /* Estilo White */
 }
+
 /* Dropdown del carrito */
 .cart-dropdown {
   position: absolute;
   top: 40px;
   right: 0;
   background-color: #ffffff;
+  color: #000000; /* Texto en negro */
   border: 1px solid #cccccc;
   padding: 16px;
-  width: 200px;
+  width: 250px;
   z-index: 1000;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
 }
 
-/* Lista de ítems en el carrito */
 .cart-dropdown ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-/* Estilo de cada ítem del carrito */
-.cart-dropdown li {
+.cart-dropdown .cart-item {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
   margin-bottom: 10px;
-  padding: 8px 0;
-  border-bottom: 1px solid #e0e0e0;
+  color: #000000; /* Texto en negro */
+
 }
 
-.cart-dropdown li:last-child {
-  border-bottom: none; /* Elimina el borde inferior del último elemento */
+.cart-item img {
+  width: 50px;
+  height: 50px;
+  border-radius: 4px;
 }
 
-/* Botón para eliminar ítems */
+.cart-item div {
+  flex: 1;
+  font-size: 0.9rem;
+  color: #000000; /* Texto en negro */
+}
+
 .cart-dropdown button {
   background-color: #ff6b6b;
   color: white;
@@ -76,106 +75,57 @@
   padding: 6px 8px;
   cursor: pointer;
   font-size: 0.8rem;
-  transition: background-color 0.2s ease;
+}
+
+.cart-dropdown .checkout-btn {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.cart-dropdown .close-btn {
+  background-color: #ccc;
+  color: black;
+  padding: 8px;
+  width: 100%;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  margin-top: 10px;
 }
 
 .cart-dropdown button:hover {
-  background-color: #ff4b4b;
+  opacity: 0.8;
 }
 
- /* Botón para cerrar el carrito */
-/* .cart-dropdown .close-cart {
-  background-color: #f9de70;
-  color: #000000;
-  border: none;
-  padding: 8px 12px;
-  width: 100%;
-  border-radius: 4px;
+
+/* Botón Refresh */
+.cart-dropdown .refresh-icon-btn {
+  background-color: #ffffff !important; /* Fondo blanco constante */
+  border: 1px solid #cccccc; /* Borde gris claro */
+  border-radius: 50%; /* Forma circular */
+  color: #333; /* Color del ícono */
+  font-size: 1rem; /* Tamaño del ícono reducido */
+  position: absolute;
+  top: 5px; /* Más cercano a la esquina superior */
+  left: 5px; /* Más cercano al borde izquierdo */
+  width: 30px; /* Reducido en ancho */
+  height: 30px; /* Reducido en alto */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
   cursor: pointer;
-  font-weight: bold;
+  z-index: 10; /* Asegura que esté visible */
 }
 
-.cart-dropdown .close-cart:hover {
-  background-color: #f8c942;
-}
- */
-
- /* ----------- Media Queries para Responsive Design ----------- */
-
-
-@media (max-width: 1440px) {
-  .cart-container {
-    width: 30%; /* Ajusta el ancho del contenedor en pantallas medianas */
-    justify-content: flex-start;
-
-
-  }
-.cart-icon{
-  width: 100px;
-  font-size: 1.3rem;
-}
-  .cart-dropdown {
-    width: 100px; /* Reduce el tamaño del dropdown en pantallas medianas */
-    padding: 12px; /* Reduce el padding */
-  }
-
-  .cart-dropdown button {
-    font-size: 0.75rem; /* Reduce el tamaño del botón */
-  }
+/* Hover constante */
+.cart-dropdown .refresh-icon-btn:hover {
+  background-color: #ffffff !important; /* Fondo blanco constante */
+  border-color: #bbbbbb; /* Color del borde al pasar el mouse */
 }
 
-/* Pantallas pequeñas (smartphones y dispositivos por debajo de 768px) */
-@media (max-width: 768px) {
-  .cart-container {
-    width: auto; /* El contenedor ocupará el espacio que necesite */
-  }
-
-  .cart-icon {
-    font-size: 1.2rem; /* Reduce el tamaño del icono del carrito */
-  }
-
-  .cart-dropdown {
-    width: 100%; /* Ocupa todo el ancho disponible */
-    top: 60px; /* Ajusta la posición superior del dropdown */
-    right: 0; /* Asegura que esté alineado correctamente en pantallas pequeñas */
-    padding: 10px;
-  }
-
-  .cart-dropdown li {
-    font-size: 0.9rem; /* Reduce el tamaño de los ítems del carrito */
-  }
-
-  .cart-dropdown button {
-    font-size: 0.7rem; /* Reduce el tamaño del botón en pantallas pequeñas */
-    padding: 4px 6px; /* Ajusta el padding de los botones */
-  }
-}
-
-/* Pantallas muy pequeñas (smartphones por debajo de 480px) */
-@media (max-width: 480px) {
-  .cart-container {
-    padding: 0;
-    width: 50px;
-    justify-content: flex-start; /* Alinea el icono a la derecha si es necesario */
-  }
-
-  .cart-icon {
-    font-size: .9rem; /* Reduce aún más el tamaño del icono */
-  }
-
-  .cart-dropdown {
-    width: 90%; /* Ocupa el 90% del ancho disponible */
-    padding: 8px; /* Ajusta el padding del dropdown */
-    top: 50px;
-  }
-
-  .cart-dropdown li {
-    font-size: 0.8rem; /* Ajusta el tamaño de los ítems */
-    padding: 6px 0; /* Reduce el padding entre los ítems */
-  }
-
-  .cart-dropdown button {
-    font-size: 0.65rem; /* Reduce el tamaño del botón */
-    padding: 3px 5px; /* Ajusta el padding del botón */
-  }
-}

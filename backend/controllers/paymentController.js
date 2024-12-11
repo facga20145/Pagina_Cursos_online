@@ -181,3 +181,41 @@ exports.processPayment = async (req, res) => {
   });
 };
 
+// Registrar pago para un curso individual
+exports.processCoursePayment = async (req, res) => {
+  const { userId, cartItems, idTipoPago, cardDetails, validationCode } = req.body;
+
+  if (!userId || !cartItems || cartItems.length === 0) {
+    return res.status(400).json({ message: "Datos insuficientes para procesar el pago." });
+  }
+
+  if (!idTipoPago || (idTipoPago !== 1 && idTipoPago !== 2)) {
+    return res.status(400).json({ message: "Método de pago no válido." });
+  }
+
+  try {
+    // Registrar un pago por cada curso en el carrito
+    for (const item of cartItems) {
+      const query = `
+        INSERT INTO pago (idUsuario, idCurso, idTipoPago, fechaPago) 
+        VALUES (?, ?, ?, NOW())
+      `;
+      await new Promise((resolve, reject) => {
+        connection.query(query, [userId, item.id, idTipoPago], (err, results) => {
+          if (err) {
+            console.error("Error al registrar el pago:", err);
+            reject(err);
+          } else {
+            resolve(results);
+          }
+        });
+      });
+    }
+
+    res.status(200).json({ message: "Pago procesado exitosamente." });
+  } catch (error) {
+    console.error("Error al procesar el pago:", error);
+    res.status(500).json({ message: "Error al procesar el pago." });
+  }
+};
+

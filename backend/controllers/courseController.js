@@ -73,9 +73,9 @@ exports.getCourseDetails = (req, res) => {
   });
 };
 
-// Verificar acceso al curso
 exports.verifyCourseAccess = (req, res) => {
-  const { idUsuario, idCurso } = req.query;
+  const { idUsuario } = req.query; // Obtiene idUsuario del query
+  const { idCurso } = req.params; // Obtiene idCurso de los parámetros de la URL
 
   if (!idUsuario || !idCurso) {
     return res.status(400).json({ message: "Faltan parámetros: idUsuario o idCurso." });
@@ -83,7 +83,7 @@ exports.verifyCourseAccess = (req, res) => {
 
   const query = `
     SELECT 1 AS acceso
-    FROM suscripcion
+    FROM suscripción
     WHERE idUsuario = ? AND estado = 1 AND fechaFin > NOW()
     UNION
     SELECT 1 AS acceso
@@ -97,11 +97,9 @@ exports.verifyCourseAccess = (req, res) => {
       return res.status(500).json({ message: "Error al verificar acceso al curso." });
     }
 
-    if (results.length > 0) {
-      res.json({ acceso: true });
-    } else {
-      res.json({ acceso: false });
-    }
+    res.json({ acceso: results.length > 0 });
   });
 };
+
+
 
