@@ -73,3 +73,35 @@ exports.getCourseDetails = (req, res) => {
   });
 };
 
+// Verificar acceso al curso
+exports.verifyCourseAccess = (req, res) => {
+  const { idUsuario, idCurso } = req.query;
+
+  if (!idUsuario || !idCurso) {
+    return res.status(400).json({ message: "Faltan parámetros: idUsuario o idCurso." });
+  }
+
+  const query = `
+    SELECT 1 AS acceso
+    FROM suscripcion
+    WHERE idUsuario = ? AND estado = 1 AND fechaFin > NOW()
+    UNION
+    SELECT 1 AS acceso
+    FROM pago
+    WHERE idUsuario = ? AND idCurso = ?
+  `;
+
+  connection.query(query, [idUsuario, idUsuario, idCurso], (err, results) => {
+    if (err) {
+      console.error("Error al verificar acceso al curso:", err);
+      return res.status(500).json({ message: "Error al verificar acceso al curso." });
+    }
+
+    if (results.length > 0) {
+      res.json({ acceso: true });
+    } else {
+      res.json({ acceso: false });
+    }
+  });
+};
+
