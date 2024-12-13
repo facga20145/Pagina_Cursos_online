@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import CardList from './CardExample';
 import './PlanesKids.css';
 import Header from '../../header/HeaderAdult/Header';
+import FooterAdult from "../../Footers/FooterAdult/FooterAdult";
+
 
 export default function PlanesKids() {
   const [categories, setCategories] = useState([]);
@@ -18,9 +20,7 @@ export default function PlanesKids() {
   return (
     <div className="BackPlanes">
       {/* Header con fondo */}
-      <div className="header-background">
-        <Header />
-      </div>
+      <Header isWhite={true}/>
 
       <h2 className="tittleCourseKids">Nuestros Cursos en Línea</h2>
 
@@ -45,6 +45,9 @@ export default function PlanesKids() {
 
       {/* Lista de tarjetas */}
       <CardList selectedCategory={selectedCategory} />
+      <FooterAdult />
     </div>
+    
+    
   );
 }

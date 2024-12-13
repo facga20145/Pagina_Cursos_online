@@ -22,7 +22,6 @@ export default function Header({
 
   const linkHeaders = [
     { name: "Explorar", url: "/menu", onClick: onExploreClick },
-    { name: "Comunidad", url: "/Comunidad" },
     { name: "Planes", url: "/Premium" },
     { name: "Becas", url: "/Beca" },
     { name: "Cursos", url: "/PlanesKids" },

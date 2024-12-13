@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Header from "C:/xampp/htdocs/Pagina_Cursos_online/frontend/src/components/header/HeaderAdult/Header.jsx";
 import "./CourseDetail.css";
+import FooterAdult from "../Footers/FooterAdult/FooterAdult";
+
 
 export default function CourseDetail({ onCartUpdate }) {
   const { idCurso } = useParams();
@@ -126,7 +128,7 @@ setIsKids(age < 12);
 
   return (
     <div>
-      <Header isKids={isKids} />
+      <Header isWhite={true}/>
       <div className="course-detail-container">
         {/* Video */}
         <div className="video-section" style={{ position: "relative" }}>
@@ -195,6 +197,7 @@ setIsKids(age < 12);
           </div>
         </div>
       )}
+      <FooterAdult />
     </div>
   );
 }

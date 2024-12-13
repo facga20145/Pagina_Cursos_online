@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Header from "C:/xampp/htdocs/Pagina_Cursos_online/frontend/src/components/header/HeaderAdult/Header.jsx";
 import axios from "axios";
 import YapeQR from "../images/yapeQR.jpg"; // Importar la imagen de Yape
 import "./CoursePayment.css";
+import Header from "../header/HeaderAdult/Header";
+import FooterAdult from "../Footers/FooterAdult/FooterAdult";
+
 
 export default function CoursePayment() {
   const [cartItems, setCartItems] = useState([]);
@@ -116,8 +118,8 @@ export default function CoursePayment() {
   if (cartItems.length === 0) {
     return (
       <>
-        <Header isKids={false} />
-        <div className="empty-cart-container">
+            <Header isWhite={true}/>
+            <div className="empty-cart-container">
           <p className="empty-cart">Tu carrito está vacío.</p>
         </div>
       </>
@@ -126,7 +128,7 @@ export default function CoursePayment() {
 
   return (
     <div>
-      <Header isKids={false} />
+      <Header isWhite={true}/>
       <div className="payment-container">
         {!showPaymentForm ? (
           <>
@@ -260,6 +262,7 @@ export default function CoursePayment() {
           </>
         )}
       </div>
+      <FooterAdult />
     </div>
   );
 }

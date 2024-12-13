@@ -200,7 +200,7 @@ export default function PurchaseSteps() {
   }
 
   return (
-    <div>
+    <div className="body-PurchaseSteps">
       <h3 className='titlePay'>¡Paga y disfruta de tu curso!</h3>
 
       {currentStep === 1 && (

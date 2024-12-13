@@ -1,4 +1,8 @@
 import './ServisYoung.css'
+import jsIcon from "../../images/jsIcon.png"; // Ruta del icono de JavaScript
+import phpIcon from "../../images/phpIcon.png"; // Ruta del icono de PHP
+import swiftIcon from "../../images/swiftIcon.png"; // Ruta del icono de Swift
+import javaIcon from "../../images/javaIcon.png"; // Ruta del icono de Java
 
 import ProgramCard from './ProgramCard'
 function ServisYoung() {
@@ -7,7 +11,6 @@ function ServisYoung() {
        <div className="Servis-section">
       <div className="Servisleft-section">
         <h1>Utilizamos los mejores programas</h1>
-        <img src={phoneImage} alt="Phone with bot" className="phone-image" />
       </div>
       <div className="Servisright-section">
         <ProgramCard
