@@ -1,16 +1,17 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Quiz.css";
 import Header from "../header/HeaderAdult/Header";
 
 const Quiz = () => {
-   // Estados
-   const [isModalVisible, setIsModalVisible] = useState(false);
-   const [score, setScore] = useState(0);
-   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-   const [showFeedback, setShowFeedback] = useState(false);
-   const [isCorrect, setIsCorrect] = useState(false);
- 
-  // Arrays de preguntas relacionadas con fundamentos de programación
+  const navigate = useNavigate(); // Hook para redirección
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [score, setScore] = useState(0);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [showFeedback, setShowFeedback] = useState(false);
+  const [isCorrect, setIsCorrect] = useState(false);
+
+  // Array de preguntas relacionadas con fundamentos de programación
   const questionsArray = [
     {
       question: "¿Qué significa la sigla 'HTML'?",
@@ -72,8 +73,6 @@ const Quiz = () => {
     },
   ];
 
-
-
   // Manejar la selección de una respuesta
   const handleAnswer = (index) => {
     const isAnswerCorrect = index === questionsArray[currentQuestionIndex].correct;
@@ -92,69 +91,71 @@ const Quiz = () => {
     if (currentQuestionIndex < questionsArray.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
+      // Guarda el resultado en localStorage al finalizar
+      const result = score >= 7 ? 1 : 0;
+      localStorage.setItem("quizCompleted", result);
       setIsModalVisible(true); // Muestra el modal al finalizar
     }
   };
 
-  const closeModal = () => {
-    setIsModalVisible(false); // Cierra el modal
-    setCurrentQuestionIndex(0); // Reinicia el quiz
-    setScore(0); // Reinicia el puntaje
+  const handleRedirect = () => {
+    navigate("/Beca"); // Redirige a la página de Beca
   };
 
   // Pregunta actual
   const currentQuestion = questionsArray[currentQuestionIndex];
-return (
-  <>
-    <Header isWhite={true} />
-    <div className="quiz-body">
-      <div className="quiz-container">
-        <h2 className="quiz-title">Quiz para Optar a la Beca de Programación</h2>
-        <h3 className="quiz-question">{currentQuestion.question}</h3>
-        <div className="quiz-options">
-          {currentQuestion.options.map((option, index) => (
-            <button
-              key={index}
-              onClick={() => handleAnswer(index)}
-              className="quiz-button"
-              disabled={showFeedback}
-            >
-              {option}
-            </button>
-          ))}
+
+  return (
+    <>
+      <Header isWhite={true} />
+      <div className="quiz-body">
+        <div className="quiz-container">
+          <h2 className="quiz-title">Quiz para Optar a la Beca de Programación</h2>
+          <h3 className="quiz-question">{currentQuestion.question}</h3>
+          <div className="quiz-options">
+            {currentQuestion.options.map((option, index) => (
+              <button
+                key={index}
+                onClick={() => handleAnswer(index)}
+                className="quiz-button"
+                disabled={showFeedback}
+              >
+                {option}
+              </button>
+            ))}
+          </div>
+          {showFeedback && (
+            <div className="quiz-feedback">
+              <p className={`feedback ${isCorrect ? "correct" : "incorrect"}`}>
+                {isCorrect ? "¡Correcto!" : "Incorrecto. Intenta la siguiente pregunta."}
+              </p>
+              <button onClick={handleNextQuestion} className="quiz-next-button">
+                {currentQuestionIndex < questionsArray.length - 1 ? "Siguiente" : "Finalizar"}
+              </button>
+            </div>
+          )}
+          <p className="quiz-score">Puntaje: {score}</p>
         </div>
-        {showFeedback && (
-          <div className="quiz-feedback">
-            <p className={`feedback ${isCorrect ? "correct" : "incorrect"}`}>
-              {isCorrect ? "¡Correcto!" : "Incorrecto. Intenta la siguiente pregunta."}
+      </div>
+
+      {isModalVisible && (
+        <div className="modal">
+          <div className="modal-content">
+            <h3>¡Quiz finalizado!</h3>
+            <p>Tu puntaje es: {score} de {questionsArray.length}.</p>
+            <p>
+              {score >= 7
+                ? "¡Felicidades! Eres elegible para optar a la beca."
+                : "¡Sigue practicando y vuelve a intentarlo!"}
             </p>
-            <button onClick={handleNextQuestion} className="quiz-next-button">
-              {currentQuestionIndex < questionsArray.length - 1 ? "Siguiente" : "Finalizar"}
+            <button className="close-button" onClick={handleRedirect}>
+              Continuar
             </button>
           </div>
-        )}
-        <p className="quiz-score">Puntaje: {score}</p>
-      </div>
-    </div>
-
-    {isModalVisible && (
-      <div className="modal">
-        <div className="modal-content">
-          <h3>¡Quiz finalizado!</h3>
-          <p>Tu puntaje es: {score} de {questionsArray.length}.</p>
-          <p>
-            {score >= 7
-              ? "¡Felicidades! Eres elegible para optar a la beca."
-              : "¡Sigue practicando y vuelve a intentarlo!"}
-          </p>
-          <button className="close-button" onClick={closeModal}>
-            Cerrar
-          </button>
         </div>
-      </div>
-    )}
-  </>
-);
+      )}
+    </>
+  );
 };
 
 export default Quiz;

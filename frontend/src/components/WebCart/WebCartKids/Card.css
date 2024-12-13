@@ -81,8 +81,8 @@
   text-align: center;
   padding: 20px;
   font-size: 2rem;
-  background-color: #FDD835;  /* Fondo amarillo vibrante */
-  color: #000000;  /* Texto en negro */
+  background-color: #1c154f;  /* Fondo amarillo vibrante */
+  color: #ffffff;  /* Texto en negro */
 }
 
 /* Ajustes para los títulos y descripción dentro de la tarjeta */
@@ -118,7 +118,7 @@
 /* Efecto de click en los botones */
 .card button:active {
   transform: scale(0.95);
-  background-color: #FBC02D;
+  background-color: #1c154f;
 }
 
 /* Estilos para el precio */
@@ -173,15 +173,7 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombras para resaltar */
 }
 
-/* Ajuste para el header */
-.header-background {
-  background-color: #f4f4f4; /* Un fondo claro para resaltar el header */
-  height: 80px;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
-}
+
 
 /* Ajustes extra para las tarjetas */
 .cardList {
@@ -189,54 +181,3 @@
   margin-bottom: 20px;
 }
 
-/* Fondo del header */
-.header-background {
-  background-color: #FFFFFF; /* Fondo blanco */
-  height: 80px;
-  width: 100%; /* Asegurar que ocupe todo el ancho */
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  padding: 0 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-  margin: 0; /* Elimina cualquier margen externo */
-}
-
-/* Estilo del logo */
-.header-background img {
-  height: 50px; /* Ajusta el tamaño del logo */
-  filter: invert(0); /* Asegúrate de que las líneas del logo sean negras */
-  margin-right: 20px; /* Espacio entre el logo y los enlaces */
-}
-
-/* Ocupando todo el ancho */
-.header-background a {
-  flex: 1; /* Asegura que los elementos se distribuyan en toda la barra */
-  text-align: center;
-  color: #000000; /* Texto negro */
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  text-decoration: none;
-  margin: 0 15px;
-  transition: color 0.3s ease;
-}
-
-/* Hover en los enlaces */
-.header-background a:hover {
-  color: #555555; /* Gris oscuro al pasar el mouse */
-}
-
-/* Íconos dentro del header */
-.header-background .icon {
-  color: #000000; /* Íconos en negro */
-  margin-left: auto; /* Alinear íconos al final del header */
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-/* Hover en los íconos */
-.header-background .icon:hover {
-  transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
-}
